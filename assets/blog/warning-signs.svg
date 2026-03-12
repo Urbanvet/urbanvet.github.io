@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Warning signs in dogs and cats illustration</title>
+  <desc id="desc">An illustration showing a dog and cat with clinical warning icons and a checklist for veterinary symptoms.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#edf3f6"/>
+      <stop offset="100%" stop-color="#f8eee7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="95" y="92" width="470" height="616" rx="36" fill="#fffaf5" stroke="#dad2c7" stroke-width="6"/>
+  <rect x="635" y="92" width="470" height="616" rx="36" fill="#fffaf5" stroke="#dad2c7" stroke-width="6"/>
+  <circle cx="330" cy="240" r="72" fill="#c93b33" opacity=".12"/>
+  <circle cx="870" cy="240" r="72" fill="#1d2f4d" opacity=".12"/>
+  <path d="M210 548c0-108 78-176 180-176 101 0 170 59 170 168v78H210z" fill="#caa172"/>
+  <circle cx="266" cy="421" r="34" fill="#caa172"/>
+  <circle cx="395" cy="421" r="34" fill="#caa172"/>
+  <circle cx="316" cy="514" r="8" fill="#34241e"/>
+  <circle cx="375" cy="514" r="8" fill="#34241e"/>
+  <path d="M325 546c17 13 31 18 48 18 17 0 32-5 49-18" fill="none" stroke="#34241e" stroke-width="7" stroke-linecap="round"/>
+  <path d="M166 560c44-30 85-38 117-32" fill="none" stroke="#5f4533" stroke-width="10" stroke-linecap="round"/>
+  <rect x="250" y="595" width="154" height="30" rx="15" fill="#b98550"/>
+  <path d="M760 566c0-96 66-154 157-154 90 0 150 50 159 154v60H760z" fill="#54616a"/>
+  <circle cx="801" cy="456" r="30" fill="#54616a"/>
+  <circle cx="947" cy="456" r="30" fill="#54616a"/>
+  <circle cx="850" cy="533" r="8" fill="#f5dfd0"/>
+  <circle cx="900" cy="533" r="8" fill="#f5dfd0"/>
+  <path d="M860 553c11 8 20 11 30 11 10 0 20-3 31-11" fill="none" stroke="#f5dfd0" stroke-width="6" stroke-linecap="round"/>
+  <path d="M818 415l28-46 30 38" fill="none" stroke="#54616a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M905 407l35-50 29 42" fill="none" stroke="#54616a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="330" cy="240" r="44" fill="#c93b33"/>
+  <path d="M330 214v33" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="330" cy="273" r="7" fill="#fff"/>
+  <circle cx="870" cy="240" r="44" fill="#1d2f4d"/>
+  <path d="M870 214v33" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="870" cy="273" r="7" fill="#fff"/>
+  <rect x="260" y="142" width="140" height="24" rx="12" fill="#d9e6db"/>
+  <rect x="800" y="142" width="140" height="24" rx="12" fill="#ead8cf"/>
+  <rect x="160" y="640" width="340" height="18" rx="9" fill="#d4dce2"/>
+  <rect x="710" y="640" width="320" height="18" rx="9" fill="#d4dce2"/>
+  <g transform="translate(445 248)">
+    <rect x="0" y="0" width="320" height="270" rx="28" fill="#fff" stroke="#d2d8de" stroke-width="6"/>
+    <rect x="104" y="-24" width="112" height="48" rx="18" fill="#c93b33"/>
+    <rect x="44" y="58" width="34" height="34" rx="10" fill="#c93b33"/>
+    <path d="M52 76l10 10 18-20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="96" y="65" width="166" height="18" rx="9" fill="#c8d1da"/>
+    <rect x="44" y="114" width="34" height="34" rx="10" fill="#1d2f4d"/>
+    <rect x="96" y="121" width="150" height="18" rx="9" fill="#c8d1da"/>
+    <rect x="44" y="170" width="34" height="34" rx="10" fill="#5a7f67"/>
+    <rect x="96" y="177" width="176" height="18" rx="9" fill="#c8d1da"/>
+    <rect x="44" y="226" width="34" height="34" rx="10" fill="#caa172"/>
+    <rect x="96" y="233" width="126" height="18" rx="9" fill="#c8d1da"/>
+  </g>
+</svg>
