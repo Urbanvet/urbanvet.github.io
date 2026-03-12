@@ -192,7 +192,7 @@ const TEXTS = {
       posts: [
         {
           title: 'Mobile Vet Home Visit: How to Prepare Your Pet and Home',
-          date: 'March 12, 2026',
+          date: 'February 20, 2026',
           summary: 'How to prepare your home for a veterinary house call. Practical tips for dogs, cats, and nervous pets.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'As a mobile veterinarian in Berlin, I come directly to your home. For many animals, this is much less stressful than visiting a veterinary clinic. To make the appointment as calm and smooth as possible for your pet, a few simple preparations can help.'),
@@ -203,7 +203,7 @@ const TEXTS = {
         },
         {
           title: 'When Should My Pet See a Veterinarian? Important Warning Signs in Dogs and Cats',
-          date: 'March 12, 2026',
+          date: 'March 8, 2026',
           summary: 'Which warning signs should always be taken seriously in dogs and cats.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'Small changes in behavior or health are often noticed quickly, but it is not always clear when a veterinary visit is really necessary. In general, it is better to ask too early than too late.'),
@@ -214,7 +214,7 @@ const TEXTS = {
         },
         {
           title: 'Pet Emergency: When You Should See a Veterinarian Immediately',
-          date: 'March 12, 2026',
+          date: 'March 11, 2026',
           summary: 'Acute emergency situations in pets where every minute counts.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'Some situations are true emergencies and require immediate veterinary attention. If your pet has difficulty breathing, seizures, suspected poisoning, severe pain, heavy bleeding, serious injuries, or collapses, you should act quickly.'),
@@ -379,7 +379,7 @@ const TEXTS = {
       posts: [
         {
           title: 'Mobiler Tierarzt Hausbesuch: So bereitest du dein Tier und Zuhause optimal vor',
-          date: '12. März 2026',
+          date: '20. Februar 2026',
           summary: 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor – mit Tipps für Hunde, Katzen und nervöse Tiere.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'Als mobiler Tierarzt in Berlin komme ich direkt zu dir nach Hause. Für viele Tiere ist das deutlich entspannter als ein Besuch in der Praxis. Damit der Termin möglichst ruhig und stressfrei abläuft, helfen ein paar einfache Vorbereitungen.'),
@@ -390,7 +390,7 @@ const TEXTS = {
         },
         {
           title: 'Wann sollte mein Tier zum Tierarzt? Wichtige Warnzeichen bei Hund und Katze',
-          date: '12. März 2026',
+          date: '8. März 2026',
           summary: 'Diese Warnzeichen bei Hund und Katze solltest du ernst nehmen.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'Als Tierhalter kennt man sein Tier meist sehr gut. Kleine Veränderungen im Verhalten oder in der Gesundheit fallen deshalb schnell auf. Grundsätzlich gilt: Lieber einmal zu früh nachfragen als zu spät.'),
@@ -401,7 +401,7 @@ const TEXTS = {
         },
         {
           title: 'Notfall beim Haustier: Wann du sofort tierärztliche Hilfe brauchst',
-          date: '12. März 2026',
+          date: '11. März 2026',
           summary: 'Akute Notfälle beim Haustier – wann jede Minute zählt.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'Manche Situationen sind echte Notfälle und sollten sofort tierärztlich abgeklärt werden. Dazu gehören Atemnot, Krampfanfälle, Vergiftungsverdacht, starke Schmerzen, starke Blutungen, schwere Verletzungen sowie Kollaps oder Bewusstlosigkeit.'),
@@ -465,8 +465,12 @@ const ALL_SERVICES = {
 const BLOG_MEDIA = [
   {
     slug: 'home-visit-preparation',
-    publishedAt: '2026-03-12',
-    imageUrl: 'assets/blog/home-visit-preparation.svg',
+    publishedAt: '2026-02-20',
+    displayDate: {
+      [Language.EN]: 'February 20, 2026',
+      [Language.DE]: '20. Februar 2026'
+    },
+    imageUrl: 'assets/blog/home-visit-preparation.jpg',
     imageAlt: {
       [Language.EN]: 'Illustration of a calm home prepared for a veterinary house call with a dog, cat, checklist, and medical bag.',
       [Language.DE]: 'Illustration eines ruhigen Zuhauses fuer den Tierarzt-Hausbesuch mit Hund, Katze, Checkliste und Arzttasche.'
@@ -474,8 +478,12 @@ const BLOG_MEDIA = [
   },
   {
     slug: 'warning-signs-dogs-cats',
-    publishedAt: '2026-03-12',
-    imageUrl: 'assets/blog/warning-signs.svg',
+    publishedAt: '2026-03-08',
+    displayDate: {
+      [Language.EN]: 'March 8, 2026',
+      [Language.DE]: '8. März 2026'
+    },
+    imageUrl: 'assets/blog/warning-signs.jpg',
     imageAlt: {
       [Language.EN]: 'Illustration of a dog and cat with symptom markers and a veterinary checklist about warning signs.',
       [Language.DE]: 'Illustration von Hund und Katze mit Warnsymbolen und einer tieraerztlichen Checkliste zu Warnzeichen.'
@@ -483,8 +491,12 @@ const BLOG_MEDIA = [
   },
   {
     slug: 'pet-emergency-warning-signs',
-    publishedAt: '2026-03-12',
-    imageUrl: 'assets/blog/pet-emergency.svg',
+    publishedAt: '2026-03-11',
+    displayDate: {
+      [Language.EN]: 'March 11, 2026',
+      [Language.DE]: '11. März 2026'
+    },
+    imageUrl: 'assets/blog/pet-emergency.jpg',
     imageAlt: {
       [Language.EN]: 'Illustration of a pet emergency with a first-aid bag, urgent heartbeat line, and dog and cat silhouettes.',
       [Language.DE]: 'Illustration eines Haustier-Notfalls mit Erste-Hilfe-Tasche, EKG-Linie sowie Hund- und Katzensilhouetten.'
@@ -492,8 +504,8 @@ const BLOG_MEDIA = [
   }
 ];
 const ALL_POSTS = {
-  [Language.EN]: TEXTS.EN.blog.posts.map((p, i) => ({ ...p, ...BLOG_MEDIA[i], id: `post-${BLOG_MEDIA[i].slug}-en`, imageAlt: BLOG_MEDIA[i].imageAlt[Language.EN] })),
-  [Language.DE]: TEXTS.DE.blog.posts.map((p, i) => ({ ...p, ...BLOG_MEDIA[i], id: `post-${BLOG_MEDIA[i].slug}-de`, imageAlt: BLOG_MEDIA[i].imageAlt[Language.DE] }))
+  [Language.EN]: TEXTS.EN.blog.posts.map((p, i) => ({ ...p, ...BLOG_MEDIA[i], date: BLOG_MEDIA[i].displayDate[Language.EN], id: `post-${BLOG_MEDIA[i].slug}-en`, imageAlt: BLOG_MEDIA[i].imageAlt[Language.EN] })),
+  [Language.DE]: TEXTS.DE.blog.posts.map((p, i) => ({ ...p, ...BLOG_MEDIA[i], date: BLOG_MEDIA[i].displayDate[Language.DE], id: `post-${BLOG_MEDIA[i].slug}-de`, imageAlt: BLOG_MEDIA[i].imageAlt[Language.DE] }))
 };
 const NAV_LINKS = [{ page: Page.HOME }, { page: Page.SERVICES }, { page: Page.ABOUT }, { page: Page.BLOG }];
 
@@ -693,24 +705,83 @@ const getSeoData = ({ language, currentPage, currentPost }) => {
   };
 };
 
-const SectionDivider = () => React.createElement('div', {
-    className: "w-full h-[60px]",
-    style: {
-        backgroundImage: "url('logo-divider.png')",
-        backgroundRepeat: 'repeat-x',
-        backgroundPosition: 'center',
-        backgroundSize: 'auto 100%'
-    }
-});
+const MissingAssetPlaceholder = ({ label, className, style }) => React.createElement(
+  'div',
+  {
+    className: `flex items-center justify-center text-center text-xs sm:text-sm font-medium text-gray-500 bg-white/80 border border-dashed border-gray-400 ${className || ''}`.trim(),
+    style
+  },
+  label
+);
+
+const AssetImage = ({
+  src,
+  alt,
+  imageClassName,
+  placeholderClassName,
+  imageStyle,
+  placeholderStyle,
+  loading = 'lazy'
+}) => {
+  const [failed, setFailed] = useState(false);
+  const label = src.split('/').pop();
+
+  if (failed) {
+    return React.createElement(MissingAssetPlaceholder, {
+      label,
+      className: placeholderClassName || imageClassName,
+      style: placeholderStyle
+    });
+  }
+
+  return React.createElement('img', {
+    src,
+    alt,
+    loading,
+    className: imageClassName,
+    style: imageStyle,
+    onError: () => setFailed(true)
+  });
+};
+
+const SectionDivider = () => {
+  const [failed, setFailed] = useState(false);
+
+  return React.createElement(
+    'div',
+    { className: "w-full h-[60px]" },
+    !failed && React.createElement('img', {
+      src: 'logo-divider.png',
+      alt: '',
+      'aria-hidden': true,
+      className: 'hidden',
+      onError: () => setFailed(true)
+    }),
+    failed
+      ? React.createElement(MissingAssetPlaceholder, {
+          label: 'logo-divider.png',
+          className: 'w-full h-full border-x-0'
+        })
+      : React.createElement('div', {
+          className: "w-full h-full",
+          style: {
+            backgroundImage: "url('logo-divider.png')",
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: 'center',
+            backgroundSize: 'auto 100%'
+          }
+        })
+  );
+};
 
 const ServiceCard = ({ service }) => React.createElement('div', { className: "bg-gray-50 rounded-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl h-full cursor-pointer" }, React.createElement('div', { className: "flex justify-center items-center mb-4" }, service.icon), React.createElement('h3', { className: "text-xl font-semibold mb-2 text-gray-900" }, service.title), React.createElement('p', { className: "text-gray-600" }, service.description));
 
-const BlogPostCard = ({ post, onClick }) => React.createElement('div', { onClick: onClick, className: "bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group border cursor-pointer" }, React.createElement('img', { src: post.imageUrl, alt: post.imageAlt || post.title, className: "w-full h-48 object-cover" }), React.createElement('div', { className: "p-6" }, React.createElement('p', { className: "text-sm text-gray-500 mb-1" }, post.date), React.createElement('h3', { className: "text-xl font-bold mb-2 text-gray-900 group-hover:text-red-700 transition-colors" }, post.title), React.createElement('p', { className: "text-gray-700" }, post.summary)));
+const BlogPostCard = ({ post, onClick }) => React.createElement('div', { onClick: onClick, className: "bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group border cursor-pointer" }, React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-48 object-cover", placeholderClassName: "w-full h-48 px-4" }), React.createElement('div', { className: "p-6" }, React.createElement('p', { className: "text-sm text-gray-500 mb-1" }, post.date), React.createElement('h3', { className: "text-xl font-bold mb-2 text-gray-900 group-hover:text-red-700 transition-colors" }, post.title), React.createElement('p', { className: "text-gray-700" }, post.summary)));
 
 const HomePage = ({ content, onNavigate, services, language }) => React.createElement('div', null,
     React.createElement('section', { className: "text-center pt-0 pb-20 lg:pt-0 lg:pb-32 px-4 bg-[#EFEFEF]" },
         React.createElement('div', { className: "max-w-4xl mx-auto flex flex-col items-center" },
-            React.createElement('img', { src: "logo-main.png", alt: "UrbanVet Logo", className: "w-3/4 max-w-lg h-auto mb-4" }),
+            React.createElement(AssetImage, { src: "logo-main.png", alt: "UrbanVet Logo", imageClassName: "w-3/4 max-w-lg h-auto mb-4", placeholderClassName: "w-3/4 max-w-lg min-h-[180px] mb-4 px-4", loading: "eager" }),
             React.createElement('h1', { className: "text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight" }, content.home.heroTitle),
             React.createElement('p', { className: "text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto" }, content.home.heroSubtitle),
             React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
@@ -786,11 +857,11 @@ const ServicesPage = ({ content, services }) => React.createElement('div', { cla
     )
 );
 
-const AboutPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-center mt-8" }, React.createElement('div', { className: "md:col-span-1" }, React.createElement('img', { src: "vet_portrait.jpg", alt: language === Language.DE ? 'Susanne Repanelis' : 'Susanne Repanelis', onError: (event) => { event.currentTarget.onerror = null; event.currentTarget.src = 'logo-main.png'; }, className: "rounded-lg shadow-xl w-full h-auto object-cover bg-white p-4" })), React.createElement('div', { className: "md:col-span-2" }, React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" }, Object.keys(content.about).filter(key => key !== 'title').map((key) => React.createElement('p', { key }, content.about[key])))))));
+const AboutPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-center mt-8" }, React.createElement('div', { className: "md:col-span-1" }, React.createElement(AssetImage, { src: "vet_portrait.jpg", alt: language === Language.DE ? 'Susanne Repanelis' : 'Susanne Repanelis', imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" })), React.createElement('div', { className: "md:col-span-2" }, React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" }, Object.keys(content.about).filter(key => key !== 'title').map((key) => React.createElement('p', { key }, content.about[key])))))));
 
 const BlogPage = ({ content, posts, onViewPost }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900" }, content.blog.title), React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.blog.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" }, posts.map(post => React.createElement(BlogPostCard, { key: post.id, post: post, onClick: () => onViewPost(post) })))));
 
-const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('div', { className: "py-16 lg:py-24 bg-[#EFEFEF] min-h-screen" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('button', { onClick: onBack, className: "text-red-700 font-semibold hover:underline mb-8" }, `← ${backButtonText}`), React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight" }, post.title), React.createElement('p', { className: "text-lg text-gray-500 mb-8" }, post.date), React.createElement('img', { src: post.imageUrl, alt: post.imageAlt || post.title, className: "w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8" }), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" }, post.content)));
+const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('div', { className: "py-16 lg:py-24 bg-[#EFEFEF] min-h-screen" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('button', { onClick: onBack, className: "text-red-700 font-semibold hover:underline mb-8" }, `← ${backButtonText}`), React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight" }, post.title), React.createElement('p', { className: "text-lg text-gray-500 mb-8" }, post.date), React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8", placeholderClassName: "w-full min-h-[320px] rounded-lg shadow-lg mb-8 px-4" }), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" }, post.content)));
 
 const ContactPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF] flex items-center justify-center" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('a', { href: "tel:+491716494610", className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, '+49 171 6494610')), React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email)));
 
@@ -913,7 +984,7 @@ function App() {
           React.createElement('div', { className: "hidden md:flex w-full items-center" },
             React.createElement('div', { className: "flex-1 flex justify-start" },
               React.createElement('div', { className: "cursor-pointer", onClick: () => handleNavigate(Page.HOME) },
-                React.createElement('img', { src: 'logo-small.png', alt: 'UrbanVet Logo', className: 'h-16 w-auto' })
+                React.createElement(AssetImage, { src: 'logo-small.png', alt: 'UrbanVet Logo', imageClassName: 'h-16 w-auto', placeholderClassName: 'h-16 min-w-[180px] px-4', loading: 'eager' })
               )
             ),
             React.createElement('div', { className: "flex-shrink-0" }, React.createElement('button', { onClick: () => handleNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-2 px-6 rounded-full hover:bg-red-800 transition-colors text-lg shadow-md hover:shadow-lg transform hover:scale-105" }, content.nav[Page.CONTACT])),
@@ -928,7 +999,7 @@ function App() {
           React.createElement('div', { className: "md:hidden w-full flex items-center justify-between" },
             React.createElement('div', { className: "flex-1 flex justify-start" },
               React.createElement('div', { className: "cursor-pointer", onClick: () => handleNavigate(Page.HOME) },
-                React.createElement('img', { src: 'logo-small.png', alt: 'UrbanVet Logo', className: 'h-16 w-auto' })
+                React.createElement(AssetImage, { src: 'logo-small.png', alt: 'UrbanVet Logo', imageClassName: 'h-16 w-auto', placeholderClassName: 'h-16 min-w-[180px] px-4', loading: 'eager' })
               )
             ),
             React.createElement('div', { className: "flex-shrink-0" }, React.createElement('button', { onClick: () => handleNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-2 px-5 rounded-full hover:bg-red-800 transition-colors text-base shadow-md" }, content.nav[Page.CONTACT])),
