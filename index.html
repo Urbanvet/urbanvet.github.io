@@ -77,6 +77,77 @@ const HeartIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org/2
 const UKFlagIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 60 30", className: "w-8 h-auto" }, React.createElement('g', { clipPath: "url(#s)" }, React.createElement('path', { d: "M0 0v30h60V0z", fill: "#012169" }), React.createElement('path', { d: "M0 0l60 30m0-30L0 30", stroke: "#fff", strokeWidth: "6" }), React.createElement('path', { d: "M0 0l60 30m0-30L0 30", clipPath: "url(#t)", stroke: "#C8102E", strokeWidth: "4" }), React.createElement('path', { d: "M30 0v30M0 15h60", stroke: "#fff", strokeWidth: "10" }), React.createElement('path', { d: "M30 0v30M0 15h60", stroke: "#C8102E", strokeWidth: "6" })), React.createElement('defs', null, React.createElement('clipPath', { id: "s" }, React.createElement('path', { d: "M0 0v30h60V0z" })), React.createElement('clipPath', { id: "t" }, React.createElement('path', { d: "M30 15h30v15zv15h-30zH0z" }))));
 const DEFlagIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 5 3", className: "w-8 h-auto" }, React.createElement('path', { d: "M0 0h5v3H0z" }), React.createElement('path', { d: "M0 1h5v2H0z", fill: "#D00" }), React.createElement('path', { d: "M0 2h5v1H0z", fill: "#FFCE00" }));
 
+function MissingAssetPlaceholder({ label, className, style }) {
+  return React.createElement(
+    'div',
+    {
+      className: `flex items-center justify-center text-center text-xs sm:text-sm font-medium text-gray-500 bg-white/80 border border-dashed border-gray-400 ${className || ''}`.trim(),
+      style
+    },
+    label
+  );
+}
+
+function AssetImage({
+  src,
+  alt,
+  imageClassName,
+  placeholderClassName,
+  imageStyle,
+  placeholderStyle,
+  loading = 'lazy'
+}) {
+  const [failed, setFailed] = React.useState(false);
+  const label = src.split('/').pop();
+
+  if (failed) {
+    return React.createElement(MissingAssetPlaceholder, {
+      label,
+      className: placeholderClassName || imageClassName,
+      style: placeholderStyle
+    });
+  }
+
+  return React.createElement('img', {
+    src,
+    alt,
+    loading,
+    className: imageClassName,
+    style: imageStyle,
+    onError: () => setFailed(true)
+  });
+}
+
+function SectionDivider() {
+  const [failed, setFailed] = React.useState(false);
+
+  return React.createElement(
+    'div',
+    { className: "w-full h-[60px]" },
+    !failed && React.createElement('img', {
+      src: 'logo-divider.png',
+      alt: '',
+      'aria-hidden': true,
+      className: 'hidden',
+      onError: () => setFailed(true)
+    }),
+    failed
+      ? React.createElement(MissingAssetPlaceholder, {
+          label: 'logo-divider.png',
+          className: 'w-full h-full border-x-0'
+        })
+      : React.createElement('div', {
+          className: "w-full h-full",
+          style: {
+            backgroundImage: "url('logo-divider.png')",
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: 'center',
+            backgroundSize: 'auto 100%'
+          }
+        })
+  );
+}
+
 const TEXTS = {
   [Language.EN]: {
     nav: { [Page.HOME]: 'Home', [Page.SERVICES]: 'Services', [Page.ABOUT]: 'About Me', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Contact', [Page.IMPRESSUM]: 'Legal' },
@@ -195,10 +266,69 @@ const TEXTS = {
           date: 'February 20, 2026',
           summary: 'How to prepare your home for a veterinary house call. Practical tips for dogs, cats, and nervous pets.',
           content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'How to prepare your home for a veterinary house call. Tips for dogs, cats and nervous pets from a mobile veterinarian in Berlin.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, '→ Link to: Services')),
             React.createElement('p', null, 'As a mobile veterinarian in Berlin, I come directly to your home. For many animals, this is much less stressful than visiting a veterinary clinic. To make the appointment as calm and smooth as possible for your pet, a few simple preparations can help.'),
-            React.createElement('p', null, 'Create a calm environment, choose a clean and well-lit examination space, and keep favorite treats, toys, or a familiar blanket ready.'),
-            React.createElement('p', null, 'For shy cats, it helps to prepare a smaller room and block common hiding places beforehand. Nervous dogs often benefit from already wearing a collar or leash before the appointment.'),
-            React.createElement('p', null, 'If available, prepare your vaccination booklet, previous laboratory results, X-rays, and a list of current medications. A few notes about symptoms and your questions can also make the visit more effective.')
+            React.createElement('p', null, 'With the following tips, you can help ensure that I can examine and treat your pet effectively during the veterinary home visit.'),
+            React.createElement('h2', null, '1. A Calm Environment – Relaxed Humans, Relaxed Animals'),
+            React.createElement('p', null, 'Animals are very sensitive to our emotions. If you remain calm and relaxed, your dog or cat will often pick up on that.'),
+            React.createElement('p', null, 'Make sure you allow enough time before the appointment so you do not feel rushed. Try to avoid loud music, vacuuming, or having many unfamiliar people in the room.'),
+            React.createElement('p', null, 'If small children are present, it may help to choose a quieter room for the examination. You can also reassure your pet beforehand by gently talking to them, petting them, or following a small calming routine.'),
+            React.createElement('h2', null, '2. The Right Space for Examination and Laptop'),
+            React.createElement('p', null, 'For many examinations, I need a clean and well-lit surface. A stable table or counter at a comfortable height works best.'),
+            React.createElement('p', null, 'It is also helpful to have a little space nearby for my laptop and medical equipment. A power outlet nearby is useful, but not essential.'),
+            React.createElement('p', null, 'For large dogs, examinations are often performed on the floor. A non-slip mat or carpet can help your dog stand comfortably and safely.'),
+            React.createElement('h2', null, '3. Favorite Treats and Familiar Items'),
+            React.createElement('p', null, 'Positive experiences can make a big difference. Please have the following ready:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'your pet’s favorite treats'),
+              React.createElement('li', null, 'possibly a favorite toy'),
+              React.createElement('li', null, 'or a familiar blanket')
+            ),
+            React.createElement('p', null, 'These can help distract and reward your pet during the examination and create a more positive experience during the veterinary home visit.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, '→ Link to: Services')),
+            React.createElement('h2', null, '4. Preparing Shy or Anxious Cats'),
+            React.createElement('p', null, 'For cats in particular, good preparation is very important.'),
+            React.createElement('p', null, 'If possible, choose a smaller room where the cat can stay before my arrival. Common hiding places such as under the bed or behind large cabinets should ideally be blocked beforehand so the cat remains accessible.'),
+            React.createElement('p', null, 'If your cat has outdoor access, please do not let them outside shortly before the appointment. Indoor cats should ideally remain in the prepared room as well.'),
+            React.createElement('p', null, 'This helps avoid unnecessary stress for both the pet and the owner.'),
+            React.createElement('h2', null, '5. Preparing Nervous or Uncertain Dogs'),
+            React.createElement('p', null, 'For nervous or anxious dogs, a little preparation can make a big difference. Please put a leash or collar on your dog before my arrival, so we can guide them safely if needed.'),
+            React.createElement('p', null, 'In some situations, a muzzle can be helpful, especially if the dog is very stressed. It is important that the dog is already familiar with the muzzle and ideally has had positive experiences with it.'),
+            React.createElement('p', null, 'For some dogs, an examination or treatment outside, such as in the garden or in front of the house, can actually be more relaxing than inside the home.'),
+            React.createElement('p', null, 'Feel free to contact me beforehand so we can find the best solution for your pet together.'),
+            React.createElement('h2', null, '6. Preparing Documents and Information'),
+            React.createElement('p', null, 'Even during a veterinary home visit, some information is very important. If available, please have the following ready:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'vaccination booklet or EU pet passport'),
+              React.createElement('li', null, 'previous medical reports or laboratory results'),
+              React.createElement('li', null, 'any available X-rays'),
+              React.createElement('li', null, 'a list of current medications')
+            ),
+            React.createElement('p', null, 'It is also helpful to make a short note about your pet’s current symptoms:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'When did they start?'),
+              React.createElement('li', null, 'What exactly have you noticed?'),
+              React.createElement('li', null, 'In which situations do they occur?')
+            ),
+            React.createElement('p', null, 'Many pet owners also like to write down their questions beforehand, so nothing is forgotten during the appointment.'),
+            React.createElement('h2', null, '7. Preparing the Environment for Special Situations'),
+            React.createElement('p', null, 'Some treatments require a little more preparation.'),
+            React.createElement('p', null, 'For blood tests or infusions, a quiet and well-lit area is particularly helpful. For older or physically limited animals, non-slip mats or blankets can provide extra stability.'),
+            React.createElement('p', null, 'If multiple pets live in the household, it is often best to keep the other animals in a different room during the examination, so everyone stays calmer.'),
+            React.createElement('h2', null, 'Checklist Before My Veterinary Home Visit'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Appointment time noted and enough time planned'),
+              React.createElement('li', null, 'Quiet room prepared'),
+              React.createElement('li', null, 'Table or surface cleared for examination'),
+              React.createElement('li', null, 'Favorite treats or toys ready'),
+              React.createElement('li', null, 'Cat in prepared room, hiding places secured'),
+              React.createElement('li', null, 'Dog wearing collar or leash'),
+              React.createElement('li', null, 'Vaccination booklet, medical records and medication list ready'),
+              React.createElement('li', null, 'Your questions written down')
+            ),
+            React.createElement('p', null, 'Tip: A well-prepared appointment makes the veterinary home visit much more relaxed for your pet. In the familiar environment of home, many examinations can be carried out more calmly and with less stress.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=contact', className: 'text-red-700 font-semibold hover:underline' }, '→ Link to: Contact'))
           )
         },
         {
@@ -206,9 +336,38 @@ const TEXTS = {
           date: 'March 8, 2026',
           summary: 'Which warning signs should always be taken seriously in dogs and cats.',
           content: React.createElement(React.Fragment, null,
-            React.createElement('p', null, 'Small changes in behavior or health are often noticed quickly, but it is not always clear when a veterinary visit is really necessary. In general, it is better to ask too early than too late.'),
-            React.createElement('p', null, 'Warning signs that should be taken seriously include loss of appetite, repeated vomiting or diarrhea, limping, signs of pain, sudden behavioral changes, problems urinating or defecating, coughing, breathing problems, wounds, and injuries.'),
-            React.createElement('p', null, 'Cats require particular attention when they stop eating, and male cats with urinary blockage can develop a life-threatening emergency.'),
+            React.createElement('p', null, 'Most pet owners know their animals very well. Small changes in behavior or health are often noticed quickly. However, it is not always clear when a veterinary visit is really necessary.'),
+            React.createElement('p', null, 'As a mobile veterinarian in Berlin, I often see pet owners who are unsure whether they should act immediately or wait a little longer. In general, it is always better to ask a veterinarian too early rather than too late.'),
+            React.createElement('p', null, 'The following warning signs should always be taken seriously.'),
+            React.createElement('h2', null, '1. Loss of Appetite'),
+            React.createElement('p', null, 'If your pet suddenly stops eating, there can be many reasons.'),
+            React.createElement('p', null, 'Cats require special attention: 24 hours without food can already become problematic.'),
+            React.createElement('p', null, 'Dogs should also be monitored closely, especially if other symptoms such as vomiting, diarrhea, or lethargy occur.'),
+            React.createElement('h2', null, '2. Vomiting or Diarrhea'),
+            React.createElement('p', null, 'Occasional vomiting or diarrhea can sometimes be harmless.'),
+            React.createElement('p', null, 'However, if the symptoms occur repeatedly, last longer than 24 hours, or your pet appears weak, a veterinary examination is recommended.'),
+            React.createElement('p', null, 'This is particularly important for puppies, kittens, or older animals, as dehydration can become dangerous quickly.'),
+            React.createElement('h2', null, '3. Limping or Signs of Pain'),
+            React.createElement('p', null, 'If your pet suddenly starts limping, avoids movement, or shows signs of pain, the cause should be investigated.'),
+            React.createElement('p', null, 'Sometimes it may simply be a minor strain, but in other cases injuries, joint problems, or foreign objects could be involved.'),
+            React.createElement('h2', null, '4. Changes in Behavior'),
+            React.createElement('p', null, 'Sudden behavioral changes can be an important warning sign, for example:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'unusual tiredness'),
+              React.createElement('li', null, 'hiding or withdrawal'),
+              React.createElement('li', null, 'aggression or restlessness'),
+              React.createElement('li', null, 'unusual vocalization')
+            ),
+            React.createElement('p', null, 'Especially in cats, behavioral changes are often one of the first signs of illness or pain.'),
+            React.createElement('h2', null, '5. Problems Urinating or Defecating'),
+            React.createElement('p', null, 'If your pet has difficulty urinating, goes to the litter box very frequently, or shows blood in the urine, this should be examined by a veterinarian.'),
+            React.createElement('p', null, 'In male cats especially, a urinary blockage can become life-threatening.'),
+            React.createElement('h2', null, '6. Coughing or Breathing Problems'),
+            React.createElement('p', null, 'Persistent coughing, rapid breathing, or breathing difficulties should always be taken seriously. These symptoms can indicate infections, heart disease, or other health issues.'),
+            React.createElement('h2', null, '7. Wounds or Injuries'),
+            React.createElement('p', null, 'Even smaller wounds can become infected. Bite wounds, deep cuts, or strong swelling should always be evaluated by a veterinarian.'),
+            React.createElement('h2', null, 'When in Doubt, Act Early'),
+            React.createElement('p', null, 'You know your pet best. If you feel that something is not right, it is worth having it checked.'),
             React.createElement('p', null, 'Many examinations can also be performed during a veterinary home visit, which is much less stressful for many animals.')
           )
         },
@@ -217,10 +376,32 @@ const TEXTS = {
           date: 'March 11, 2026',
           summary: 'Acute emergency situations in pets where every minute counts.',
           content: React.createElement(React.Fragment, null,
-            React.createElement('p', null, 'Some situations are true emergencies and require immediate veterinary attention. If your pet has difficulty breathing, seizures, suspected poisoning, severe pain, heavy bleeding, serious injuries, or collapses, you should act quickly.'),
-            React.createElement('p', null, 'Swallowing a foreign object such as toys, bones, or other items can also lead to dangerous complications and should be assessed promptly.'),
-            React.createElement('p', null, 'Bluish gums, very rapid breathing, or loss of consciousness are always emergency signs.'),
-            React.createElement('p', null, 'If you are unsure whether it is an emergency, it is always better to seek veterinary advice quickly.')
+            React.createElement('p', null, 'Some situations are true emergencies and require immediate veterinary attention. In these cases, every minute counts.'),
+            React.createElement('p', null, 'If you notice any of the following symptoms, you should act quickly.'),
+            React.createElement('h2', null, 'Difficulty Breathing'),
+            React.createElement('p', null, 'If your pet is struggling to breathe, breathing very rapidly, or has bluish gums or tongue, this is an acute emergency and requires immediate veterinary care.'),
+            React.createElement('h2', null, 'Seizures'),
+            React.createElement('p', null, 'A seizure can be very frightening to witness. During the seizure, try to protect your pet from injury and avoid touching the mouth. After the episode, seek veterinary help as soon as possible.'),
+            React.createElement('h2', null, 'Suspected Poisoning'),
+            React.createElement('p', null, 'If your pet may have ingested something toxic, for example medications, poison bait, toxic plants, or chocolate, you should contact a veterinarian immediately.'),
+            React.createElement('h2', null, 'Severe Pain'),
+            React.createElement('p', null, 'Animals often show pain through signs such as:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'whining or crying'),
+              React.createElement('li', null, 'extreme restlessness'),
+              React.createElement('li', null, 'a hunched or tense posture'),
+              React.createElement('li', null, 'aggressive or unusual behavior')
+            ),
+            React.createElement('p', null, 'Sudden and severe pain should always be taken seriously.'),
+            React.createElement('h2', null, 'Severe Bleeding or Serious Injuries'),
+            React.createElement('p', null, 'After accidents, falls, or bite wounds, a prompt veterinary examination is very important.'),
+            React.createElement('h2', null, 'Swallowing a Foreign Object'),
+            React.createElement('p', null, 'If your pet has swallowed toys, bones, or other objects, this can cause dangerous intestinal blockages and requires veterinary attention.'),
+            React.createElement('h2', null, 'Collapse or Loss of Consciousness'),
+            React.createElement('p', null, 'If your pet suddenly collapses or becomes unresponsive, it is always considered an emergency.'),
+            React.createElement('h2', null, 'When in Doubt, Act Early'),
+            React.createElement('p', null, 'If you are unsure whether it is an emergency, it is always better to seek veterinary advice quickly.'),
+            React.createElement('p', null, 'As a mobile veterinarian, I can assess many situations directly at your home. In acute emergencies, I can also determine whether immediate treatment at a veterinary clinic is necessary.')
           )
         }
       ]
@@ -382,10 +563,69 @@ const TEXTS = {
           date: '20. Februar 2026',
           summary: 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor – mit Tipps für Hunde, Katzen und nervöse Tiere.',
           content: React.createElement(React.Fragment, null,
-            React.createElement('p', null, 'Als mobiler Tierarzt in Berlin komme ich direkt zu dir nach Hause. Für viele Tiere ist das deutlich entspannter als ein Besuch in der Praxis. Damit der Termin möglichst ruhig und stressfrei abläuft, helfen ein paar einfache Vorbereitungen.'),
-            React.createElement('p', null, 'Hilfreich sind eine ruhige Atmosphäre, eine saubere und gut beleuchtete Fläche für die Untersuchung sowie Lieblingsleckerlis, Spielzeug oder eine vertraute Decke.'),
-            React.createElement('p', null, 'Bei scheuen Katzen ist ein vorbereiteter kleiner Raum oft sinnvoll. Bei nervösen Hunden helfen Halsband oder Leine schon vor dem Termin.'),
-            React.createElement('p', null, 'Wenn vorhanden, sollten Impfpass, frühere Befunde, Laborergebnisse, Röntgenbilder und aktuelle Medikamente bereitliegen. Auch eigene Fragen und eine kurze Beschreibung der Beschwerden sind hilfreich.')
+            React.createElement('p', null, 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor. Tipps für Hunde, Katzen und nervöse Tiere vom mobilen Tierarzt in Berlin.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, '→ Link zu: Leistungen')),
+            React.createElement('p', null, 'Als mobiler Tierarzt in Berlin komme ich direkt zu dir nach Hause. Für viele Tiere ist das deutlich entspannter als ein Besuch in der Praxis. Damit der Termin für dein Tier möglichst ruhig und stressfrei abläuft, helfen ein paar einfache Vorbereitungen.'),
+            React.createElement('p', null, 'Mit den folgenden Tipps sorgst du dafür, dass ich dein Tier bei meinem Tierarzt-Hausbesuch optimal untersuchen und behandeln kann.'),
+            React.createElement('h2', null, '1. Ruhige Atmosphäre – entspannte Menschen, entspannte Tiere'),
+            React.createElement('p', null, 'Tiere spüren unsere Stimmung sehr genau. Wenn du selbst ruhig und gelassen bist, überträgt sich das oft direkt auf deinen Hund oder deine Katze.'),
+            React.createElement('p', null, 'Plane daher genügend Zeit ein, damit du vor dem Termin nicht hetzen musst. Vermeide möglichst laute Musik, Staubsauger oder viele fremde Personen im Raum.'),
+            React.createElement('p', null, 'Wenn kleine Kinder im Haushalt sind, kann es sinnvoll sein, während der Untersuchung einen ruhigeren Raum zu wählen. Du kannst dein Tier vorher gerne beruhigen – mit Streicheln, ruhigem Zusprechen oder einem kleinen Entspannungsritual.'),
+            React.createElement('h2', null, '2. Der richtige Platz für Untersuchung und Laptop'),
+            React.createElement('p', null, 'Für viele Untersuchungen brauche ich eine saubere, gut beleuchtete Fläche. Ideal ist ein stabiler Tisch oder eine Arbeitsfläche in angenehmer Höhe.'),
+            React.createElement('p', null, 'Daneben sollte etwas Platz für meinen Laptop und Instrumente sein. Eine Steckdose in der Nähe ist hilfreich, aber nicht zwingend notwendig.'),
+            React.createElement('p', null, 'Bei großen Hunden arbeite ich häufig auch am Boden. Hier hilft eine rutschfeste Unterlage oder ein Teppich, damit der Hund sicher stehen kann.'),
+            React.createElement('h2', null, '3. Lieblingsleckerlis und vertraute Dinge'),
+            React.createElement('p', null, 'Positive Erfahrungen helfen enorm. Bitte halte daher bereit:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'die Lieblingsleckerlis deines Tieres'),
+              React.createElement('li', null, 'eventuell ein Lieblingsspielzeug'),
+              React.createElement('li', null, 'oder eine vertraute Decke')
+            ),
+            React.createElement('p', null, 'Damit können wir dein Tier während der Untersuchung ablenken, belohnen und den Tierarztbesuch zu Hause mit etwas Positivem verknüpfen.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, '→ Link zu: Leistungen')),
+            React.createElement('h2', null, '4. Vorbereitung bei scheuen oder ängstlichen Katzen'),
+            React.createElement('p', null, 'Gerade bei Katzen ist eine gute Vorbereitung besonders wichtig.'),
+            React.createElement('p', null, 'Wähle am besten einen kleineren Raum, in den die Katze vor meinem Besuch gebracht wird. Typische Verstecke wie unter dem Bett oder hinter großen Schränken sollten möglichst vorher blockiert werden, damit die Katze für die Untersuchung gut erreichbar bleibt.'),
+            React.createElement('p', null, 'Wenn deine Katze Freigang hat, lass sie bitte kurz vor dem Termin nicht mehr nach draußen. Wohnungskatzen bleiben idealerweise ebenfalls im vorbereiteten Raum.'),
+            React.createElement('p', null, 'So vermeiden wir unnötigen Stress für Tier und Halter.'),
+            React.createElement('h2', null, '5. Vorbereitung bei aufgeregten oder unsicheren Hunden'),
+            React.createElement('p', null, 'Bei nervösen oder unsicheren Hunden hilft eine gute Vorbereitung. Lege deinem Hund bitte vor meinem Besuch eine Leine oder ein Halsband an, damit wir ihn bei Bedarf sicher führen können.'),
+            React.createElement('p', null, 'In manchen Situationen kann auch ein Maulkorb sinnvoll sein, besonders wenn der Hund sehr gestresst ist. Wichtig ist dabei, dass der Hund den Maulkorb bereits kennt und möglichst positiv daran gewöhnt ist.'),
+            React.createElement('p', null, 'Bei einigen Hunden funktioniert eine Untersuchung oder Behandlung draußen – zum Beispiel im Garten oder vor dem Haus – deutlich entspannter als in der Wohnung.'),
+            React.createElement('p', null, 'Sprich mich gerne vorher an, damit wir gemeinsam die beste Lösung für deinen Schatz finden können.'),
+            React.createElement('h2', null, '6. Unterlagen und Informationen bereitlegen'),
+            React.createElement('p', null, 'Auch bei einem Tierarzt-Hausbesuch sind einige Informationen wichtig. Bitte halte – wenn vorhanden – bereit:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Impfpass oder EU-Heimtierausweis'),
+              React.createElement('li', null, 'frühere Befunde oder Laborergebnisse'),
+              React.createElement('li', null, 'eventuell vorhandene Röntgenbilder'),
+              React.createElement('li', null, 'eine Liste der aktuellen Medikamente')
+            ),
+            React.createElement('p', null, 'Hilfreich ist außerdem eine kurze Notiz zu den aktuellen Beschwerden:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Seit wann bestehen sie?'),
+              React.createElement('li', null, 'Wie äußern sie sich genau?'),
+              React.createElement('li', null, 'In welchen Situationen treten sie auf?')
+            ),
+            React.createElement('p', null, 'Viele Tierhalter schreiben sich auch ihre Fragen vorher auf, damit beim Termin nichts vergessen wird.'),
+            React.createElement('h2', null, '7. Umgebung für besondere Situationen'),
+            React.createElement('p', null, 'Manche Behandlungen benötigen etwas mehr Vorbereitung.'),
+            React.createElement('p', null, 'Bei Blutabnahmen oder Infusionen ist ein ruhiger, gut beleuchteter Platz besonders wichtig. Bei älteren oder körperlich eingeschränkten Tieren können rutschfeste Unterlagen zusätzlichen Halt geben.'),
+            React.createElement('p', null, 'Wenn mehrere Tiere im Haushalt leben, ist es oft sinnvoll, die anderen Tiere während der Behandlung in einem anderen Raum unterzubringen, damit alle entspannter bleiben.'),
+            React.createElement('h2', null, 'Checkliste vor meinem Tierarzt-Hausbesuch'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Terminzeit notiert und genügend Zeit eingeplant'),
+              React.createElement('li', null, 'Ruhigen Raum vorbereitet'),
+              React.createElement('li', null, 'Tisch oder Fläche für Untersuchung frei gemacht'),
+              React.createElement('li', null, 'Lieblingsleckerlis oder Spielzeug bereitgelegt'),
+              React.createElement('li', null, 'Katze im vorbereiteten Raum, Verstecke gesichert'),
+              React.createElement('li', null, 'Hund mit Halsband oder Leine im Raum'),
+              React.createElement('li', null, 'Impfpass, Befunde und Medikamentenliste bereitgelegt'),
+              React.createElement('li', null, 'Eigene Fragen notiert')
+            ),
+            React.createElement('p', null, 'Tipp: Ein gut vorbereiteter Termin macht den Tierarzt-Hausbesuch für dein Tier deutlich entspannter. In der vertrauten Umgebung zu Hause können viele Untersuchungen ruhiger und stressfreier durchgeführt werden.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=contact', className: 'text-red-700 font-semibold hover:underline' }, '→ Link zu: Kontakt'))
           )
         },
         {
@@ -393,10 +633,39 @@ const TEXTS = {
           date: '8. März 2026',
           summary: 'Diese Warnzeichen bei Hund und Katze solltest du ernst nehmen.',
           content: React.createElement(React.Fragment, null,
-            React.createElement('p', null, 'Als Tierhalter kennt man sein Tier meist sehr gut. Kleine Veränderungen im Verhalten oder in der Gesundheit fallen deshalb schnell auf. Grundsätzlich gilt: Lieber einmal zu früh nachfragen als zu spät.'),
-            React.createElement('p', null, 'Wichtige Warnzeichen sind Appetitlosigkeit, wiederholtes Erbrechen oder Durchfall, Lahmheit, Schmerzen, plötzliche Verhaltensänderungen, Probleme beim Urinieren oder Kotabsatz, Husten, Atemprobleme sowie Wunden oder Verletzungen.'),
-            React.createElement('p', null, 'Gerade bei Katzen können schon 24 Stunden ohne Futter problematisch werden. Auch Harnabsatzprobleme bei Katern können lebensbedrohlich sein.'),
-            React.createElement('p', null, 'Viele Untersuchungen lassen sich auch im Rahmen eines Tierarzt-Hausbesuchs in der vertrauten Umgebung durchführen.')
+            React.createElement('p', null, 'Als Tierhalter kennt man sein Tier meist sehr gut. Kleine Veränderungen im Verhalten oder in der Gesundheit fallen deshalb schnell auf. Doch nicht immer ist sofort klar, wann ein Tierarztbesuch wirklich notwendig ist.'),
+            React.createElement('p', null, 'Als mobiler Tierarzt in Berlin erlebe ich häufig, dass Tierhalter unsicher sind, ob sie schon handeln sollten oder noch abwarten können. Grundsätzlich gilt: Lieber einmal zu früh nachfragen als zu spät.'),
+            React.createElement('p', null, 'Die folgenden Warnzeichen sollten ernst genommen werden.'),
+            React.createElement('h2', null, '1. Appetitlosigkeit'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich nicht mehr frisst, kann das viele Ursachen haben.'),
+            React.createElement('p', null, 'Bei Katzen ist besondere Vorsicht geboten: Bereits 24 Stunden ohne Futter können problematisch werden.'),
+            React.createElement('p', null, 'Bei Hunden sollte ebenfalls aufmerksam beobachtet werden, vor allem wenn zusätzlich Symptome wie Erbrechen, Durchfall oder Mattigkeit auftreten.'),
+            React.createElement('h2', null, '2. Erbrechen oder Durchfall'),
+            React.createElement('p', null, 'Gelegentliches Erbrechen oder Durchfall kann harmlos sein.'),
+            React.createElement('p', null, 'Wenn die Symptome jedoch mehrmals auftreten, länger als 24 Stunden anhalten oder dein Tier zusätzlich schwach wirkt, sollte eine tierärztliche Untersuchung erfolgen.'),
+            React.createElement('p', null, 'Besonders bei Welpen, Kitten oder älteren Tieren kann Flüssigkeitsverlust schnell gefährlich werden.'),
+            React.createElement('h2', null, '3. Lahmheit oder Schmerzen'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich humpelt, sich ungern bewegt oder Schmerzen zeigt, sollte die Ursache abgeklärt werden.'),
+            React.createElement('p', null, 'Manchmal handelt es sich nur um eine leichte Überlastung – in anderen Fällen können Verletzungen, Gelenkprobleme oder Fremdkörper dahinterstecken.'),
+            React.createElement('h2', null, '4. Veränderungen im Verhalten'),
+            React.createElement('p', null, 'Plötzliche Veränderungen können ein wichtiges Warnsignal sein. Dazu gehören zum Beispiel:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'ungewöhnliche Müdigkeit'),
+              React.createElement('li', null, 'Rückzug oder Verstecken'),
+              React.createElement('li', null, 'Aggressivität oder Unruhe'),
+              React.createElement('li', null, 'ungewöhnliche Lautäußerungen')
+            ),
+            React.createElement('p', null, 'Gerade bei Katzen sind Verhaltensänderungen oft ein erstes Zeichen für Schmerzen oder Krankheit.'),
+            React.createElement('h2', null, '5. Probleme beim Urinieren oder Kotabsatz'),
+            React.createElement('p', null, 'Wenn dein Tier Schwierigkeiten beim Wasserlassen hat, häufiger auf die Toilette geht oder Blut im Urin zu sehen ist, sollte das zeitnah untersucht werden.'),
+            React.createElement('p', null, 'Vor allem bei Katern kann eine Harnröhrenverstopfung lebensbedrohlich sein.'),
+            React.createElement('h2', null, '6. Husten oder Atemprobleme'),
+            React.createElement('p', null, 'Anhaltender Husten, schnelle Atmung oder Atemnot sollten immer ernst genommen werden. Diese Symptome können auf Infektionen, Herzprobleme oder andere Erkrankungen hinweisen.'),
+            React.createElement('h2', null, '7. Wunden oder Verletzungen'),
+            React.createElement('p', null, 'Auch kleinere Verletzungen können sich entzünden. Bei Bisswunden, tiefen Schnitten oder starken Schwellungen ist eine tierärztliche Behandlung wichtig.'),
+            React.createElement('h2', null, 'Wann lieber früher handeln'),
+            React.createElement('p', null, 'Du kennst dein Tier am besten. Wenn du das Gefühl hast, dass etwas nicht stimmt, lohnt sich eine Abklärung.'),
+            React.createElement('p', null, 'Viele Untersuchungen lassen sich auch bei einem Tierarzt-Hausbesuch in der vertrauten Umgebung durchführen, was für viele Tiere deutlich weniger Stress bedeutet.')
           )
         },
         {
@@ -404,10 +673,33 @@ const TEXTS = {
           date: '11. März 2026',
           summary: 'Akute Notfälle beim Haustier – wann jede Minute zählt.',
           content: React.createElement(React.Fragment, null,
-            React.createElement('p', null, 'Manche Situationen sind echte Notfälle und sollten sofort tierärztlich abgeklärt werden. Dazu gehören Atemnot, Krampfanfälle, Vergiftungsverdacht, starke Schmerzen, starke Blutungen, schwere Verletzungen sowie Kollaps oder Bewusstlosigkeit.'),
-            React.createElement('p', null, 'Auch verschluckte Fremdkörper wie Spielzeug oder Knochenstücke können zu gefährlichen Darmproblemen führen und sollten rasch untersucht werden.'),
-            React.createElement('p', null, 'Bläuliche Schleimhäute, sehr schnelle Atmung oder fehlende Reaktion sind immer Warnzeichen für einen akuten Notfall.'),
-            React.createElement('p', null, 'Wenn du unsicher bist, ob ein Notfall vorliegt, ist es besser, schnell tierärztlichen Rat einzuholen.')
+            React.createElement('p', null, 'Manche Situationen sind echte Notfälle und sollten sofort tierärztlich abgeklärt werden. In diesen Fällen zählt jede Minute.'),
+            React.createElement('p', null, 'Wenn eines der folgenden Symptome auftritt, solltest du schnell handeln.'),
+            React.createElement(AssetImage, { src: 'livisto.png', alt: 'Infografik zu Haustier-Notfällen', imageClassName: 'w-full h-auto rounded-lg shadow-lg my-8', placeholderClassName: 'w-full min-h-[420px] rounded-lg shadow-lg my-8 px-4' }),
+            React.createElement('h2', null, 'Atemnot'),
+            React.createElement('p', null, 'Wenn dein Tier stark nach Luft ringt, sehr schnell atmet oder bläuliche Schleimhäute hat, handelt es sich um einen akuten Notfall.'),
+            React.createElement('h2', null, 'Krampfanfälle'),
+            React.createElement('p', null, 'Ein Krampfanfall kann sehr beängstigend wirken. Während des Anfalls solltest du dein Tier vor Verletzungen schützen und nach dem Anfall möglichst schnell tierärztliche Hilfe suchen.'),
+            React.createElement('h2', null, 'Vergiftungsverdacht'),
+            React.createElement('p', null, 'Wenn dein Tier möglicherweise etwas Giftiges aufgenommen hat, zum Beispiel Medikamente, Giftköder, Pflanzen oder Schokolade, solltest du sofort einen Tierarzt kontaktieren.'),
+            React.createElement('h2', null, 'Starke Schmerzen'),
+            React.createElement('p', null, 'Tiere zeigen Schmerzen oft durch:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Jaulen oder Wimmern'),
+              React.createElement('li', null, 'starke Unruhe'),
+              React.createElement('li', null, 'gekrümmte Körperhaltung'),
+              React.createElement('li', null, 'aggressives Verhalten')
+            ),
+            React.createElement('p', null, 'Plötzlich auftretende starke Schmerzen sollten immer ernst genommen werden.'),
+            React.createElement('h2', null, 'Starke Blutungen oder schwere Verletzungen'),
+            React.createElement('p', null, 'Nach Unfällen, Stürzen oder Bissverletzungen ist eine schnelle Untersuchung wichtig.'),
+            React.createElement('h2', null, 'Fremdkörper aufgenommen'),
+            React.createElement('p', null, 'Wenn dein Tier Spielzeug, Knochenstücke oder andere Gegenstände verschluckt hat, kann das zu gefährlichen Darmproblemen führen.'),
+            React.createElement('h2', null, 'Kollaps oder Bewusstlosigkeit'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich zusammenbricht oder nicht mehr reagiert, handelt es sich immer um einen Notfall.'),
+            React.createElement('h2', null, 'Im Zweifel lieber einmal zu früh handeln'),
+            React.createElement('p', null, 'Wenn du unsicher bist, ob ein Notfall vorliegt, ist es immer besser, schnell tierärztlichen Rat einzuholen.'),
+            React.createElement('p', null, 'Als mobiler Tierarzt kann ich viele Situationen direkt bei dir zu Hause beurteilen. In akuten Notfällen kann ich außerdem einschätzen, ob eine sofortige Behandlung in einer Tierklinik notwendig ist.')
           )
         }
       ]
@@ -703,75 +995,6 @@ const getSeoData = ({ language, currentPage, currentPost }) => {
       ]
     }
   };
-};
-
-const MissingAssetPlaceholder = ({ label, className, style }) => React.createElement(
-  'div',
-  {
-    className: `flex items-center justify-center text-center text-xs sm:text-sm font-medium text-gray-500 bg-white/80 border border-dashed border-gray-400 ${className || ''}`.trim(),
-    style
-  },
-  label
-);
-
-const AssetImage = ({
-  src,
-  alt,
-  imageClassName,
-  placeholderClassName,
-  imageStyle,
-  placeholderStyle,
-  loading = 'lazy'
-}) => {
-  const [failed, setFailed] = useState(false);
-  const label = src.split('/').pop();
-
-  if (failed) {
-    return React.createElement(MissingAssetPlaceholder, {
-      label,
-      className: placeholderClassName || imageClassName,
-      style: placeholderStyle
-    });
-  }
-
-  return React.createElement('img', {
-    src,
-    alt,
-    loading,
-    className: imageClassName,
-    style: imageStyle,
-    onError: () => setFailed(true)
-  });
-};
-
-const SectionDivider = () => {
-  const [failed, setFailed] = useState(false);
-
-  return React.createElement(
-    'div',
-    { className: "w-full h-[60px]" },
-    !failed && React.createElement('img', {
-      src: 'logo-divider.png',
-      alt: '',
-      'aria-hidden': true,
-      className: 'hidden',
-      onError: () => setFailed(true)
-    }),
-    failed
-      ? React.createElement(MissingAssetPlaceholder, {
-          label: 'logo-divider.png',
-          className: 'w-full h-full border-x-0'
-        })
-      : React.createElement('div', {
-          className: "w-full h-full",
-          style: {
-            backgroundImage: "url('logo-divider.png')",
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: 'center',
-            backgroundSize: 'auto 100%'
-          }
-        })
-  );
 };
 
 const ServiceCard = ({ service }) => React.createElement('div', { className: "bg-gray-50 rounded-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl h-full cursor-pointer" }, React.createElement('div', { className: "flex justify-center items-center mb-4" }, service.icon), React.createElement('h3', { className: "text-xl font-semibold mb-2 text-gray-900" }, service.title), React.createElement('p', { className: "text-gray-600" }, service.description));
