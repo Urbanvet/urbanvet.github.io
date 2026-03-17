@@ -1457,12 +1457,19 @@ const HomePage = ({ content, onNavigate, services, language }) => React.createEl
     ),
     React.createElement(SectionDivider, null),
     React.createElement('section', { className: "py-16 lg:py-24 bg-[#EFEFEF]" },
-        React.createElement('div', { className: "max-w-4xl mx-auto px-4 text-center" },
-            content.home.introTitle ? React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-8" }, content.home.introTitle) : null,
-            React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mx-auto" },
-                content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
+        React.createElement('div', { className: "max-w-5xl mx-auto px-4" },
+            content.home.introTitle ? React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center" }, content.home.introTitle) : null,
+            React.createElement('div', { className: "grid md:grid-cols-3 gap-10 items-start" },
+                React.createElement('div', { className: "md:col-span-1" },
+                    React.createElement(AssetImage, { src: "sapu.jpg", alt: "Sapu", imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" })
+                ),
+                React.createElement('div', { className: "md:col-span-2 prose prose-lg max-w-none text-gray-700" },
+                    content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
+                )
             ),
-            React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "mt-8 bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+            React.createElement('div', { className: "text-center" },
+                React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "mt-8 bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+            )
         )
     )
 );
