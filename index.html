@@ -1054,7 +1054,7 @@ const ALL_POSTS = {
 };
 const NAV_LINKS = [{ page: Page.HOME }, { page: Page.SERVICES }, { page: Page.ABOUT }, { page: Page.BLOG }];
 
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const toAbsoluteUrl = (path) => new URL(path, SITE_URL).href;
 
@@ -1095,6 +1095,29 @@ const getInitialNavigationState = () => {
     currentPage: selectedPost ? Page.BLOG_POST : requestedPage,
     currentPost: selectedPost
   };
+};
+
+const getLocalizedPostForLanguage = (language, post) => {
+  if (!post) return null;
+  return ALL_POSTS[language].find((candidate) => candidate.slug === post.slug) || null;
+};
+
+const syncBrowserHistoryEntry = ({ language, currentPage, currentPost, mode = 'replace' }) => {
+  const normalizedPage = currentPage === Page.BLOG_POST && !currentPost ? Page.BLOG : currentPage;
+  const normalizedPost = normalizedPage === Page.BLOG_POST ? currentPost : null;
+  const nextUrl = new URL(buildUrl({ language, page: normalizedPage, post: normalizedPost }).href);
+  const historyMethod = mode === 'push' ? 'pushState' : 'replaceState';
+
+  window.history[historyMethod](
+    {
+      urbanVet: true,
+      language,
+      currentPage: normalizedPage,
+      postSlug: normalizedPost?.slug || null
+    },
+    '',
+    `${window.location.pathname}${nextUrl.search}`
+  );
 };
 
 const getSeoData = ({ language, currentPage, currentPost }) => {
@@ -1435,16 +1458,18 @@ const HomePage = ({ content, onNavigate, services, language }) => React.createEl
     React.createElement('section', { className: "py-16 lg:py-24 bg-[#EFEFEF]" },
         React.createElement('div', { className: "max-w-5xl mx-auto px-4" },
             content.home.introTitle ? React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center" }, content.home.introTitle) : null,
-            React.createElement('div', { className: "grid md:grid-cols-3 gap-10 items-start" },
+            React.createElement('div', { className: "grid md:grid-cols-3 gap-10 items-stretch" },
                 React.createElement('div', { className: "md:col-span-1" },
                     React.createElement(AssetImage, { src: "sapu.jpg", alt: "Sapu", imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" })
                 ),
-                React.createElement('div', { className: "md:col-span-2 prose prose-lg max-w-none text-gray-700" },
-                    content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
+                React.createElement('div', { className: "md:col-span-2 flex flex-col" },
+                    React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" },
+                        content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
+                    ),
+                    React.createElement('div', { className: "mt-8 md:mt-auto md:pt-6 text-center" },
+                        React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+                    )
                 )
-            ),
-            React.createElement('div', { className: "text-center" },
-                React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "mt-8 bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
             )
         )
     )
@@ -1503,32 +1528,78 @@ function App() {
   const [currentPost, setCurrentPost] = useState(initialNavigation.currentPost);
   const [targetAnchor, setTargetAnchor] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const historyInitializedRef = useRef(false);
 
   const content = TEXTS[language];
   const allServices = ALL_SERVICES[language];
   const allPosts = ALL_POSTS[language];
 
-  const handleLanguageChange = (nextLanguage) => {
+  const applyNavigationState = ({ nextLanguage = language, nextPage, nextPost = null, nextAnchor = null, historyMode = 'replace', scrollToTop = true }) => {
+    const localizedPost = nextPage === Page.BLOG_POST ? getLocalizedPostForLanguage(nextLanguage, nextPost) : null;
+
     setLanguage(nextLanguage);
-    if (currentPage === Page.BLOG_POST && currentPost) {
-      const translatedPost = ALL_POSTS[nextLanguage].find((post) => post.slug === currentPost.slug) || null;
-      setCurrentPost(translatedPost);
+    setCurrentPage(nextPage);
+    setCurrentPost(localizedPost);
+    setTargetAnchor(nextAnchor || null);
+
+    if (scrollToTop && !nextAnchor) {
+      window.scrollTo(0, 0);
     }
+
+    syncBrowserHistoryEntry({
+      language: nextLanguage,
+      currentPage: nextPage,
+      currentPost: localizedPost,
+      mode: historyMode
+    });
+  };
+
+  const handleLanguageChange = (nextLanguage) => {
+    const translatedPost = currentPage === Page.BLOG_POST ? getLocalizedPostForLanguage(nextLanguage, currentPost) : null;
+
+    if (currentPage === Page.HOME) {
+      applyNavigationState({ nextLanguage, nextPage: Page.HOME, historyMode: 'replace', scrollToTop: false });
+      return;
+    }
+
+    syncBrowserHistoryEntry({
+      language: nextLanguage,
+      currentPage: Page.HOME,
+      currentPost: null,
+      mode: 'replace'
+    });
+
+    applyNavigationState({
+      nextLanguage,
+      nextPage: currentPage,
+      nextPost: translatedPost,
+      nextAnchor: targetAnchor,
+      historyMode: 'push',
+      scrollToTop: false
+    });
   };
 
   const handleNavigate = (page, anchor) => {
-    setCurrentPage(page);
-    if (page !== Page.BLOG_POST) {
-      setCurrentPost(null);
+    if (page === Page.HOME && currentPage !== Page.HOME) {
+      window.history.back();
+      return;
     }
-    setTargetAnchor(anchor || null);
-    if (!anchor) { window.scrollTo(0, 0); }
+
+    applyNavigationState({
+      nextPage: page,
+      nextAnchor: anchor || null,
+      historyMode: page === Page.HOME ? 'replace' : (currentPage === Page.HOME ? 'push' : 'replace'),
+      scrollToTop: !anchor
+    });
   };
 
   const handleViewPost = (post) => {
-    setCurrentPost(post);
-    setCurrentPage(Page.BLOG_POST);
-    window.scrollTo(0, 0);
+    applyNavigationState({
+      nextPage: Page.BLOG_POST,
+      nextPost: post,
+      historyMode: currentPage === Page.HOME ? 'push' : 'replace',
+      scrollToTop: true
+    });
   };
 
   const handleMobileNav = (page, anchor) => {
@@ -1552,6 +1623,54 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = language.toLowerCase();
   }, [language]);
+
+  useEffect(() => {
+    if (historyInitializedRef.current) return;
+    historyInitializedRef.current = true;
+
+    const initialPost = initialNavigation.currentPage === Page.BLOG_POST
+      ? getLocalizedPostForLanguage(initialNavigation.language, initialNavigation.currentPost)
+      : null;
+
+    if (initialNavigation.currentPage === Page.HOME) {
+      syncBrowserHistoryEntry({
+        language: initialNavigation.language,
+        currentPage: Page.HOME,
+        currentPost: null,
+        mode: 'replace'
+      });
+      return;
+    }
+
+    syncBrowserHistoryEntry({
+      language: initialNavigation.language,
+      currentPage: Page.HOME,
+      currentPost: null,
+      mode: 'replace'
+    });
+
+    syncBrowserHistoryEntry({
+      language: initialNavigation.language,
+      currentPage: initialNavigation.currentPage,
+      currentPost: initialPost,
+      mode: 'push'
+    });
+  }, [initialNavigation]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const nextNavigation = getInitialNavigationState();
+      setLanguage(nextNavigation.language);
+      setCurrentPage(nextNavigation.currentPage);
+      setCurrentPost(nextNavigation.currentPost);
+      setTargetAnchor(null);
+      setIsMenuOpen(false);
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     const resolvedPage = currentPage === Page.BLOG_POST && !currentPost ? Page.BLOG : currentPage;
@@ -1588,9 +1707,6 @@ function App() {
     if (structuredDataElement) {
       structuredDataElement.textContent = JSON.stringify(seo.jsonLd);
     }
-
-    const nextUrl = new URL(canonicalUrl);
-    window.history.replaceState({}, '', `${window.location.pathname}${nextUrl.search}`);
   }, [language, currentPage, currentPost]);
 
   const renderPage = () => {
