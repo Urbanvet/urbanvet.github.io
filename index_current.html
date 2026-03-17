@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
+    <meta
+        name="description"
+        id="meta-description"
+        content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content="Susanne Repanelis" />
+    <meta name="keywords" content="mobile vet Berlin, english speaking vet Berlin, Tierarzt Hausbesuch Berlin, mobiler Tierarzt Berlin, cat vet Berlin, dog vet Berlin, veterinary home visit Brandenburg" />
+    <meta name="theme-color" content="#EFEFEF" />
+    <meta name="geo.region" content="DE-BE" />
+    <meta name="geo.placename" content="Berlin" />
+    <meta name="geo.position" content="52.520008;13.404954" />
+    <meta name="ICBM" content="52.520008, 13.404954" />
+    <link rel="canonical" id="canonical-link" href="https://www.urbanvet.de/?lang=de" />
+    <link rel="alternate" hreflang="de" id="alternate-de" href="https://www.urbanvet.de/?lang=de" />
+    <link rel="alternate" hreflang="en" id="alternate-en" href="https://www.urbanvet.de/?lang=en" />
+    <link rel="alternate" hreflang="x-default" id="alternate-default" href="https://www.urbanvet.de/?lang=de" />
+    <meta property="og:type" id="og-type" content="website" />
+    <meta property="og:site_name" content="UrbanVet" />
+    <meta property="og:title" id="og-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
+    <meta property="og:description" id="og-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
+    <meta property="og:url" id="og-url" content="https://www.urbanvet.de/?lang=de" />
+    <meta property="og:image" id="og-image" content="https://www.urbanvet.de/logo-main.png" />
+    <meta property="og:locale" id="og-locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" id="twitter-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
+    <meta name="twitter:description" id="twitter-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
+    <meta name="twitter:image" id="twitter-image" content="https://www.urbanvet.de/logo-main.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: rgb(255, 25, 0);
+            --brand-red-soft: rgba(255, 25, 0, 0.08);
+            --brand-red-softer: rgba(255, 25, 0, 0.12);
+            --brand-red-border: rgba(255, 25, 0, 0.22);
+            --brand-red-shadow: rgba(255, 25, 0, 0.18);
+        }
+        html, body, #root { min-height: 100%; background: #EFEFEF; overflow-x: hidden; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; color: #1f2937; }
+        .menu-panel { transition: transform 0.3s ease-in-out; }
+
+        .text-red-700, .hover\:text-red-700:hover, .group:hover .group-hover\:text-red-700,
+        .prose-a\:text-red-700 a, .hover\:prose-a\:underline:hover a, .fill-red-700, .stroke-red-700 {
+            color: var(--brand-red) !important;
+            fill: var(--brand-red) !important;
+            stroke: var(--brand-red) !important;
+        }
+        .bg-red-700, .hover\:bg-red-800:hover, .hover\:bg-red-700:hover {
+            background-color: var(--brand-red) !important;
+        }
+        .border-red-700, .ring-red-700 { border-color: var(--brand-red) !important; }
+        .bg-red-50, .bg-red-100 { background-color: var(--brand-red-soft) !important; }
+        .text-red-100, .text-red-200 { color: rgba(255, 255, 255, 0.88) !important; }
+        .shadow-red-700\/20 { --tw-shadow-color: var(--brand-red-shadow) !important; }
+        .group:hover .group-hover\:underline { text-decoration: underline; }
+
+        .blog-rich-content {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #1f1f1f;
+            font-size: 1.12rem;
+            line-height: 1.72;
+        }
+        .blog-rich-content > *:first-child { margin-top: 0; }
+        .blog-rich-content p {
+            margin: 0 0 1.35rem;
+            line-height: 1.72;
+        }
+        .blog-rich-content .blog-subtitle {
+            font-size: 1.22rem;
+            font-weight: 700;
+            line-height: 1.38;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        .blog-rich-content .blog-linkline {
+            font-size: 1.05rem;
+            font-weight: 400;
+            margin-bottom: 1.55rem;
+        }
+        .blog-rich-content .blog-linkline a {
+            color: #1a1a1a !important;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .blog-rich-content .blog-linkline a:hover {
+            color: var(--brand-red) !important;
+            text-decoration: underline;
+        }
+        .blog-rich-content h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+            line-height: 1.35;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #111111;
+            margin: 2rem 0 0.9rem;
+        }
+        .blog-rich-content h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.18rem, 1.5vw, 1.3rem);
+            line-height: 1.35;
+            font-weight: 700;
+            color: #111111;
+            margin: 1.6rem 0 0.85rem;
+        }
+        .blog-rich-content ul {
+            margin: 0.3rem 0 1.45rem 0;
+            padding-left: 1.75rem;
+        }
+        .blog-rich-content li {
+            margin: 0 0 0.7rem;
+            padding-left: 0.2rem;
+        }
+        .blog-rich-content strong {
+            font-weight: 700;
+            color: #111111;
+        }
+        .blog-rich-content em {
+            font-style: italic;
+        }
+        .blog-rich-content .blog-tip {
+            background: rgba(255,255,255,0.9);
+            border-left: 4px solid var(--brand-red);
+            padding: 1rem 1.1rem;
+            border-radius: 0.9rem;
+            box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+            margin: 1.8rem 0 0;
+        }
+        .blog-badge {
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            border: 1px solid var(--brand-red-border);
+        }
+        @media (max-width: 768px) {
+            .blog-rich-content {
+                font-size: 1.04rem;
+                line-height: 1.66;
+            }
+            .blog-rich-content .blog-subtitle {
+                font-size: 1.14rem;
+            }
+            .blog-rich-content h2 {
+                margin-top: 1.8rem;
+                font-size: 1.22rem;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="application/ld+json" id="structured-data"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+const Language = { EN: 'EN', DE: 'DE' };
+const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM' };
+const SITE_URL = 'https://www.urbanvet.de/';
+const SITE_NAME = 'UrbanVet';
+const PERSON_NAME = 'Susanne Repanelis';
+const SITE_PHONE = '+49 171 6494610';
+const SITE_EMAIL = 'info@urbanvet.de';
+const DEFAULT_OG_IMAGE = 'logo-main.png';
+const PAGE_QUERY_MAP = {
+  [Page.HOME]: 'home',
+  [Page.SERVICES]: 'services',
+  [Page.ABOUT]: 'about',
+  [Page.BLOG]: 'blog',
+  [Page.CONTACT]: 'contact',
+  [Page.IMPRESSUM]: 'impressum'
+};
+const QUERY_PAGE_MAP = Object.fromEntries(Object.entries(PAGE_QUERY_MAP).map(([page, slug]) => [slug, page]));
+const EMERGENCY_SERVICE_URL = 'https://tieraerztekammer-berlin.de/notdienst/';
+const SERVICE_ICON_SRC = 'p2.png';
+const BULLET_ICON_SRC = 'p1.png';
+const UKFlagIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 60 30", className: "w-8 h-auto" }, React.createElement('g', { clipPath: "url(#s)" }, React.createElement('path', { d: "M0 0v30h60V0z", fill: "#012169" }), React.createElement('path', { d: "M0 0l60 30m0-30L0 30", stroke: "#fff", strokeWidth: "6" }), React.createElement('path', { d: "M0 0l60 30m0-30L0 30", clipPath: "url(#t)", stroke: "#C8102E", strokeWidth: "4" }), React.createElement('path', { d: "M30 0v30M0 15h60", stroke: "#fff", strokeWidth: "10" }), React.createElement('path', { d: "M30 0v30M0 15h60", stroke: "#C8102E", strokeWidth: "6" })), React.createElement('defs', null, React.createElement('clipPath', { id: "s" }, React.createElement('path', { d: "M0 0v30h60V0z" })), React.createElement('clipPath', { id: "t" }, React.createElement('path', { d: "M30 15h30v15zv15h-30zH0z" }))));
+const DEFlagIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 5 3", className: "w-8 h-auto" }, React.createElement('path', { d: "M0 0h5v3H0z" }), React.createElement('path', { d: "M0 1h5v2H0z", fill: "#D00" }), React.createElement('path', { d: "M0 2h5v1H0z", fill: "#FFCE00" }));
+
+function MissingAssetPlaceholder({ label, className, style }) {
+  return React.createElement(
+    'div',
+    {
+      className: `flex items-center justify-center text-center text-xs sm:text-sm font-medium text-gray-500 bg-white/80 border border-dashed border-gray-400 ${className || ''}`.trim(),
+      style
+    },
+    label
+  );
+}
+
+function AssetImage({
+  src,
+  alt,
+  imageClassName,
+  placeholderClassName,
+  imageStyle,
+  placeholderStyle,
+  loading = 'lazy'
+}) {
+  const [failed, setFailed] = React.useState(false);
+  const label = src.split('/').pop();
+
+  if (failed) {
+    return React.createElement(MissingAssetPlaceholder, {
+      label,
+      className: placeholderClassName || imageClassName,
+      style: placeholderStyle
+    });
+  }
+
+  return React.createElement('img', {
+    src,
+    alt,
+    loading,
+    className: imageClassName,
+    style: imageStyle,
+    onError: () => setFailed(true)
+  });
+}
+
+function SectionDivider() {
+  const [failed, setFailed] = React.useState(false);
+
+  return React.createElement(
+    'div',
+    { className: "w-full h-[60px]" },
+    !failed && React.createElement('img', {
+      src: 'logo-divider.png',
+      alt: '',
+      'aria-hidden': true,
+      className: 'hidden',
+      onError: () => setFailed(true)
+    }),
+    failed
+      ? React.createElement(MissingAssetPlaceholder, {
+          label: 'logo-divider.png',
+          className: 'w-full h-full border-x-0'
+        })
+      : React.createElement('div', {
+          className: "w-full h-full",
+          style: {
+            backgroundImage: "url('logo-divider.png')",
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: 'center',
+            backgroundSize: 'auto 100%'
+          }
+        })
+  );
+}
+
+const buildExternalLink = (href, label) => React.createElement('a', {
+  href,
+  target: '_blank',
+  rel: 'noopener noreferrer',
+  className: 'font-semibold text-red-700 hover:underline'
+}, label);
+
+const ServiceImageIcon = ({ className = 'h-[6.75rem] w-[6.75rem]', placeholderClassName = 'h-[6.75rem] w-[6.75rem] text-[10px]' }) => React.createElement(AssetImage, {
+  src: SERVICE_ICON_SRC,
+  alt: '',
+  imageClassName: `${className} object-contain`.trim(),
+  placeholderClassName: `${placeholderClassName} items-center justify-center`.trim(),
+  loading: 'eager'
+});
+
+const BulletImageIcon = ({ className = 'h-10 w-10', placeholderClassName = 'h-10 w-10 text-[9px]' }) => React.createElement(AssetImage, {
+  src: BULLET_ICON_SRC,
+  alt: '',
+  imageClassName: `${className} object-contain`.trim(),
+  placeholderClassName: `${placeholderClassName} items-center justify-center`.trim(),
+  loading: 'eager'
+});
+
+const buildSharedInfoSections = (language) => language === Language.DE ? {
+  openingHours: {
+    title: 'Öffnungszeiten',
+    lines: [
+      'Montag – Freitag: 10:00 – 18:00 Uhr',
+      'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich.'
+    ]
+  },
+  emergencies: {
+    title: 'Notfälle',
+    lines: [
+      React.createElement(React.Fragment, null, 'Bei akuten, lebensbedrohlichen medizinischen Notfällen wenden Sie sich bitte umgehend an eine tierärztliche Notfallklinik:'),
+      buildExternalLink(EMERGENCY_SERVICE_URL, 'Notdienst Tierärztekammer Berlin')
+    ]
+  },
+  serviceArea: {
+    title: 'Einzugsgebiet',
+    lines: [
+      'UrbanVet ist ein mobiler Tierarztservice in Berlin und bietet tierärztliche Betreuung direkt bei Ihnen zu Hause.',
+      'Hausbesuche sind im gesamten Berliner Stadtgebiet sowie in den umliegenden Regionen möglich.'
+    ]
+  }
+} : {
+  openingHours: {
+    title: 'Opening Hours',
+    lines: [
+      'Monday – Friday: 10:00 AM – 6:00 PM',
+      'Appointments outside regular opening hours may be arranged by appointment.'
+    ]
+  },
+  emergencies: {
+    title: 'Emergencies',
+    lines: [
+      React.createElement(React.Fragment, null, 'In the case of acute, life-threatening medical emergencies, please contact a veterinary emergency clinic immediately:'),
+      buildExternalLink(EMERGENCY_SERVICE_URL, 'Berlin Veterinary Emergency Service')
+    ]
+  },
+  serviceArea: {
+    title: 'Service Area',
+    lines: [
+      'UrbanVet is a mobile veterinary service in Berlin, providing veterinary care directly in the comfort of your home.',
+      'Home visits are available throughout Berlin and the surrounding areas.'
+    ]
+  }
+};
+
+const TEXTS = {
+  [Language.EN]: {
+    nav: { [Page.HOME]: 'Home', [Page.SERVICES]: 'Services', [Page.ABOUT]: 'About Me', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Contact', [Page.IMPRESSUM]: 'Legal' },
+    home: {
+      heroLeadLines: ['Special care for your special pet.', 'In the comfort of your home.'],
+      heroSubtitle: 'English speaking mobile veterinary care for dogs and cats in Berlin and Brandenburg – gentle, personal, and dedicated to your pet.',
+      ctaButton: 'Book a home visit',
+      introTitle: '',
+      introParagraphs: [
+        'For many pets, travelling to a veterinary clinic and waiting in a waiting room can be very stressful. Cats in particular often react sensitively to unfamiliar surroundings.',
+        'With UrbanVet, your veterinarian comes directly to your home. Examinations and treatment can take place in your pet’s familiar environment, where they often feel much calmer and more secure.',
+        'I take time for thorough examinations, individual advice, and treatment tailored to the needs of your pet.',
+        'UrbanVet offers mobile veterinary home visits for dogs and cats in Berlin and Brandenburg – for veterinary care built on calm, trust, and personal attention.'
+      ],
+      aboutTitle: 'About me',
+      aboutText: 'Animals have always been a central part of my life, and I knew early on that I wanted to become a veterinarian.',
+      infoSections: buildSharedInfoSections(Language.EN)
+    },
+    services: {
+      title: 'Services – UrbanVet',
+      subtitle: 'Mobile veterinary care for dogs and cats in Berlin and Brandenburg – calm, personal, and with time for your pet.',
+      items: [
+        {
+          id: 'vaccinations-preventive-care',
+          title: 'Vaccinations & Preventive Care',
+          description: 'For a long, healthy life for your pet.',
+          longDescription: 'For a long, healthy life for your pet:',
+          subServices: [
+            'General health checks',
+            'Vaccinations for dogs and cats',
+            'Senior wellness programs',
+            'EU pet passport & travel medicine',
+            'Parasite prevention: fleas, ticks, worms',
+            'Nutritional advice & weight management'
+          ]
+        },
+        {
+          id: 'emergency-home-visits',
+          title: 'Emergency & Home Visits',
+          description: 'Fast help directly in the comfort of your home.',
+          longDescription: 'Fast help directly in the comfort of your home:',
+          subServices: [
+            'Wound care & emergency treatment',
+            'Emergency consultation outside regular opening hours',
+            'Medication support on site',
+            'Euthanasia'
+          ]
+        },
+        {
+          id: 'internal-medicine-diagnostics',
+          title: 'Internal Medicine & Diagnostics',
+          description: 'Holistic examination and treatment for your pet’s health.',
+          longDescription: 'Holistic examination and treatment for your pet’s health:',
+          subServices: [
+            'Diagnostics & treatment for gastrointestinal problems',
+            'Endocrine conditions (diabetes, thyroid, adrenal disease)',
+            'Kidney and urinary tract diseases',
+            'Laboratory testing & rapid tests'
+          ]
+        },
+        {
+          id: 'orthopedics-neurology',
+          title: 'Orthopedics & Neurology',
+          description: 'Supporting mobility and quality of life.',
+          longDescription: 'Supporting mobility and quality of life:',
+          subServices: [
+            'Diagnostics & treatment for joint and mobility problems',
+            'Neurological diagnostics & treatment for nerve or movement disorders',
+            'Pain management'
+          ]
+        },
+        {
+          id: 'dermatology-skin-health',
+          title: 'Dermatology & Skin Health',
+          description: 'For skin, coat, and overall wellbeing.',
+          longDescription: 'For skin, coat, and overall wellbeing:',
+          subServices: [
+            'Skin and coat examinations',
+            'Allergy testing & individual therapy',
+            'Biopsies & sample collection'
+          ]
+        },
+        {
+          id: 'geriatrics-palliative-care',
+          title: 'Geriatrics & Palliative Care',
+          description: 'Respectful support during sensitive stages of life.',
+          longDescription: 'Respectful support during sensitive stages of life:',
+          subServices: [
+            'Senior checks & age-appropriate care',
+            'Pain therapy',
+            'Palliative care at home'
+          ]
+        },
+        {
+          id: 'behavioral-medicine-training',
+          title: 'Behavioral Medicine & Training',
+          description: 'For a more harmonious life together.',
+          longDescription: 'For a more harmonious life together:',
+          subServices: [
+            'Behavior counseling for dogs and cats',
+            'Stress-free living together & cat training',
+            'Support for anxiety, aggression, or stress',
+            'Medication-assisted behavior therapy'
+          ]
+        },
+        {
+          id: 'additional-services',
+          title: 'Additional Services',
+          description: 'Individual guidance and practical support.',
+          longDescription: 'Individual guidance and practical support:',
+          subServices: [
+            'Advice before adopting a pet',
+            'Travel advice & health certificates',
+            'Vaccination and medication reminders'
+          ]
+        }
+      ],
+      costsTitle: 'Costs & Billing',
+      costsContent: React.createElement(React.Fragment, null,
+        React.createElement('p', null, 'At UrbanVet, my services are billed according to the ', React.createElement('strong', null, 'new German Veterinary Fee Schedule (GOT, version 2022)'), ', effective nationwide since November 22, 2022.'),
+        React.createElement('p', null, 'To ensure full transparency, all pet owners receive a ', React.createElement('strong', null, 'detailed invoice'), ', which can also be submitted to your pet insurance. On request, I am happy to provide an overview of typical services and costs by phone.'),
+        React.createElement('p', { className: 'font-semibold text-gray-900 mb-0' }, 'Mandatory charges according to GOT:'),
+        React.createElement('p', null, React.createElement('strong', null, 'Home visit fee & travel allowance:'), ' For every home visit, the legally required travel allowance and home visit fee are applied.'),
+        React.createElement('p', { className: 'font-semibold text-gray-900 mb-0' }, 'Payment options:'),
+        React.createElement('ul', { className: 'list-none pl-0 mt-0 space-y-2' },
+          React.createElement('li', null, 'Cash'),
+          React.createElement('li', null, 'Credit card (Visa, Mastercard)'),
+          React.createElement('li', null, 'Maestro (EC card)'),
+          React.createElement('li', null, 'Google Pay & Apple Pay')
+        )
+      )
+    },
+    about: {
+      title: 'About me',
+      profileName: 'Susanne Repanelis',
+      profileRole: 'Veterinarian',
+      paragraphs: [
+        'Animals have always been a central part of my life, and I knew early on that I wanted to become a veterinarian. After studying Veterinary Medicine in Vienna, I gained extensive experience in small animal care across Austria, Greece, and Germany – in clinics, practices, and mobile veterinary services.',
+        React.createElement(React.Fragment, null, 'With ', React.createElement('strong', null, 'UrbanVet'), ', I bring veterinary care directly to your home in Berlin and Brandenburg. This avoids transport stress and waiting rooms, allowing your pet to feel calm and safe. I tailor every examination and treatment to your pet’s individual needs, using ', React.createElement('strong', null, 'calming pheromones for cats'), ' or a ', React.createElement('strong', null, 'calm, respectful approach for dogs'), '.'),
+        React.createElement(React.Fragment, null, 'I combine modern, evidence-based veterinary medicine with a holistic perspective. Where appropriate, I also use ', React.createElement('strong', null, 'homeopathic remedies or plant-based therapies (phytotherapy)'), ' to support treatment. My personal motto: ', React.createElement('strong', null, '“What helps, we use.”'), ' Every pet is unique – and so should their care be.'),
+        React.createElement(React.Fragment, null, 'I am also passionate about ', React.createElement('strong', null, 'behavioral medicine'), ' for dogs and cats. Alongside veterinary care, I train as a dog trainer to offer guidance on behavior, training, and everyday life – from rescue dogs to city companions.'),
+        React.createElement(React.Fragment, null, 'With ', React.createElement('strong', null, 'UrbanVet'), ', you get professional, compassionate, and personalized mobile veterinary care – right at your home. I speak ', React.createElement('strong', null, 'German, English, and Greek'), '.')
+      ]
+    },
+    blog: {
+      title: 'UrbanVet Blog',
+      subtitle: 'Tips and insights from veterinary life and everyday care for dogs and cats.',
+      back_button: 'Back to Blog',
+      posts: [
+        {
+          title: 'Mobile Vet Home Visit: How to Prepare Your Pet and Home',
+          summary: 'How to prepare your home for a veterinary house call. Practical tips for dogs, cats, and nervous pets.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'How to prepare your home for a veterinary house call. Tips for dogs, cats and nervous pets from a mobile veterinarian in Berlin.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('p', null, 'As a mobile veterinarian in Berlin, I come directly to your home. For many animals, this is much less stressful than visiting a veterinary clinic. To make the appointment as calm and smooth as possible for your pet, a few simple preparations can help.'),
+            React.createElement('p', null, 'With the following tips, you can help ensure that I can examine and treat your pet effectively during the veterinary home visit.'),
+            React.createElement('h2', null, '1. A Calm Environment – Relaxed Humans, Relaxed Animals'),
+            React.createElement('p', null, 'Animals are very sensitive to our emotions. If you remain calm and relaxed, your dog or cat will often pick up on that.'),
+            React.createElement('p', null, 'Make sure you allow enough time before the appointment so you do not feel rushed. Try to avoid loud music, vacuuming, or having many unfamiliar people in the room.'),
+            React.createElement('p', null, 'If small children are present, it may help to choose a quieter room for the examination. You can also reassure your pet beforehand by gently talking to them, petting them, or following a small calming routine.'),
+            React.createElement('h2', null, '2. The Right Space for Examination and Laptop'),
+            React.createElement('p', null, 'For many examinations, I need a clean and well-lit surface. A stable table or counter at a comfortable height works best.'),
+            React.createElement('p', null, 'It is also helpful to have a little space nearby for my laptop and medical equipment. A power outlet nearby is useful, but not essential.'),
+            React.createElement('p', null, 'For large dogs, examinations are often performed on the floor. A non-slip mat or carpet can help your dog stand comfortably and safely.'),
+            React.createElement('h2', null, '3. Favorite Treats and Familiar Items'),
+            React.createElement('p', null, 'Positive experiences can make a big difference. Please have the following ready:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'your pet’s favorite treats'),
+              React.createElement('li', null, 'possibly a favorite toy'),
+              React.createElement('li', null, 'or a familiar blanket')
+            ),
+            React.createElement('p', null, 'These can help distract and reward your pet during the examination and create a more positive experience during the veterinary home visit.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('h2', null, '4. Preparing Shy or Anxious Cats'),
+            React.createElement('p', null, 'For cats in particular, good preparation is very important.'),
+            React.createElement('p', null, 'If possible, choose a smaller room where the cat can stay before my arrival. Common hiding places such as under the bed or behind large cabinets should ideally be blocked beforehand so the cat remains accessible.'),
+            React.createElement('p', null, 'If your cat has outdoor access, please do not let them outside shortly before the appointment. Indoor cats should ideally remain in the prepared room as well.'),
+            React.createElement('p', null, 'This helps avoid unnecessary stress for both the pet and the owner.'),
+            React.createElement('h2', null, '5. Preparing Nervous or Uncertain Dogs'),
+            React.createElement('p', null, 'For nervous or anxious dogs, a little preparation can make a big difference. Please put a leash or collar on your dog before my arrival, so we can guide them safely if needed.'),
+            React.createElement('p', null, 'In some situations, a muzzle can be helpful, especially if the dog is very stressed. It is important that the dog is already familiar with the muzzle and ideally has had positive experiences with it.'),
+            React.createElement('p', null, 'For some dogs, an examination or treatment outside, such as in the garden or in front of the house, can actually be more relaxing than inside the home.'),
+            React.createElement('p', null, 'Feel free to contact me beforehand so we can find the best solution for your pet together.'),
+            React.createElement('h2', null, '6. Preparing Documents and Information'),
+            React.createElement('p', null, 'Even during a veterinary home visit, some information is very important. If available, please have the following ready:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'vaccination booklet or EU pet passport'),
+              React.createElement('li', null, 'previous medical reports or laboratory results'),
+              React.createElement('li', null, 'any available X-rays'),
+              React.createElement('li', null, 'a list of current medications')
+            ),
+            React.createElement('p', null, 'It is also helpful to make a short note about your pet’s current symptoms:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'When did they start?'),
+              React.createElement('li', null, 'What exactly have you noticed?'),
+              React.createElement('li', null, 'In which situations do they occur?')
+            ),
+            React.createElement('p', null, 'Many pet owners also like to write down their questions beforehand, so nothing is forgotten during the appointment.'),
+            React.createElement('h2', null, '7. Preparing the Environment for Special Situations'),
+            React.createElement('p', null, 'Some treatments require a little more preparation.'),
+            React.createElement('p', null, 'For blood tests or infusions, a quiet and well-lit area is particularly helpful. For older or physically limited animals, non-slip mats or blankets can provide extra stability.'),
+            React.createElement('p', null, 'If multiple pets live in the household, it is often best to keep the other animals in a different room during the examination, so everyone stays calmer.'),
+            React.createElement('h2', null, 'Checklist Before My Veterinary Home Visit'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Appointment time noted and enough time planned'),
+              React.createElement('li', null, 'Quiet room prepared'),
+              React.createElement('li', null, 'Table or surface cleared for examination'),
+              React.createElement('li', null, 'Favorite treats or toys ready'),
+              React.createElement('li', null, 'Cat in prepared room, hiding places secured'),
+              React.createElement('li', null, 'Dog wearing collar or leash'),
+              React.createElement('li', null, 'Vaccination booklet, medical records and medication list ready'),
+              React.createElement('li', null, 'Your questions written down')
+            ),
+            React.createElement('p', null, 'Tip: A well-prepared appointment makes the veterinary home visit much more relaxed for your pet. In the familiar environment of home, many examinations can be carried out more calmly and with less stress.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
+          )
+        },
+        {
+          title: 'When Should My Pet See a Veterinarian? Important Warning Signs in Dogs and Cats',
+          summary: 'Which warning signs should always be taken seriously in dogs and cats.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'Most pet owners know their animals very well. Small changes in behavior or health are often noticed quickly. However, it is not always clear when a veterinary visit is really necessary.'),
+            React.createElement('p', null, 'As a mobile veterinarian in Berlin, I often see pet owners who are unsure whether they should act immediately or wait a little longer. In general, it is always better to ask a veterinarian too early rather than too late.'),
+            React.createElement('p', null, 'The following warning signs should always be taken seriously.'),
+            React.createElement('h2', null, '1. Loss of Appetite'),
+            React.createElement('p', null, 'If your pet suddenly stops eating, there can be many reasons.'),
+            React.createElement('p', null, 'Cats require special attention: 24 hours without food can already become problematic.'),
+            React.createElement('p', null, 'Dogs should also be monitored closely, especially if other symptoms such as vomiting, diarrhea, or lethargy occur.'),
+            React.createElement('h2', null, '2. Vomiting or Diarrhea'),
+            React.createElement('p', null, 'Occasional vomiting or diarrhea can sometimes be harmless.'),
+            React.createElement('p', null, 'However, if the symptoms occur repeatedly, last longer than 24 hours, or your pet appears weak, a veterinary examination is recommended.'),
+            React.createElement('p', null, 'This is particularly important for puppies, kittens, or older animals, as dehydration can become dangerous quickly.'),
+            React.createElement('h2', null, '3. Limping or Signs of Pain'),
+            React.createElement('p', null, 'If your pet suddenly starts limping, avoids movement, or shows signs of pain, the cause should be investigated.'),
+            React.createElement('p', null, 'Sometimes it may simply be a minor strain, but in other cases injuries, joint problems, or foreign objects could be involved.'),
+            React.createElement('h2', null, '4. Changes in Behavior'),
+            React.createElement('p', null, 'Sudden behavioral changes can be an important warning sign, for example:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'unusual tiredness'),
+              React.createElement('li', null, 'hiding or withdrawal'),
+              React.createElement('li', null, 'aggression or restlessness'),
+              React.createElement('li', null, 'unusual vocalization')
+            ),
+            React.createElement('p', null, 'Especially in cats, behavioral changes are often one of the first signs of illness or pain.'),
+            React.createElement('h2', null, '5. Problems Urinating or Defecating'),
+            React.createElement('p', null, 'If your pet has difficulty urinating, goes to the litter box very frequently, or shows blood in the urine, this should be examined by a veterinarian.'),
+            React.createElement('p', null, 'In male cats especially, a urinary blockage can become life-threatening.'),
+            React.createElement('h2', null, '6. Coughing or Breathing Problems'),
+            React.createElement('p', null, 'Persistent coughing, rapid breathing, or breathing difficulties should always be taken seriously. These symptoms can indicate infections, heart disease, or other health issues.'),
+            React.createElement('h2', null, '7. Wounds or Injuries'),
+            React.createElement('p', null, 'Even smaller wounds can become infected. Bite wounds, deep cuts, or strong swelling should always be evaluated by a veterinarian.'),
+            React.createElement('h2', null, 'When in Doubt, Act Early'),
+            React.createElement('p', null, 'You know your pet best. If you feel that something is not right, it is worth having it checked.'),
+            React.createElement('p', null, 'Many examinations can also be performed during a veterinary home visit, which is much less stressful for many animals.')
+          )
+        },
+        {
+          title: 'Pet Emergency: When You Should See a Veterinarian Immediately',
+          summary: 'Acute emergency situations in pets where every minute counts.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'Some situations are true emergencies and require immediate veterinary attention. In these cases, every minute counts.'),
+            React.createElement('p', null, 'If you notice any of the following symptoms, you should act quickly.'),
+            React.createElement('h2', null, 'Difficulty Breathing'),
+            React.createElement('p', null, 'If your pet is struggling to breathe, breathing very rapidly, or has bluish gums or tongue, this is an acute emergency and requires immediate veterinary care.'),
+            React.createElement('h2', null, 'Seizures'),
+            React.createElement('p', null, 'A seizure can be very frightening to witness. During the seizure, try to protect your pet from injury and avoid touching the mouth. After the episode, seek veterinary help as soon as possible.'),
+            React.createElement('h2', null, 'Suspected Poisoning'),
+            React.createElement('p', null, 'If your pet may have ingested something toxic, for example medications, poison bait, toxic plants, or chocolate, you should contact a veterinarian immediately.'),
+            React.createElement('h2', null, 'Severe Pain'),
+            React.createElement('p', null, 'Animals often show pain through signs such as:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'whining or crying'),
+              React.createElement('li', null, 'extreme restlessness'),
+              React.createElement('li', null, 'a hunched or tense posture'),
+              React.createElement('li', null, 'aggressive or unusual behavior')
+            ),
+            React.createElement('p', null, 'Sudden and severe pain should always be taken seriously.'),
+            React.createElement('h2', null, 'Severe Bleeding or Serious Injuries'),
+            React.createElement('p', null, 'After accidents, falls, or bite wounds, a prompt veterinary examination is very important.'),
+            React.createElement('h2', null, 'Swallowing a Foreign Object'),
+            React.createElement('p', null, 'If your pet has swallowed toys, bones, or other objects, this can cause dangerous intestinal blockages and requires veterinary attention.'),
+            React.createElement('h2', null, 'Collapse or Loss of Consciousness'),
+            React.createElement('p', null, 'If your pet suddenly collapses or becomes unresponsive, it is always considered an emergency.'),
+            React.createElement('h2', null, 'When in Doubt, Act Early'),
+            React.createElement('p', null, 'If you are unsure whether it is an emergency, it is always better to seek veterinary advice quickly.'),
+            React.createElement('p', null, 'As a mobile veterinarian, I can assess many situations directly at your home. In acute emergencies, I can also determine whether immediate treatment at a veterinary clinic is necessary.')
+          )
+        }
+      ]
+    },
+    contactPage: {
+      title: 'Get in Touch',
+      subtitle: 'Ready to schedule a visit or have a question? Contact UrbanVet.',
+      email: 'info@urbanvet.de',
+      phoneLabel: 'Call us directly:',
+      infoSections: buildSharedInfoSections(Language.EN)
+    },
+    impressum: {
+      title: 'Imprint / Data Protection Policy',
+      content: `
+        <h2 class="font-bold text-2xl mt-0 mb-4">Imprint (Legal Notice)</h2>
+        <p><strong>Responsible according to § 55 Abs. 2 RStV:</strong><br>
+        Veterinary Practice UrbanVet Berlin<br>
+        Susanne Repanelis<br>
+        Fontanestraße 32<br>
+        120149 Berlin<br>
+        Germany</p>
+        <p><strong>Phone:</strong> +49 171 6494610<br>
+        <strong>E-Mail:</strong> info@urbanvet.de<br>
+        <strong>Website:</strong> www.urbanvet.de</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Professional Title & Regulatory Authority:</h3>
+        <p><strong>Professional title:</strong> Veterinarian (awarded in Austria)<br>
+        <strong>Regulatory authority:</strong> Berlin Chamber of Veterinary Surgeons, Littenstr. 108, 10179 Berlin, Germany</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Professional Regulations:</h3>
+        <p>Professional Code of the Berlin Chamber of Veterinary Surgeons<br>
+        Available at: https://www.tieraerztekammer-berlin.de/kammerrecht/11-berufsordnung.html</p>
+        <p>German Federal Veterinary Act (BTÄO)<br>
+        Available at: https://www.bundestieraerztekammer.de/tieraerzte/beruf/bundestieraerzteordnung/</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Consumer Dispute Resolution:</h3>
+        <p>The EU Commission provides an online platform for dispute resolution (ODR) regarding contractual obligations from online contracts: http://ec.europa.eu/consumers/odr/</p>
+        <p>We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+        <h2 class="font-bold text-2xl mt-10 mb-4">Data Protection Policy</h2>
+        <h3 class="font-semibold text-lg mb-2">Data Minimization</h3>
+        <p>We only collect personal data that is necessary to provide our veterinary services. Any non-essential information that could identify you is avoided.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Storage of Personal Data & Legal Basis</h3>
+        <p>All information is used solely to fulfill the veterinary service agreement (Art. 6(1)(b) GDPR). Data that is legally required or necessary for treatment is stored only with your explicit consent (Art. 6(1)(a) GDPR) and kept only for the legally mandated period.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Data Security</h3>
+        <p>Personal data is generally not shared with third parties. During storage, all data is protected technically and organizationally against unauthorized access, loss, or misuse.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Access & Correction</h3>
+        <p>You have the right to access your stored personal data at any time. You can also request the correction of any inaccurate personal data (Art. 16 GDPR).</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Restriction of Processing</h3>
+        <p>You may request that the processing of your data be restricted if the data is incomplete, incorrect, you have objected, or the data is unnecessary for certain purposes—except for data required to enforce legal claims.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Data Deletion</h3>
+        <p>You may request the immediate deletion of personal data if it is no longer necessary for the veterinary service agreement or if you have withdrawn your consent, except for data needed to enforce legal claims.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Technical Data & Cookies</h3>
+        <p>When you visit our website, only technical information such as browser type or IP address is collected. Only essential cookies are used to ensure website functionality and comply with user interests (Art. 6(1)(f) GDPR).</p>
+      `
+    },
+    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 10:00 AM – 6:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable time.' }
+  },
+  [Language.DE]: {
+    nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum' },
+    home: {
+      heroLeadLines: ['Mit Liebe für Tiere.', 'Tiermedizin bei Ihnen zu Hause.'],
+      heroSubtitle: 'Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg persönlich, stressfrei und mit Zeit für Sie und Ihr Tier.',
+      ctaButton: 'Termin vereinbaren',
+      introTitle: '',
+      introParagraphs: [
+        'Der Weg zum Tierarzt und das Warten im Wartezimmer sind für viele Tiere sehr belastend. Katzen reagieren oft empfindlich auf fremde Umgebung.',
+        'Mit UrbanVet besucht Sie Ihre Tierärztin zu Hause. Untersuchung und Behandlung können in der vertrauten Umgebung Ihres Tieres erheblich ruhiger und entspannter ablaufen.',
+        'Ich nehme mir Zeit für gründliche Untersuchung, individuelle Beratung und eine Behandlung, die auf die Bedürfnisse Ihres Tieres abgestimmt ist.',
+        'UrbanVet bietet mobile tierärztliche Hausbesuche für Hunde und Katzen in Berlin und Brandenburg – für eine medizinische Versorgung mit Ruhe, Vertrauen und persönlicher Betreuung.'
+      ],
+      aboutTitle: 'Über Mich',
+      aboutText: 'Tiere waren schon immer ein großer Teil meines Lebens und ich wusste schon früh, dass ich Tierärztin werden möchte.',
+      infoSections: buildSharedInfoSections(Language.DE)
+    },
+    services: {
+      title: 'Leistungen – UrbanVet',
+      subtitle: 'Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg – ruhig, persönlich und mit Zeit für Ihr Tier.',
+      items: [
+        {
+          id: 'impfungen-vorsorge',
+          title: 'Impfungen & Vorsorge',
+          description: 'Für ein langes, gesundes Leben Ihres Tieres.',
+          longDescription: 'Für ein langes, gesundes Leben Ihres Tieres:',
+          subServices: [
+            'Allgemeine Gesundheitschecks',
+            'Impfungen für Hunde & Katzen',
+            'Vorsorgeprogramme für Senioren',
+            'EU-Heimtierausweis & Reisemedizin',
+            'Parasitenprophylaxe: Flöhe, Zecken, Würmer',
+            'Ernährungsberatung & Gewichtsmanagement'
+          ]
+        },
+        {
+          id: 'notfall-hausbesuche',
+          title: 'Notfall- & Hausbesuche',
+          description: 'Schnelle Hilfe direkt bei Ihnen zu Hause.',
+          longDescription: 'Schnelle Hilfe direkt bei Ihnen zu Hause:',
+          subServices: [
+            'Wundversorgung & Notfallbehandlung',
+            'Notfallsprechstunde außerhalb der regulären Zeiten',
+            'Medikamentenversorgung vor Ort',
+            'Euthanasie'
+          ]
+        },
+        {
+          id: 'innere-medizin-diagnostik',
+          title: 'Innere Medizin & Diagnostik',
+          description: 'Ganzheitliche Untersuchung und Behandlung für die Gesundheit Ihres Tieres.',
+          longDescription: 'Ganzheitliche Untersuchung und Behandlung für die Gesundheit Ihres Tieres:',
+          subServices: [
+            'Diagnostik & Therapie von Magen-Darm-Beschwerden',
+            'Endokrinologische Erkrankungen (Diabetes, Schilddrüse, Nebennieren)',
+            'Nieren- und Harnwegserkrankungen',
+            'Laboruntersuchungen & Schnelltests'
+          ]
+        },
+        {
+          id: 'orthopaedie-neurologie',
+          title: 'Orthopädie & Neurologie',
+          description: 'Beweglichkeit und Lebensfreude erhalten.',
+          longDescription: 'Beweglichkeit und Lebensfreude erhalten:',
+          subServices: [
+            'Diagnostik & Therapie von Gelenk- und Bewegungsproblemen',
+            'Neurologische Diagnostik & Behandlung bei Nerven- oder Bewegungsstörungen',
+            'Schmerzmanagement'
+          ]
+        },
+        {
+          id: 'dermatologie-hautgesundheit',
+          title: 'Dermatologie & Hautgesundheit',
+          description: 'Für Haut, Fell und Wohlbefinden.',
+          longDescription: 'Für Haut, Fell und Wohlbefinden:',
+          subServices: [
+            'Haut- und Felluntersuchungen',
+            'Allergietests & individuelle Therapie',
+            'Biopsien & Probenentnahme'
+          ]
+        },
+        {
+          id: 'geriatrie-palliativpflege',
+          title: 'Geriatrie & Palliativpflege',
+          description: 'Respektvolle Betreuung in sensiblen Lebensphasen.',
+          longDescription: 'Respektvolle Betreuung in sensiblen Lebensphasen:',
+          subServices: [
+            'Seniorenchecks & altersgerechte Betreuung',
+            'Schmerztherapie',
+            'Palliativpflege zu Hause'
+          ]
+        },
+        {
+          id: 'verhaltensmedizin-training',
+          title: 'Verhaltensmedizin & Training',
+          description: 'Für ein harmonisches Zusammenleben.',
+          longDescription: 'Für ein harmonisches Zusammenleben:',
+          subServices: [
+            'Verhaltensberatung für Hunde & Katzen',
+            'Stressfreies Zusammenleben & Katzen-Training',
+            'Unterstützung bei Angst, Aggression oder Stress',
+            'Medikamentöse Verhaltenstherapie'
+          ]
+        },
+        {
+          id: 'zusaetzliche-services',
+          title: 'Zusätzliche Services',
+          description: 'Individuelle Beratung & Organisation.',
+          longDescription: 'Individuelle Beratung & Organisation:',
+          subServices: [
+            'Beratung vor Anschaffung eines Haustieres',
+            'Reiseberatung & Gesundheitszeugnisse',
+            'Impf- und Medikamentenerinnerungen'
+          ]
+        }
+      ],
+      costsTitle: 'Welche Kosten fallen an?',
+      costsContent: React.createElement(React.Fragment, null,
+        React.createElement('p', null, 'Bei UrbanVet berechne ich meine Leistungen nach der ', React.createElement('strong', null, 'neuen Gebührenordnung für Tierärzte (GOT, Version 2022)'), ', die seit dem 22.11.2022 bundesweit gilt.'),
+        React.createElement('p', null, 'Um Ihnen größtmögliche Transparenz zu bieten, erhalten alle Tierhalterinnen und Tierhalter ', React.createElement('strong', null, 'eine detaillierte Rechnung'), ', die Sie auch für Ihre Tierkrankenversicherung einreichen können. Auf Wunsch gebe ich vorab telefonisch Auskunft zu den üblichen Leistungen und Preisen.'),
+        React.createElement('p', { className: 'font-semibold text-gray-900 mb-0' }, 'Pflichtleistungen laut GOT:'),
+        React.createElement('p', null, React.createElement('strong', null, 'Hausbesuchsgebühr & Wegegeld:'), ' Für jeden Hausbesuch berechne ich das gesetzlich vorgeschriebene Wegegeld sowie die Hausbesuchsgebühr.'),
+        React.createElement('p', { className: 'font-semibold text-gray-900 mb-0' }, 'Zahlungsmöglichkeiten:'),
+        React.createElement('ul', { className: 'list-none pl-0 mt-0 space-y-2' },
+          React.createElement('li', null, 'Barzahlung'),
+          React.createElement('li', null, 'Kreditkarte (Visa, Mastercard)'),
+          React.createElement('li', null, 'Maestro (EC-Karte)'),
+          React.createElement('li', null, 'Google Pay & Apple Pay')
+        )
+      )
+    },
+    about: {
+      title: 'Über Mich',
+      profileName: 'Susanne Repanelis',
+      profileRole: 'Tierärztin',
+      paragraphs: [
+        'Tiere haben schon immer einen großen Teil meines Lebens ausgefüllt, und schon früh wusste ich: Ich möchte Tierärztin werden. Nach meinem Studium der Veterinärmedizin in Wien konnte ich in Österreich, Griechenland und Deutschland wertvolle Erfahrung in der Kleintiermedizin sammeln – sowohl in Praxen und Kliniken als auch in mobilen Tierarztpraxen.',
+        React.createElement(React.Fragment, null, 'Mit ', React.createElement('strong', null, 'UrbanVet'), ', meiner mobilen Tierarztpraxis für Berlin und Brandenburg, bringe ich die Praxis direkt zu Ihnen nach Hause. So vermeiden Sie Transportstress und Wartezimmer für Ihr Tier. Ich nehme mir die Zeit, die Ihr Tier wirklich braucht, und passe jede Untersuchung und Behandlung individuell an. Bei Katzen setze ich bei Bedarf beruhigende Pheromone ein, um eine entspannte Atmosphäre zu schaffen. Bei Hunden achte ich auf einen ruhigen, respektvollen und angstfreien Ablauf – immer maßgeschneidert auf Ihren Hund.'),
+        React.createElement(React.Fragment, null, 'In meiner täglichen Arbeit verbinde ich moderne, evidenzbasierte Tiermedizin mit einem ganzheitlichen Blick auf Ihr Tier. Neben klassischen Behandlungen können, wenn sinnvoll, auch ', React.createElement('strong', null, 'Homöopathika oder pflanzliche Therapien (Phytotherapie)'), ' unterstützend eingesetzt werden. Mein persönliches Motto lautet: ', React.createElement('strong', null, '„Was hilft, das nehmen wir.“'), ' Jedes Tier ist einzigartig – und genauso sollte auch seine Behandlung sein.'),
+        React.createElement(React.Fragment, null, 'Mein Interesse gilt zudem der ', React.createElement('strong', null, 'Verhaltensmedizin'), ' bei Hunden und Katzen. Parallel zu meiner tierärztlichen Tätigkeit bilde ich mich zur Hundetrainerin weiter, sodass ich Sie umfassend zu Hundetraining, Verhalten und Alltag mit Ihrem Vierbeiner beraten kann – vom Tierschutzhund bis zum Stadthund.'),
+        React.createElement(React.Fragment, null, 'Mit ', React.createElement('strong', null, 'UrbanVet'), ' erhalten Sie hochwertige mobile Tiermedizin in Berlin und Brandenburg: professionelle Tierarztbehandlungen mit Ruhe, Empathie und Zeit – direkt bei Ihnen zu Hause. Ich spreche ', React.createElement('strong', null, 'Deutsch, Englisch und Griechisch'), '.')
+      ]
+    },
+    blog: {
+      title: 'UrbanVet Blog',
+      subtitle: 'Tipps und Einblicke rund um Hunde, Katzen und stressfreie Tiermedizin.',
+      back_button: 'Zurück zum Blog',
+      posts: [
+        {
+          title: 'Mobiler Tierarzt Hausbesuch: So bereitest du dein Tier und Zuhause optimal vor',
+          summary: 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor – mit Tipps für Hunde, Katzen und nervöse Tiere.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor. Tipps für Hunde, Katzen und nervöse Tiere vom mobilen Tierarzt in Berlin.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('p', null, 'Als mobiler Tierarzt in Berlin komme ich direkt zu dir nach Hause. Für viele Tiere ist das deutlich entspannter als ein Besuch in der Praxis. Damit der Termin für dein Tier möglichst ruhig und stressfrei abläuft, helfen ein paar einfache Vorbereitungen.'),
+            React.createElement('p', null, 'Mit den folgenden Tipps sorgst du dafür, dass ich dein Tier bei meinem Tierarzt-Hausbesuch optimal untersuchen und behandeln kann.'),
+            React.createElement('h2', null, '1. Ruhige Atmosphäre – entspannte Menschen, entspannte Tiere'),
+            React.createElement('p', null, 'Tiere spüren unsere Stimmung sehr genau. Wenn du selbst ruhig und gelassen bist, überträgt sich das oft direkt auf deinen Hund oder deine Katze.'),
+            React.createElement('p', null, 'Plane daher genügend Zeit ein, damit du vor dem Termin nicht hetzen musst. Vermeide möglichst laute Musik, Staubsauger oder viele fremde Personen im Raum.'),
+            React.createElement('p', null, 'Wenn kleine Kinder im Haushalt sind, kann es sinnvoll sein, während der Untersuchung einen ruhigeren Raum zu wählen. Du kannst dein Tier vorher gerne beruhigen – mit Streicheln, ruhigem Zusprechen oder einem kleinen Entspannungsritual.'),
+            React.createElement('h2', null, '2. Der richtige Platz für Untersuchung und Laptop'),
+            React.createElement('p', null, 'Für viele Untersuchungen brauche ich eine saubere, gut beleuchtete Fläche. Ideal ist ein stabiler Tisch oder eine Arbeitsfläche in angenehmer Höhe.'),
+            React.createElement('p', null, 'Daneben sollte etwas Platz für meinen Laptop und Instrumente sein. Eine Steckdose in der Nähe ist hilfreich, aber nicht zwingend notwendig.'),
+            React.createElement('p', null, 'Bei großen Hunden arbeite ich häufig auch am Boden. Hier hilft eine rutschfeste Unterlage oder ein Teppich, damit der Hund sicher stehen kann.'),
+            React.createElement('h2', null, '3. Lieblingsleckerlis und vertraute Dinge'),
+            React.createElement('p', null, 'Positive Erfahrungen helfen enorm. Bitte halte daher bereit:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'die Lieblingsleckerlis deines Tieres'),
+              React.createElement('li', null, 'eventuell ein Lieblingsspielzeug'),
+              React.createElement('li', null, 'oder eine vertraute Decke')
+            ),
+            React.createElement('p', null, 'Damit können wir dein Tier während der Untersuchung ablenken, belohnen und den Tierarztbesuch zu Hause mit etwas Positivem verknüpfen.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('h2', null, '4. Vorbereitung bei scheuen oder ängstlichen Katzen'),
+            React.createElement('p', null, 'Gerade bei Katzen ist eine gute Vorbereitung besonders wichtig.'),
+            React.createElement('p', null, 'Wähle am besten einen kleineren Raum, in den die Katze vor meinem Besuch gebracht wird. Typische Verstecke wie unter dem Bett oder hinter großen Schränken sollten möglichst vorher blockiert werden, damit die Katze für die Untersuchung gut erreichbar bleibt.'),
+            React.createElement('p', null, 'Wenn deine Katze Freigang hat, lass sie bitte kurz vor dem Termin nicht mehr nach draußen. Wohnungskatzen bleiben idealerweise ebenfalls im vorbereiteten Raum.'),
+            React.createElement('p', null, 'So vermeiden wir unnötigen Stress für Tier und Halter.'),
+            React.createElement('h2', null, '5. Vorbereitung bei aufgeregten oder unsicheren Hunden'),
+            React.createElement('p', null, 'Bei nervösen oder unsicheren Hunden hilft eine gute Vorbereitung. Lege deinem Hund bitte vor meinem Besuch eine Leine oder ein Halsband an, damit wir ihn bei Bedarf sicher führen können.'),
+            React.createElement('p', null, 'In manchen Situationen kann auch ein Maulkorb sinnvoll sein, besonders wenn der Hund sehr gestresst ist. Wichtig ist dabei, dass der Hund den Maulkorb bereits kennt und möglichst positiv daran gewöhnt ist.'),
+            React.createElement('p', null, 'Bei einigen Hunden funktioniert eine Untersuchung oder Behandlung draußen – zum Beispiel im Garten oder vor dem Haus – deutlich entspannter als in der Wohnung.'),
+            React.createElement('p', null, 'Sprich mich gerne vorher an, damit wir gemeinsam die beste Lösung für deinen Schatz finden können.'),
+            React.createElement('h2', null, '6. Unterlagen und Informationen bereitlegen'),
+            React.createElement('p', null, 'Auch bei einem Tierarzt-Hausbesuch sind einige Informationen wichtig. Bitte halte – wenn vorhanden – bereit:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Impfpass oder EU-Heimtierausweis'),
+              React.createElement('li', null, 'frühere Befunde oder Laborergebnisse'),
+              React.createElement('li', null, 'eventuell vorhandene Röntgenbilder'),
+              React.createElement('li', null, 'eine Liste der aktuellen Medikamente')
+            ),
+            React.createElement('p', null, 'Hilfreich ist außerdem eine kurze Notiz zu den aktuellen Beschwerden:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Seit wann bestehen sie?'),
+              React.createElement('li', null, 'Wie äußern sie sich genau?'),
+              React.createElement('li', null, 'In welchen Situationen treten sie auf?')
+            ),
+            React.createElement('p', null, 'Viele Tierhalter schreiben sich auch ihre Fragen vorher auf, damit beim Termin nichts vergessen wird.'),
+            React.createElement('h2', null, '7. Umgebung für besondere Situationen'),
+            React.createElement('p', null, 'Manche Behandlungen benötigen etwas mehr Vorbereitung.'),
+            React.createElement('p', null, 'Bei Blutabnahmen oder Infusionen ist ein ruhiger, gut beleuchteter Platz besonders wichtig. Bei älteren oder körperlich eingeschränkten Tieren können rutschfeste Unterlagen zusätzlichen Halt geben.'),
+            React.createElement('p', null, 'Wenn mehrere Tiere im Haushalt leben, ist es oft sinnvoll, die anderen Tiere während der Behandlung in einem anderen Raum unterzubringen, damit alle entspannter bleiben.'),
+            React.createElement('h2', null, 'Checkliste vor meinem Tierarzt-Hausbesuch'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Terminzeit notiert und genügend Zeit eingeplant'),
+              React.createElement('li', null, 'Ruhigen Raum vorbereitet'),
+              React.createElement('li', null, 'Tisch oder Fläche für Untersuchung frei gemacht'),
+              React.createElement('li', null, 'Lieblingsleckerlis oder Spielzeug bereitgelegt'),
+              React.createElement('li', null, 'Katze im vorbereiteten Raum, Verstecke gesichert'),
+              React.createElement('li', null, 'Hund mit Halsband oder Leine im Raum'),
+              React.createElement('li', null, 'Impfpass, Befunde und Medikamentenliste bereitgelegt'),
+              React.createElement('li', null, 'Eigene Fragen notiert')
+            ),
+            React.createElement('p', null, 'Tipp: Ein gut vorbereiteter Termin macht den Tierarzt-Hausbesuch für dein Tier deutlich entspannter. In der vertrauten Umgebung zu Hause können viele Untersuchungen ruhiger und stressfreier durchgeführt werden.'),
+            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
+          )
+        },
+        {
+          title: 'Wann sollte mein Tier zum Tierarzt? Wichtige Warnzeichen bei Hund und Katze',
+          summary: 'Diese Warnzeichen bei Hund und Katze solltest du ernst nehmen.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'Als Tierhalter kennt man sein Tier meist sehr gut. Kleine Veränderungen im Verhalten oder in der Gesundheit fallen deshalb schnell auf. Doch nicht immer ist sofort klar, wann ein Tierarztbesuch wirklich notwendig ist.'),
+            React.createElement('p', null, 'Als mobiler Tierarzt in Berlin erlebe ich häufig, dass Tierhalter unsicher sind, ob sie schon handeln sollten oder noch abwarten können. Grundsätzlich gilt: Lieber einmal zu früh nachfragen als zu spät.'),
+            React.createElement('p', null, 'Die folgenden Warnzeichen sollten ernst genommen werden.'),
+            React.createElement('h2', null, '1. Appetitlosigkeit'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich nicht mehr frisst, kann das viele Ursachen haben.'),
+            React.createElement('p', null, 'Bei Katzen ist besondere Vorsicht geboten: Bereits 24 Stunden ohne Futter können problematisch werden.'),
+            React.createElement('p', null, 'Bei Hunden sollte ebenfalls aufmerksam beobachtet werden, vor allem wenn zusätzlich Symptome wie Erbrechen, Durchfall oder Mattigkeit auftreten.'),
+            React.createElement('h2', null, '2. Erbrechen oder Durchfall'),
+            React.createElement('p', null, 'Gelegentliches Erbrechen oder Durchfall kann harmlos sein.'),
+            React.createElement('p', null, 'Wenn die Symptome jedoch mehrmals auftreten, länger als 24 Stunden anhalten oder dein Tier zusätzlich schwach wirkt, sollte eine tierärztliche Untersuchung erfolgen.'),
+            React.createElement('p', null, 'Besonders bei Welpen, Kitten oder älteren Tieren kann Flüssigkeitsverlust schnell gefährlich werden.'),
+            React.createElement('h2', null, '3. Lahmheit oder Schmerzen'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich humpelt, sich ungern bewegt oder Schmerzen zeigt, sollte die Ursache abgeklärt werden.'),
+            React.createElement('p', null, 'Manchmal handelt es sich nur um eine leichte Überlastung – in anderen Fällen können Verletzungen, Gelenkprobleme oder Fremdkörper dahinterstecken.'),
+            React.createElement('h2', null, '4. Veränderungen im Verhalten'),
+            React.createElement('p', null, 'Plötzliche Veränderungen können ein wichtiges Warnsignal sein. Dazu gehören zum Beispiel:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'ungewöhnliche Müdigkeit'),
+              React.createElement('li', null, 'Rückzug oder Verstecken'),
+              React.createElement('li', null, 'Aggressivität oder Unruhe'),
+              React.createElement('li', null, 'ungewöhnliche Lautäußerungen')
+            ),
+            React.createElement('p', null, 'Gerade bei Katzen sind Verhaltensänderungen oft ein erstes Zeichen für Schmerzen oder Krankheit.'),
+            React.createElement('h2', null, '5. Probleme beim Urinieren oder Kotabsatz'),
+            React.createElement('p', null, 'Wenn dein Tier Schwierigkeiten beim Wasserlassen hat, häufiger auf die Toilette geht oder Blut im Urin zu sehen ist, sollte das zeitnah untersucht werden.'),
+            React.createElement('p', null, 'Vor allem bei Katern kann eine Harnröhrenverstopfung lebensbedrohlich sein.'),
+            React.createElement('h2', null, '6. Husten oder Atemprobleme'),
+            React.createElement('p', null, 'Anhaltender Husten, schnelle Atmung oder Atemnot sollten immer ernst genommen werden. Diese Symptome können auf Infektionen, Herzprobleme oder andere Erkrankungen hinweisen.'),
+            React.createElement('h2', null, '7. Wunden oder Verletzungen'),
+            React.createElement('p', null, 'Auch kleinere Verletzungen können sich entzünden. Bei Bisswunden, tiefen Schnitten oder starken Schwellungen ist eine tierärztliche Behandlung wichtig.'),
+            React.createElement('h2', null, 'Wann lieber früher handeln'),
+            React.createElement('p', null, 'Du kennst dein Tier am besten. Wenn du das Gefühl hast, dass etwas nicht stimmt, lohnt sich eine Abklärung.'),
+            React.createElement('p', null, 'Viele Untersuchungen lassen sich auch bei einem Tierarzt-Hausbesuch in der vertrauten Umgebung durchführen, was für viele Tiere deutlich weniger Stress bedeutet.')
+          )
+        },
+        {
+          title: 'Notfall beim Haustier: Wann du sofort tierärztliche Hilfe brauchst',
+          summary: 'Akute Notfälle beim Haustier – wann jede Minute zählt.',
+          content: React.createElement(React.Fragment, null,
+            React.createElement('p', null, 'Manche Situationen sind echte Notfälle und sollten sofort tierärztlich abgeklärt werden. In diesen Fällen zählt jede Minute.'),
+            React.createElement('p', null, 'Wenn eines der folgenden Symptome auftritt, solltest du schnell handeln.'),
+            React.createElement(AssetImage, { src: 'livisto.png', alt: 'Infografik zu Haustier-Notfällen', imageClassName: 'w-full h-auto rounded-lg shadow-lg my-8', placeholderClassName: 'w-full min-h-[420px] rounded-lg shadow-lg my-8 px-4' }),
+            React.createElement('h2', null, 'Atemnot'),
+            React.createElement('p', null, 'Wenn dein Tier stark nach Luft ringt, sehr schnell atmet oder bläuliche Schleimhäute hat, handelt es sich um einen akuten Notfall.'),
+            React.createElement('h2', null, 'Krampfanfälle'),
+            React.createElement('p', null, 'Ein Krampfanfall kann sehr beängstigend wirken. Während des Anfalls solltest du dein Tier vor Verletzungen schützen und nach dem Anfall möglichst schnell tierärztliche Hilfe suchen.'),
+            React.createElement('h2', null, 'Vergiftungsverdacht'),
+            React.createElement('p', null, 'Wenn dein Tier möglicherweise etwas Giftiges aufgenommen hat, zum Beispiel Medikamente, Giftköder, Pflanzen oder Schokolade, solltest du sofort einen Tierarzt kontaktieren.'),
+            React.createElement('h2', null, 'Starke Schmerzen'),
+            React.createElement('p', null, 'Tiere zeigen Schmerzen oft durch:'),
+            React.createElement('ul', null,
+              React.createElement('li', null, 'Jaulen oder Wimmern'),
+              React.createElement('li', null, 'starke Unruhe'),
+              React.createElement('li', null, 'gekrümmte Körperhaltung'),
+              React.createElement('li', null, 'aggressives Verhalten')
+            ),
+            React.createElement('p', null, 'Plötzlich auftretende starke Schmerzen sollten immer ernst genommen werden.'),
+            React.createElement('h2', null, 'Starke Blutungen oder schwere Verletzungen'),
+            React.createElement('p', null, 'Nach Unfällen, Stürzen oder Bissverletzungen ist eine schnelle Untersuchung wichtig.'),
+            React.createElement('h2', null, 'Fremdkörper aufgenommen'),
+            React.createElement('p', null, 'Wenn dein Tier Spielzeug, Knochenstücke oder andere Gegenstände verschluckt hat, kann das zu gefährlichen Darmproblemen führen.'),
+            React.createElement('h2', null, 'Kollaps oder Bewusstlosigkeit'),
+            React.createElement('p', null, 'Wenn dein Tier plötzlich zusammenbricht oder nicht mehr reagiert, handelt es sich immer um einen Notfall.'),
+            React.createElement('h2', null, 'Im Zweifel lieber einmal zu früh handeln'),
+            React.createElement('p', null, 'Wenn du unsicher bist, ob ein Notfall vorliegt, ist es immer besser, schnell tierärztlichen Rat einzuholen.'),
+            React.createElement('p', null, 'Als mobiler Tierarzt kann ich viele Situationen direkt bei dir zu Hause beurteilen. In akuten Notfällen kann ich außerdem einschätzen, ob eine sofortige Behandlung in einer Tierklinik notwendig ist.')
+          )
+        }
+      ]
+    },
+    contactPage: {
+      title: 'Kontakt',
+      subtitle: 'Möchten Sie einen Termin vereinbaren oder haben Sie eine Frage? Kontaktieren Sie UrbanVet.',
+      email: 'info@urbanvet.de',
+      phoneLabel: 'Rufen Sie direkt an:',
+      infoSections: buildSharedInfoSections(Language.DE)
+    },
+    impressum: {
+      title: 'Impressum / Datenschutz',
+      content: `
+        <h2 class="font-bold text-2xl mt-0 mb-4">Impressum</h2>
+        <p><strong>Verantwortlich gemäß § 55 Abs. 2 RStV:</strong><br>
+        Tierarztpraxis UrbanVet Berlin<br>
+        Susanne Repanelis<br>
+        Fontanestraße 32<br>
+        12049 Berlin</p>
+        <p><strong>Telefon:</strong> 0171 6494 610</p>
+        <p><strong>E-Mail:</strong> info@urbanvet.de<br>
+        <strong>Website:</strong> www.urbanvet.de</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Berufsbezeichnung & zuständige Aufsichtsbehörde:</h3>
+        <p><strong>Berufsbezeichnung:</strong> Tierärztin / Tierarzt (verliehen in Österreich)<br>
+        <strong>Zuständige Aufsichtsbehörde:</strong> Tierärztekammer Berlin, Littenstr. 108, 10179 Berlin</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Berufsrechtliche Regelungen:</h3>
+        <p>Berufsordnung der Tierärztekammer Berlin<br>
+        Einsehbar unter: https://www.tieraerztekammer-berlin.de/kammerrecht/11-berufsordnung.html</p>
+        <p>Bundestierärzteordnung (BTÄO)<br>
+        Einsehbar unter: https://www.bundestieraerztekammer.de/tieraerzte/beruf/bundestieraerzteordnung/</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Verbraucherstreitschlichtung:</h3>
+        <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) für Vertragsangelegenheiten bereit: http://ec.europa.eu/consumers/odr/</p>
+        <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h2 class="font-bold text-2xl mt-10 mb-4">Datenschutz</h2>
+        <h3 class="font-semibold text-lg mb-2">Datenvermeidung</h3>
+        <p>Grundsätzlich sind wir bemüht, alle nicht relevanten Daten zu Ihrer Person zu vermeiden, so dass keine Informationen zur Nutzeridentität gespeichert werden, die keine Relevanz in hinsichtlich vertraglicher Daten haben.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Speicherung personenbezogener Nutzerdaten und Sicherheit</h3>
+        <p>Alle Angaben zu Ihrer Identität dienen ausschließlich der Durchführung des tierärztlichen Vertragsverhältnisses nach Art. 6 I S. 1 b DSGVO. Es werden nur gesetzlich vorgeschriebene, personenbezogene Daten mit Ihrer ausdrücklichen Einwilligung, gemäß Art. 6 I S. 1 a DSGVO, für die Dauer der gesetzlichen festgelegten Notwendigkeit gespeichert.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Datensicherheit</h3>
+        <p>Es werden grundsätzlich keinerlei personenbezogene Daten an Dritte weitergegeben. Während der Speicherung und Auswertung sind alle personenbezogenen Daten technisch vor Verbreitung, Verlust und Zugriff von außen geschützt.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Auskunft, Korrektur</h3>
+        <p>Sie sind berechtigt, jederzeit Auskunft über die Speicherung Ihrer Daten zu erlangen, sowie die Korrektur personenbezogener Daten gemäß Art. 16 DSGVO anzuordnen.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Einschränkung</h3>
+        <p>Nutzer sind berechtigt, die Datenverarbeitung durch den Anbieter einzuschränken, wenn Daten inhaltlich falsch aufgenommen wurden, ein Widerspruch erfolgte oder wenn die Gesamtheit der Daten nicht notwendig ist, mit Ausnahme derer, die für die Umsetzung von Rechtsansprüchen erforderlich sind.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Datenlöschung</h3>
+        <p>Nutzen dürfen die unverzügliche Löschung personenbezogener Daten verlangen, wenn diese nicht mehr erforderlich, im Sinne der Durchführung des tierärztlichen Vertragsverhältnisses nach Art. 6 I S. 1 b DSGVO sind oder Sie die Einwilligung widerrufen haben, mit Ausnahme der Durchsetzung von Rechtsansprüchen.</p>
+        <h3 class="font-semibold text-lg mt-6 mb-2">Technische Informationen und Cookies</h3>
+        <p>Alle bei Ihrem Websitebesuch erhobenen, technischen Daten, wie Art des genutzten Browsers und IP-Adresse werden standardisiert von der Webseite zur Auswertung genutzt, wobei ausschließlich notwendige Cookies zum Einsatz kommen, die den Interessen der User gemäß Art. 6 I S. 1 f DSGVO nicht entgegenstehen. Bei Fragen wenden Sie sich bitte an uns.</p>
+      `
+    },
+    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 10:00 – 18:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
+  }
+};
+
+const ALL_SERVICES = {
+  [Language.EN]: TEXTS.EN.services.items.map((service) => ({ ...service, icon: React.createElement(ServiceImageIcon, null) })),
+  [Language.DE]: TEXTS.DE.services.items.map((service) => ({ ...service, icon: React.createElement(ServiceImageIcon, null) }))
+};
+const BLOG_MEDIA = [
+  {
+    slug: 'home-visit-preparation',
+    publishedAt: '2026-02-20',
+    displayDate: {
+      [Language.EN]: 'February 20, 2026',
+      [Language.DE]: '20. Februar 2026'
+    },
+    imageUrl: 'assets/blog/home-visit-preparation.jpg',
+    imageAlt: {
+      [Language.EN]: 'Illustration of a calm home prepared for a veterinary house call with a dog, cat, checklist, and medical bag.',
+      [Language.DE]: 'Illustration eines ruhigen Zuhauses fuer den Tierarzt-Hausbesuch mit Hund, Katze, Checkliste und Arzttasche.'
+    }
+  },
+  {
+    slug: 'warning-signs-dogs-cats',
+    publishedAt: '2026-03-08',
+    displayDate: {
+      [Language.EN]: 'March 8, 2026',
+      [Language.DE]: '8. März 2026'
+    },
+    imageUrl: 'assets/blog/warning-signs.jpg',
+    imageAlt: {
+      [Language.EN]: 'Illustration of a dog and cat with symptom markers and a veterinary checklist about warning signs.',
+      [Language.DE]: 'Illustration von Hund und Katze mit Warnsymbolen und einer tieraerztlichen Checkliste zu Warnzeichen.'
+    }
+  },
+  {
+    slug: 'pet-emergency-warning-signs',
+    publishedAt: '2026-03-11',
+    displayDate: {
+      [Language.EN]: 'March 11, 2026',
+      [Language.DE]: '11. März 2026'
+    },
+    imageUrl: 'assets/blog/pet-emergency.jpg',
+    imageAlt: {
+      [Language.EN]: 'Illustration of a pet emergency with a first-aid bag, urgent heartbeat line, and dog and cat silhouettes.',
+      [Language.DE]: 'Illustration eines Haustier-Notfalls mit Erste-Hilfe-Tasche, EKG-Linie sowie Hund- und Katzensilhouetten.'
+    }
+  }
+];
+const BLOG_READ_MORE_LABEL = {
+  [Language.EN]: 'Read more',
+  [Language.DE]: 'Mehr lesen'
+};
+
+const buildPostsForLanguage = (language) => TEXTS[language].blog.posts.map((post, index) => {
+  const media = BLOG_MEDIA[index];
+  return {
+    ...post,
+    id: `post-${media.slug}-${language.toLowerCase()}`,
+    slug: media.slug,
+    language,
+    imageUrl: media.imageUrl,
+    imageAlt: media.imageAlt[language],
+    publishedAt: media.publishedAt,
+    date: media.displayDate[language],
+    readMoreLabel: BLOG_READ_MORE_LABEL[language]
+  };
+});
+
+const ALL_POSTS = {
+  [Language.EN]: buildPostsForLanguage(Language.EN),
+  [Language.DE]: buildPostsForLanguage(Language.DE)
+};
+const NAV_LINKS = [{ page: Page.HOME }, { page: Page.SERVICES }, { page: Page.ABOUT }, { page: Page.BLOG }];
+
+const { useState, useEffect } = React;
+
+const toAbsoluteUrl = (path) => new URL(path, SITE_URL).href;
+
+const setMetaByName = (name, content) => {
+  const element = document.querySelector(`meta[name="${name}"]`);
+  if (element) element.setAttribute('content', content);
+};
+
+const setMetaByProperty = (property, content) => {
+  const element = document.querySelector(`meta[property="${property}"]`);
+  if (element) element.setAttribute('content', content);
+};
+
+const buildUrl = ({ language, page, post }) => {
+  const url = new URL(SITE_URL);
+  url.searchParams.set('lang', language.toLowerCase());
+  const normalizedPage = page === Page.BLOG_POST ? Page.BLOG : page;
+  if (normalizedPage !== Page.HOME) {
+    url.searchParams.set('page', PAGE_QUERY_MAP[normalizedPage]);
+  }
+  if (page === Page.BLOG_POST && post) {
+    url.searchParams.set('post', post.slug);
+  }
+  return url;
+};
+
+const getInitialNavigationState = () => {
+  const params = new URLSearchParams(window.location.search);
+  const language = params.get('lang') === 'en' ? Language.EN : Language.DE;
+  const pageParam = params.get('page');
+  const postSlug = params.get('post');
+  const requestedPage = QUERY_PAGE_MAP[pageParam] || Page.HOME;
+  const availablePosts = ALL_POSTS[language];
+  const selectedPost = postSlug ? availablePosts.find((post) => post.slug === postSlug) || null : null;
+
+  return {
+    language,
+    currentPage: selectedPost ? Page.BLOG_POST : requestedPage,
+    currentPost: selectedPost
+  };
+};
+
+const getSeoData = ({ language, currentPage, currentPost }) => {
+  const isGerman = language === Language.DE;
+  const baseTitle = isGerman
+    ? 'UrbanVet | Mobile Tierarztpraxis fuer Hunde und Katzen in Berlin'
+    : 'UrbanVet | English Speaking Mobile Vet for Dogs and Cats in Berlin';
+  const baseDescription = isGerman
+    ? 'UrbanVet ist die mobile Tierarztpraxis fuer Hunde und Katzen in Berlin und Brandenburg mit Hausbesuchen auf Deutsch und Englisch.'
+    : 'UrbanVet provides calm bilingual veterinary home visits for dogs and cats in Berlin and Brandenburg in English and German.';
+  const pageMeta = {
+    [Page.HOME]: {
+      title: baseTitle,
+      description: baseDescription
+    },
+    [Page.SERVICES]: {
+      title: isGerman
+        ? 'Leistungen | Mobile Tierarztpraxis Berlin | UrbanVet'
+        : 'Services | Mobile Vet Berlin | UrbanVet',
+      description: isGerman
+        ? 'Mobile Tierarzt-Leistungen fuer Hunde und Katzen in Berlin und Brandenburg: Vorsorge, Diagnostik, Innere Medizin, Hausbesuche und Notfallversorgung.'
+        : 'Mobile veterinary services in Berlin and Brandenburg for dogs and cats: preventive care, diagnostics, internal medicine, home visits, and urgent care.'
+    },
+    [Page.ABOUT]: {
+      title: isGerman
+        ? 'Ueber Mich | Susanne Repanelis | UrbanVet'
+        : 'About | Susanne Repanelis | UrbanVet',
+      description: isGerman
+        ? 'Lernen Sie Susanne Repanelis kennen, Ihre mobile Tieraerztin fuer Hausbesuche in Berlin und Brandenburg.'
+        : 'Meet Susanne Repanelis, your mobile veterinarian for calm home visits in Berlin and Brandenburg.'
+    },
+    [Page.BLOG]: {
+      title: isGerman
+        ? 'Blog | Tipps fuer Hunde und Katzen | UrbanVet'
+        : 'Blog | Tips for Dogs and Cats | UrbanVet',
+      description: isGerman
+        ? 'UrbanVet Blog mit praktischen Tipps zu Hausbesuchen, Warnzeichen und Notfaellen bei Hund und Katze.'
+        : 'UrbanVet blog with practical advice on home visits, warning signs, and pet emergencies for dogs and cats.'
+    },
+    [Page.CONTACT]: {
+      title: isGerman
+        ? 'Kontakt | Tierarzt Hausbesuch Berlin | UrbanVet'
+        : 'Contact | Mobile Vet Home Visits Berlin | UrbanVet',
+      description: isGerman
+        ? 'Kontaktieren Sie UrbanVet fuer einen Tierarzt-Hausbesuch in Berlin und Brandenburg.'
+        : 'Contact UrbanVet to schedule a veterinary home visit in Berlin and Brandenburg.'
+    },
+    [Page.IMPRESSUM]: {
+      title: isGerman
+        ? 'Impressum und Datenschutz | UrbanVet'
+        : 'Legal Notice and Privacy Policy | UrbanVet',
+      description: isGerman
+        ? 'Impressum und Datenschutzhinweise der mobilen Tierarztpraxis UrbanVet in Berlin.'
+        : 'Legal notice and privacy information for UrbanVet, the mobile veterinary practice in Berlin.'
+    }
+  };
+
+  if (currentPage === Page.BLOG_POST && currentPost) {
+    const articleTitle = `${currentPost.title} | UrbanVet Blog`;
+    return {
+      title: articleTitle,
+      description: currentPost.summary,
+      ogType: 'article',
+      image: toAbsoluteUrl(currentPost.imageUrl),
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'VeterinaryCare',
+            '@id': `${SITE_URL}#organization`,
+            name: SITE_NAME,
+            url: SITE_URL,
+            telephone: SITE_PHONE,
+            email: SITE_EMAIL,
+            areaServed: ['Berlin', 'Brandenburg'],
+            availableLanguage: ['de', 'en'],
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Fontanestrasse 32',
+              postalCode: '12049',
+              addressLocality: 'Berlin',
+              addressCountry: 'DE'
+            }
+          },
+          {
+            '@type': 'BlogPosting',
+            headline: currentPost.title,
+            description: currentPost.summary,
+            datePublished: currentPost.publishedAt,
+            dateModified: currentPost.publishedAt,
+            inLanguage: isGerman ? 'de-DE' : 'en-GB',
+            image: [toAbsoluteUrl(currentPost.imageUrl)],
+            mainEntityOfPage: buildUrl({ language, page: currentPage, post: currentPost }).href,
+            author: {
+              '@type': 'Person',
+              name: 'Susanne Repanelis'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              logo: {
+                '@type': 'ImageObject',
+                url: toAbsoluteUrl(DEFAULT_OG_IMAGE)
+              }
+            }
+          }
+        ]
+      }
+    };
+  }
+
+  return {
+    ...pageMeta[currentPage],
+    ogType: 'website',
+    image: toAbsoluteUrl(DEFAULT_OG_IMAGE),
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'VeterinaryCare',
+          '@id': `${SITE_URL}#organization`,
+          name: SITE_NAME,
+          url: SITE_URL,
+          telephone: SITE_PHONE,
+          email: SITE_EMAIL,
+          areaServed: ['Berlin', 'Brandenburg'],
+          availableLanguage: ['de', 'en'],
+          medicalSpecialty: ['Small Animal Medicine', 'Behavioral Medicine'],
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Fontanestrasse 32',
+            postalCode: '12049',
+            addressLocality: 'Berlin',
+            addressCountry: 'DE'
+          }
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${SITE_URL}#website`,
+          url: SITE_URL,
+          name: SITE_NAME,
+          inLanguage: isGerman ? 'de-DE' : 'en-GB'
+        },
+        {
+          '@type': 'WebPage',
+          url: buildUrl({ language, page: currentPage }).href,
+          name: pageMeta[currentPage].title,
+          description: pageMeta[currentPage].description,
+          inLanguage: isGerman ? 'de-DE' : 'en-GB'
+        }
+      ]
+    }
+  };
+};
+
+const ServiceCard = ({ service }) => React.createElement('div', { className: "bg-gray-50 rounded-lg p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl h-full cursor-pointer" }, React.createElement('div', { className: "flex justify-center items-center mb-4" }, service.icon), React.createElement('h3', { className: "text-xl font-semibold mb-2 text-gray-900 leading-snug" }, service.title), React.createElement('p', { className: "text-gray-600 leading-7" }, service.description));
+
+const InfoCardsSection = ({ infoSections }) => {
+  if (!infoSections || !Object.keys(infoSections).length) return null;
+
+  return React.createElement('section', { className: "py-16 lg:py-24 bg-[#EFEFEF]" },
+    React.createElement('div', { className: "max-w-6xl mx-auto px-4" },
+      React.createElement('div', { className: "grid md:grid-cols-3 gap-8" },
+        Object.values(infoSections).map((section) => React.createElement('div', { key: section.title, className: "bg-white/85 border border-gray-200 rounded-[1.75rem] shadow-sm p-6 text-left h-full" },
+          React.createElement('h3', { className: "text-2xl font-bold text-gray-900 mb-4" }, section.title),
+          React.createElement('div', { className: "space-y-3 text-gray-700 leading-7" },
+            section.lines.map((line, index) => React.createElement('p', { key: index }, line))
+          )
+        ))
+      )
+    )
+  );
+};
+
+
+const BLOG_EMPHASIS = {
+  'home-visit-preparation': {
+    [Language.EN]: [
+      'mobile veterinarian in Berlin', 'veterinary home visit', 'veterinary house call',
+      'favorite treats', 'favorite toy', 'familiar blanket', 'smaller room',
+      'do not let them outside shortly before the appointment', 'put a leash or collar on your dog before my arrival',
+      'a muzzle can be helpful', 'examination or treatment outside', 'the best solution for your pet together',
+      'vaccination booklet or EU pet passport', 'previous medical reports or laboratory results',
+      'any available X-rays', 'a list of current medications', 'Checklist Before My Veterinary Home Visit',
+      'Tip: A well-prepared appointment makes the veterinary home visit much more relaxed for your pet.'
+    ],
+    [Language.DE]: [
+      'mobiler Tierarzt in Berlin', 'Tierarzt-Hausbesuch', 'Lieblingsleckerlis', 'Lieblingsspielzeug',
+      'vertraute Decke', 'kleineren Raum', 'lass sie bitte kurz vor dem Termin nicht mehr nach draußen',
+      'eine Leine oder ein Halsband an', 'ein Maulkorb sinnvoll sein', 'Untersuchung oder Behandlung draußen',
+      'die beste Lösung für deinen Schatz finden können', 'Impfpass oder EU-Heimtierausweis',
+      'frühere Befunde oder Laborergebnisse', 'eventuell vorhandene Röntgenbilder', 'eine Liste der aktuellen Medikamente',
+      'Checkliste vor meinem Tierarzt-Hausbesuch', 'Tipp: Ein gut vorbereiteter Termin macht den Tierarzt-Hausbesuch für dein Tier deutlich entspannter.'
+    ]
+  },
+  'warning-signs-dogs-cats': {
+    [Language.EN]: [
+      'The following warning signs should always be taken seriously.', 'Cats require special attention: 24 hours without food can already become problematic.',
+      'However, if the symptoms occur repeatedly, last longer than 24 hours, or your pet appears weak, a veterinary examination is recommended.',
+      'Sudden behavioral changes can be an important warning sign, for example:', 'In male cats especially, a urinary blockage can become life-threatening.',
+      'Persistent coughing, rapid breathing, or breathing difficulties should always be taken seriously.',
+      'When in Doubt, Act Early', 'You know your pet best.'
+    ],
+    [Language.DE]: [
+      'Die folgenden Warnzeichen sollten ernst genommen werden.', 'Bereits 24 Stunden ohne Futter können problematisch werden.',
+      'Wenn die Symptome jedoch mehrmals auftreten, länger als 24 Stunden anhalten oder dein Tier zusätzlich schwach wirkt, sollte eine tierärztliche Untersuchung erfolgen.',
+      'Plötzliche Veränderungen können ein wichtiges Warnsignal sein.', 'Vor allem bei Katern kann eine Harnröhrenverstopfung lebensbedrohlich sein.',
+      'Anhaltender Husten, schnelle Atmung oder Atemnot sollten immer ernst genommen werden.',
+      'Wann lieber früher handeln', 'Du kennst dein Tier am besten.'
+    ]
+  },
+  'pet-emergency-warning-signs': {
+    [Language.EN]: [
+      'Some situations are true emergencies and require immediate veterinary attention.', 'every minute counts',
+      'acute emergency', 'seek veterinary help as soon as possible', 'contact a veterinarian immediately',
+      'Sudden and severe pain should always be taken seriously.', 'requires veterinary attention',
+      'it is always considered an emergency', 'When in Doubt, Act Early'
+    ],
+    [Language.DE]: [
+      'Manche Situationen sind echte Notfälle und sollten sofort tierärztlich abgeklärt werden.', 'jede Minute',
+      'akuten Notfall', 'möglichst schnell tierärztliche Hilfe', 'sofort einen Tierarzt kontaktieren',
+      'Plötzlich auftretende starke Schmerzen sollten immer ernst genommen werden.', 'gefährlichen Darmproblemen',
+      'handelt es sich immer um einen Notfall', 'Im Zweifel lieber einmal zu früh handeln'
+    ]
+  }
+};
+
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const emphasizeText = (text, phrases, keyPrefix = 't') => {
+  if (!text || !phrases?.length) return text;
+  const sorted = [...phrases].filter(Boolean).sort((a, b) => b.length - a.length);
+  let parts = [text];
+  sorted.forEach((phrase) => {
+    const pattern = escapeRegExp(phrase);
+    const splitter = new RegExp(`(${pattern})`, 'gi');
+    const matcher = new RegExp(`^${pattern}$`, 'i');
+    parts = parts.flatMap((part) => {
+      if (typeof part !== 'string') return [part];
+      const split = part.split(splitter);
+      return split.filter(Boolean).map((segment) => matcher.test(segment) ? { __strong: segment } : segment);
+    });
+  });
+  return parts.map((part, index) => {
+    if (typeof part === 'string') return part;
+    return React.createElement('strong', { key: `${keyPrefix}-${index}` }, part.__strong);
+  });
+};
+
+const transformNodeWithEmphasis = (node, phrases, keyPath = '0') => {
+  if (node === null || node === undefined || typeof node === 'boolean') return node;
+  if (typeof node === 'string') return emphasizeText(node, phrases, keyPath);
+  if (Array.isArray(node)) return node.map((child, index) => transformNodeWithEmphasis(child, phrases, `${keyPath}-${index}`));
+  if (!React.isValidElement(node)) return node;
+  const originalChildren = node.props?.children;
+  const transformedChildren = React.Children.map(originalChildren, (child, index) => transformNodeWithEmphasis(child, phrases, `${keyPath}-${index}`));
+  return React.cloneElement(node, { ...node.props, key: node.key || keyPath }, transformedChildren);
+};
+
+const isParagraphWithSingleAnchor = (node) => {
+  if (!React.isValidElement(node) || node.type !== 'p') return false;
+  const children = React.Children.toArray(node.props?.children).filter(Boolean);
+  return children.length === 1 && React.isValidElement(children[0]) && children[0].type === 'a';
+};
+
+const renderBlogPostContent = (post) => {
+  const phrases = BLOG_EMPHASIS?.[post.slug]?.[post.language] || [];
+  const rawChildren = React.Children.toArray(post.content?.props?.children || post.content || []);
+  return rawChildren.map((child, index) => {
+    let transformed = transformNodeWithEmphasis(child, phrases, `blog-${post.slug}-${index}`);
+
+    if (React.isValidElement(transformed) && transformed.type === 'p' && index === 0) {
+      transformed = React.cloneElement(transformed, { className: 'blog-subtitle', key: transformed.key || `subtitle-${index}` });
+    } else if (isParagraphWithSingleAnchor(transformed)) {
+      const anchor = React.Children.toArray(transformed.props.children)[0];
+      transformed = React.createElement('p', { className: 'blog-linkline', key: transformed.key || `link-${index}` }, '→ ', anchor);
+    } else if (React.isValidElement(transformed) && transformed.type === 'h2') {
+      transformed = React.cloneElement(transformed, { className: 'blog-section-heading', key: transformed.key || `h2-${index}` });
+    }
+
+    if (React.isValidElement(transformed) && transformed.type === 'p') {
+      const textValue = React.Children.toArray(transformed.props.children).map((child) => typeof child === 'string' ? child : '').join('').trim();
+      if (/^(Tip:|Tipp:)/.test(textValue)) {
+        transformed = React.cloneElement(transformed, { className: `blog-tip ${transformed.props.className || ''}`.trim(), key: transformed.key || `tip-${index}` });
+      }
+    }
+
+    return transformed;
+  });
+};
+
+const HomeLogoButton = ({ onClick }) => React.createElement('div', { className: "cursor-pointer", onClick }, React.createElement(AssetImage, { src: 'logo-small.png', alt: 'UrbanVet Logo', imageClassName: 'h-16 w-auto', placeholderClassName: 'h-16 min-w-[180px] px-4', loading: 'eager' }));
+
+const LanguageSwitcher = ({ language, onChange, buttonClassName = 'p-1' }) => React.createElement('div', { className: "flex items-center space-x-2" },
+  React.createElement('button', { onClick: () => onChange(Language.EN), className: `${buttonClassName} rounded-full ${language === Language.EN ? 'bg-red-100' : ''}` }, React.createElement(UKFlagIcon, null)),
+  React.createElement('button', { onClick: () => onChange(Language.DE), className: `${buttonClassName} rounded-full ${language === Language.DE ? 'bg-red-100' : ''}` }, React.createElement(DEFlagIcon, null))
+);
+
+const BlogPostCard = ({ post, onClick }) => React.createElement('div', { onClick: onClick, className: "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-200/70 cursor-pointer hover:-translate-y-1" }, React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-52 object-cover", placeholderClassName: "w-full h-52 px-4" }), React.createElement('div', { className: "p-6" }, React.createElement('p', { className: "text-sm text-gray-500 mb-2 font-medium" }, post.date), React.createElement('h3', { className: "text-xl font-bold mb-3 text-gray-900 group-hover:text-red-700 transition-colors leading-snug" }, post.title), React.createElement('p', { className: "text-gray-700 leading-7" }, post.summary), React.createElement('div', { className: "mt-5 text-red-700 font-semibold group-hover:underline" }, post.readMoreLabel)));
+
+const HomePage = ({ content, onNavigate, services, language }) => React.createElement('div', null,
+    React.createElement('section', { className: "text-center pt-0 pb-20 lg:pt-0 lg:pb-32 px-4 bg-[#EFEFEF]" },
+        React.createElement('div', { className: "max-w-4xl mx-auto flex flex-col items-center" },
+            React.createElement(AssetImage, { src: "logo-main.png", alt: "UrbanVet Logo", imageClassName: "w-3/4 max-w-lg h-auto mb-4", placeholderClassName: "w-3/4 max-w-lg min-h-[180px] mb-4 px-4", loading: "eager" }),
+            React.createElement('h1', { className: "text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-[1.15]" },
+                content.home.heroLeadLines.map((line, index) => React.createElement(React.Fragment, { key: `${line}-${index}` },
+                    React.createElement('span', { className: "block" }, line)
+                ))
+            ),
+            React.createElement('p', { className: "text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto" }, content.home.heroSubtitle),
+            React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+        )
+    ),
+    React.createElement(SectionDivider, null),
+    React.createElement(InfoCardsSection, { infoSections: content.home.infoSections }),
+    React.createElement(SectionDivider, null),
+    React.createElement('section', { id: "services", className: "py-16 lg:py-24 bg-[#EFEFEF]" },
+        React.createElement('div', { className: "max-w-7xl mx-auto px-4" },
+            React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-center mb-2 text-gray-900" }, content.services.title),
+            React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.services.subtitle),
+            React.createElement('div', { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8" },
+                services.map(service => React.createElement('div', { key: service.id, onClick: () => onNavigate(Page.SERVICES, service.id) }, React.createElement(ServiceCard, { service: service })))
+            )
+        )
+    ),
+    React.createElement(SectionDivider, null),
+    React.createElement('section', { className: "py-16 lg:py-24 bg-[#EFEFEF]" },
+        React.createElement('div', { className: "max-w-4xl mx-auto px-4 text-center" },
+            React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-4" }, content.home.aboutTitle),
+            React.createElement('div', { className: "prose prose-lg text-gray-700 mx-auto" }, React.createElement('p', null, content.home.aboutText)),
+            React.createElement('button', { onClick: () => onNavigate(Page.ABOUT), className: "mt-8 text-red-700 font-semibold hover:underline" }, language === Language.DE ? 'Mehr über mich erfahren →' : 'Learn more about me →')
+        )
+    ),
+    React.createElement(SectionDivider, null),
+    React.createElement('section', { className: "py-16 lg:py-24 bg-[#EFEFEF]" },
+        React.createElement('div', { className: "max-w-4xl mx-auto px-4 text-center" },
+            content.home.introTitle ? React.createElement('h2', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-8" }, content.home.introTitle) : null,
+            React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mx-auto" },
+                content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
+            ),
+            React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "mt-8 bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+        )
+    )
+);
+
+const ServicesPage = ({ content, services }) => React.createElement('div', { className: "min-h-screen bg-[#EFEFEF]" },
+    React.createElement('div', { className: "max-w-7xl mx-auto px-4" },
+        React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900 pt-8 lg:pt-12" }, content.title),
+        React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.subtitle),
+        React.createElement('div', null,
+            services.map((service, index) => React.createElement(React.Fragment, { key: service.id },
+                React.createElement('section', { id: service.id, className: "scroll-mt-24 py-8" },
+                    React.createElement('div', null,
+                        React.createElement('div', { className: "flex items-center gap-4 sm:gap-6" },
+                            React.createElement('div', { className: "flex-shrink-0" }, React.createElement(ServiceImageIcon, { className: 'h-20 w-20 sm:h-[7.5rem] sm:w-[7.5rem]', placeholderClassName: 'h-20 w-20 sm:h-[7.5rem] sm:w-[7.5rem] text-[10px]' })),
+                            React.createElement('h2', { className: "text-3xl font-bold text-gray-900 leading-tight mb-0" }, service.title)
+                        ),
+                        React.createElement('p', { className: "text-lg text-gray-700 font-semibold mt-4 mb-4 max-w-none" }, service.longDescription)
+                    ),
+                    React.createElement('div', { className: "mt-4" },
+                        React.createElement('ul', { className: "grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4" },
+                            service.subServices.map((item, subIndex) => React.createElement('li', { key: subIndex, className: "flex items-start" },
+                                React.createElement('span', { className: "mr-3 flex-shrink-0 -mt-1" }, React.createElement(BulletImageIcon, null)),
+                                React.createElement('span', { className: "text-gray-700 text-lg" }, item)
+                            ))
+                        )
+                    )
+                ),
+                index < services.length - 1 && React.createElement(SectionDivider, null)
+            ))
+        ),
+        React.createElement(SectionDivider, null),
+        React.createElement('section', { className: "py-8 pb-16" },
+            React.createElement('div', { className: "max-w-4xl" },
+                React.createElement('h2', { className: "text-3xl font-bold text-gray-900 mb-6" }, content.costsTitle),
+                React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700" }, content.costsContent)
+            )
+        )
+    )
+);
+
+const AboutPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-start mt-8" }, React.createElement('div', { className: "md:col-span-1 space-y-6" }, ["suzanne1.jpg", "suzanne2.jpg", "suzanne3.jpg", "suzanne4.jpg", "suzanne5.jpg"].map((src, index) => React.createElement(AssetImage, { key: src, src, alt: `${PERSON_NAME} ${index + 1}`, imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" }))), React.createElement('div', { className: "md:col-span-2" }, React.createElement('div', { className: "space-y-6 text-gray-700 text-lg leading-8" }, React.createElement('div', { className: "space-y-1 text-gray-900" }, React.createElement('p', { className: "text-2xl font-bold mb-0" }, content.about.profileName), React.createElement('p', { className: "text-xl font-semibold mb-0" }, content.about.profileRole)), content.about.paragraphs.map((paragraph, index) => React.createElement('p', { key: index }, paragraph)))))));
+
+const BlogPage = ({ content, posts, onViewPost }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900" }, content.blog.title), React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.blog.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" }, posts.map(post => React.createElement(BlogPostCard, { key: post.id, post: post, onClick: () => onViewPost(post) })))));
+
+const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('div', { className: "py-16 lg:py-24 bg-[#EFEFEF] min-h-screen" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('button', { onClick: onBack, className: "text-red-700 font-semibold hover:underline mb-8" }, `← ${backButtonText}`), React.createElement('article', { className: "bg-white/85 rounded-[2rem] shadow-sm border border-gray-200/70 overflow-hidden" }, React.createElement('div', { className: "px-6 md:px-10 pt-8 md:pt-10" }, React.createElement('div', { className: "blog-badge inline-flex items-center rounded-full text-sm font-semibold px-4 py-1.5 mb-4" }, 'UrbanVet Blog'), React.createElement('h1', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight", style: { fontFamily: "Georgia, 'Times New Roman', serif", letterSpacing: '-0.01em' } }, post.title), React.createElement('p', { className: "text-base md:text-lg text-gray-500 mb-8" }, post.date)), React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-auto max-h-[500px] object-cover", placeholderClassName: "w-full min-h-[320px] px-4" }), React.createElement('div', { className: "px-6 md:px-10 py-8 md:py-10" }, React.createElement('div', { className: "blog-rich-content max-w-none" }, renderBlogPostContent(post))))));
+
+const ContactPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('a', { href: "tel:+491716494610", className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, '+49 171 6494610')), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
+
+const ImpressumPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-8" }, content.impressum.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mt-8", dangerouslySetInnerHTML: { __html: content.impressum.content } })));
+
+function App() {
+  const initialNavigation = getInitialNavigationState();
+  const [language, setLanguage] = useState(initialNavigation.language);
+  const [currentPage, setCurrentPage] = useState(initialNavigation.currentPage);
+  const [currentPost, setCurrentPost] = useState(initialNavigation.currentPost);
+  const [targetAnchor, setTargetAnchor] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const content = TEXTS[language];
+  const allServices = ALL_SERVICES[language];
+  const allPosts = ALL_POSTS[language];
+
+  const handleLanguageChange = (nextLanguage) => {
+    setLanguage(nextLanguage);
+    if (currentPage === Page.BLOG_POST && currentPost) {
+      const translatedPost = ALL_POSTS[nextLanguage].find((post) => post.slug === currentPost.slug) || null;
+      setCurrentPost(translatedPost);
+    }
+  };
+
+  const handleNavigate = (page, anchor) => {
+    setCurrentPage(page);
+    if (page !== Page.BLOG_POST) {
+      setCurrentPost(null);
+    }
+    setTargetAnchor(anchor || null);
+    if (!anchor) { window.scrollTo(0, 0); }
+  };
+
+  const handleViewPost = (post) => {
+    setCurrentPost(post);
+    setCurrentPage(Page.BLOG_POST);
+    window.scrollTo(0, 0);
+  };
+
+  const handleMobileNav = (page, anchor) => {
+    handleNavigate(page, anchor);
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (currentPage === Page.SERVICES && targetAnchor) {
+      const element = document.getElementById(targetAnchor);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        setTargetAnchor(null);
+      }
+    }
+  }, [currentPage, targetAnchor]);
+
+  useEffect(() => {
+    document.documentElement.lang = language.toLowerCase();
+  }, [language]);
+
+  useEffect(() => {
+    const resolvedPage = currentPage === Page.BLOG_POST && !currentPost ? Page.BLOG : currentPage;
+    const localizedPost = currentPost ? (ALL_POSTS[language].find((post) => post.slug === currentPost.slug) || currentPost) : null;
+    const seo = getSeoData({ language, currentPage: resolvedPage, currentPost: localizedPost });
+    const canonicalUrl = buildUrl({ language, page: resolvedPage, post: localizedPost }).href;
+    const germanUrl = buildUrl({
+      language: Language.DE,
+      page: resolvedPage,
+      post: localizedPost ? ALL_POSTS[Language.DE].find((post) => post.slug === localizedPost.slug) || null : null
+    }).href;
+    const englishUrl = buildUrl({
+      language: Language.EN,
+      page: resolvedPage,
+      post: localizedPost ? ALL_POSTS[Language.EN].find((post) => post.slug === localizedPost.slug) || null : null
+    }).href;
+
+    document.title = seo.title;
+    setMetaByName('description', seo.description);
+    setMetaByProperty('og:type', seo.ogType);
+    setMetaByProperty('og:title', seo.title);
+    setMetaByProperty('og:description', seo.description);
+    setMetaByProperty('og:url', canonicalUrl);
+    setMetaByProperty('og:image', seo.image);
+    setMetaByProperty('og:locale', language === Language.DE ? 'de_DE' : 'en_GB');
+    setMetaByName('twitter:title', seo.title);
+    setMetaByName('twitter:description', seo.description);
+    setMetaByName('twitter:image', seo.image);
+    document.getElementById('canonical-link')?.setAttribute('href', canonicalUrl);
+    document.getElementById('alternate-de')?.setAttribute('href', germanUrl);
+    document.getElementById('alternate-en')?.setAttribute('href', englishUrl);
+    document.getElementById('alternate-default')?.setAttribute('href', germanUrl);
+    const structuredDataElement = document.getElementById('structured-data');
+    if (structuredDataElement) {
+      structuredDataElement.textContent = JSON.stringify(seo.jsonLd);
+    }
+
+    const nextUrl = new URL(canonicalUrl);
+    window.history.replaceState({}, '', `${window.location.pathname}${nextUrl.search}`);
+  }, [language, currentPage, currentPost]);
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case Page.HOME: return React.createElement(HomePage, { content, onNavigate: handleNavigate, services: allServices, language });
+      case Page.SERVICES: return React.createElement(ServicesPage, { content: content.services, services: allServices });
+      case Page.ABOUT: return React.createElement(AboutPage, { content });
+      case Page.BLOG: return React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
+      case Page.BLOG_POST: return currentPost ? React.createElement(BlogPostPage, { post: currentPost, onBack: () => handleNavigate(Page.BLOG), backButtonText: content.blog.back_button }) : React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
+      case Page.CONTACT: return React.createElement(ContactPage, { content });
+      case Page.IMPRESSUM: return React.createElement(ImpressumPage, { content });
+      default: return React.createElement(HomePage, { content, onNavigate: handleNavigate, services: allServices, language });
+    }
+  };
+
+  return (
+    React.createElement('div', { className: "bg-[#EFEFEF] text-gray-800 font-sans overflow-x-hidden" },
+      React.createElement('header', { className: "fixed top-0 left-0 right-0 bg-[#EFEFEF] shadow-md z-50 h-20 flex items-center" },
+        React.createElement('nav', { className: "container mx-auto px-4 flex justify-between items-center w-full" },
+          React.createElement('div', { className: "hidden md:flex w-full items-center gap-6" },
+            React.createElement('div', { className: "flex-shrink-0" },
+              React.createElement(HomeLogoButton, { onClick: () => handleNavigate(Page.HOME) })
+            ),
+            React.createElement('div', { className: "flex-shrink-0" }, React.createElement('button', { onClick: () => handleNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-2 px-6 rounded-full hover:bg-red-800 transition-colors text-lg shadow-md hover:shadow-lg transform hover:scale-105" }, content.nav[Page.CONTACT])),
+            React.createElement('div', { className: "flex-1 min-w-0 flex items-center justify-end" },
+              React.createElement('div', { className: "flex-1 flex justify-center items-center gap-3 lg:gap-5 min-w-0" },
+                NAV_LINKS.map(link => React.createElement('button', { key: link.page, onClick: () => handleNavigate(link.page), className: `text-lg font-semibold transition-colors px-1 lg:px-2 whitespace-nowrap ${currentPage === link.page ? 'text-red-700' : 'text-gray-600 hover:text-red-700'}` }, content.nav[link.page]))
+              ),
+              React.createElement('div', { className: "pl-6 lg:pl-10 flex-shrink-0" }, React.createElement(LanguageSwitcher, { language: language, onChange: handleLanguageChange }))
+            )
+          ),
+          React.createElement('div', { className: "md:hidden w-full flex items-center justify-between" },
+            React.createElement('div', { className: "flex-1 flex justify-start" },
+              React.createElement(HomeLogoButton, { onClick: () => handleNavigate(Page.HOME) })
+            ),
+            React.createElement('div', { className: "flex-shrink-0" }, React.createElement('button', { onClick: () => handleNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-2 px-5 rounded-full hover:bg-red-800 transition-colors text-base shadow-md" }, content.nav[Page.CONTACT])),
+            React.createElement('div', { className: "flex-1 flex justify-end" },
+              React.createElement('button', { onClick: () => setIsMenuOpen(true), className: "text-gray-700" },
+                React.createElement('svg', { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M4 6h16M4 12h16m-7 6h7" }))
+              )
+            )
+          )
+        )
+      ),
+      React.createElement('div', { className: `fixed top-0 right-0 h-full w-full bg-[#EFEFEF] z-50 transform menu-panel ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}` },
+        React.createElement('div', { className: "flex justify-end p-4" },
+          React.createElement('button', { onClick: () => setIsMenuOpen(false), className: "text-gray-700" },
+            React.createElement('svg', { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg" }, React.createElement('path', { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M6 18L18 6M6 6l12 12" }))
+          )
+        ),
+        React.createElement('div', { className: "flex flex-col items-center justify-center h-full -mt-16 space-y-8" },
+          NAV_LINKS.map(link => React.createElement('button', { key: `mobile-${link.page}`, onClick: () => handleMobileNav(link.page), className: `text-3xl font-bold transition-colors ${currentPage === link.page ? 'text-red-700' : 'text-gray-700 hover:text-red-700'}` }, content.nav[link.page])),
+          React.createElement(LanguageSwitcher, { language: language, onChange: (nextLanguage) => { handleLanguageChange(nextLanguage); setIsMenuOpen(false); }, buttonClassName: 'p-2' })
+        )
+      ),
+      React.createElement('main', { className: "pt-20" }, renderPage()),
+      React.createElement('footer', { className: "bg-red-700 text-white" },
+        React.createElement('div', { className: "container mx-auto px-4 py-8 grid gap-8 md:grid-cols-3 items-start text-center md:text-left" },
+          React.createElement('div', null,
+            React.createElement('h4', { className: "font-bold text-lg" }, 'UrbanVet'),
+            React.createElement('p', { className: "text-red-200 mt-1" }, content.footer.tagline),
+            React.createElement('div', { className: "mt-4 text-sm text-red-100" },
+              React.createElement('p', { className: "font-semibold text-white" }, content.footer.phoneLabel),
+              React.createElement('a', { href: `tel:${SITE_PHONE.replace(/\s+/g, '')}`, className: "hover:text-white transition-colors" }, SITE_PHONE)
+            )
+          ),
+          React.createElement('div', { className: "text-sm text-red-100 md:px-4" },
+            React.createElement('p', { className: "font-semibold text-white mb-2" }, content.footer.openingHoursLabel),
+            React.createElement('p', null, content.footer.scheduleLine1),
+            React.createElement('p', { className: "mt-3 leading-6" }, content.footer.appointmentNote)
+          ),
+          React.createElement('div', { className: "text-center md:text-left md:justify-self-end" },
+            React.createElement('button', { onClick: () => handleNavigate(Page.IMPRESSUM), className: "font-semibold transition-colors hover:text-red-200" }, content.footer.legal),
+            React.createElement('div', { className: "text-sm text-red-200 mt-4 leading-5" },
+              React.createElement('p', null, `© ${new Date().getFullYear()} UrbanVet.`),
+              React.createElement('p', null, 'All rights reserved.')
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
+root.render(React.createElement(React.StrictMode, null, React.createElement(App, null)));
+    </script>
+</body>
+</html>
