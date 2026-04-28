@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NWL9VX59');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
@@ -24,15 +17,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="geo.placename" content="Berlin" />
     <meta name="geo.position" content="52.520008;13.404954" />
     <meta name="ICBM" content="52.520008, 13.404954" />
-    <link rel="canonical" id="canonical-link" href="https://www.urbanvet.de/?lang=de" />
-    <link rel="alternate" hreflang="de" id="alternate-de" href="https://www.urbanvet.de/?lang=de" />
-    <link rel="alternate" hreflang="en" id="alternate-en" href="https://www.urbanvet.de/?lang=en" />
-    <link rel="alternate" hreflang="x-default" id="alternate-default" href="https://www.urbanvet.de/?lang=de" />
+    <link rel="canonical" id="canonical-link" href="https://www.urbanvet.de/mobile_tierarztpraxis_berlin" />
+    <link rel="alternate" hreflang="de" id="alternate-de" href="https://www.urbanvet.de/mobile_tierarztpraxis_berlin" />
+    <link rel="alternate" hreflang="en" id="alternate-en" href="https://www.urbanvet.de/mobile_vet_berlin" />
+    <link rel="alternate" hreflang="x-default" id="alternate-default" href="https://www.urbanvet.de/mobile_tierarztpraxis_berlin" />
     <meta property="og:type" id="og-type" content="website" />
     <meta property="og:site_name" content="UrbanVet" />
     <meta property="og:title" id="og-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
     <meta property="og:description" id="og-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
-    <meta property="og:url" id="og-url" content="https://www.urbanvet.de/?lang=de" />
+    <meta property="og:url" id="og-url" content="https://www.urbanvet.de/mobile_tierarztpraxis_berlin" />
     <meta property="og:image" id="og-image" content="https://www.urbanvet.de/logo-main.png" />
     <meta property="og:locale" id="og-locale" content="de_DE" />
     <meta property="og:locale:alternate" content="en_GB" />
@@ -174,22 +167,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="application/ld+json" id="structured-data"></script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWL9VX59"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
 
     <script type="text/babel" data-type="module">
 const Language = { EN: 'EN', DE: 'DE' };
 const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM' };
-const SITE_URL = 'https://www.urbanvet.de/';
+const SITE_URL = 'https://www.urbanvet.de';
 const SITE_NAME = 'UrbanVet';
 const PERSON_NAME = 'Susanne Repanelis';
 const SITE_PHONE = '0171 64 94 610';
 const SITE_PHONE_LINK = '+491716494610';
 const SITE_EMAIL = 'info@urbanvet.de';
 const DEFAULT_OG_IMAGE = 'logo-main.png';
+const LANGUAGE_HOME_PATHS = {
+  [Language.DE]: '/mobile_tierarztpraxis_berlin',
+  [Language.EN]: '/mobile_veterinarycare_berlin'
+};
+const BOOKING_LINKS = {
+  [Language.DE]: 'https://www.termin.vet/urbanvet/termin_buchen/de',
+  [Language.EN]: 'https://www.termin.vet/urbanvet/termin_buchen/en'
+};
+const BOOKING_BUTTON_IMAGE_SRC = 'https://www.termin.vet/urbanvet/termin_buchen/button/1/ff0000/ffffff';
+const WHATSAPP_URL = 'https://wa.me/491716494610';
 const PAGE_QUERY_MAP = {
   [Page.HOME]: 'home',
   [Page.SERVICES]: 'services',
@@ -303,8 +302,8 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
   openingHours: {
     title: 'Öffnungszeiten',
     lines: [
-      'Montag – Freitag: 10:00 – 18:00 Uhr',
-      'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich.'
+      'Montag – Freitag: 18:00 – 22:00 Uhr',
+      'Samstag – Sonntag: 10:00 – 22:00 Uhr'
     ]
   },
   emergencies: {
@@ -325,8 +324,8 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
   openingHours: {
     title: 'Opening Hours',
     lines: [
-      'Monday – Friday: 10:00 AM – 6:00 PM',
-      'Appointments outside regular opening hours may be arranged by appointment.'
+      'Monday – Friday: 6:00 PM – 10:00 PM',
+      'Saturday – Sunday: 10:00 AM – 10:00 PM'
     ]
   },
   emergencies: {
@@ -667,7 +666,7 @@ const TEXTS = {
         <p>When you visit our website, only technical information such as browser type or IP address is collected. Only essential cookies are used to ensure website functionality and comply with user interests (Art. 6(1)(f) GDPR).</p>
       `
     },
-    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 10:00 AM – 6:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable time.' }
+    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine2: 'Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Please feel free to contact me to arrange a suitable appointment time.' }
   },
   [Language.DE]: {
     nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum' },
@@ -990,7 +989,7 @@ const TEXTS = {
         <p>Alle bei Ihrem Websitebesuch erhobenen, technischen Daten, wie Art des genutzten Browsers und IP-Adresse werden standardisiert von der Webseite zur Auswertung genutzt, wobei ausschließlich notwendige Cookies zum Einsatz kommen, die den Interessen der User gemäß Art. 6 I S. 1 f DSGVO nicht entgegenstehen. Bei Fragen wenden Sie sich bitte an uns.</p>
       `
     },
-    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 10:00 – 18:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
+    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine2: 'Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
   }
 };
 
@@ -1067,7 +1066,7 @@ const NAV_LINKS = [{ page: Page.HOME }, { page: Page.SERVICES }, { page: Page.AB
 
 const { useState, useEffect, useRef } = React;
 
-const toAbsoluteUrl = (path) => new URL(path, SITE_URL).href;
+const toAbsoluteUrl = (path) => new URL(path, `${SITE_URL}/`).href;
 
 const setMetaByName = (name, content) => {
   const element = document.querySelector(`meta[name="${name}"]`);
@@ -1079,9 +1078,10 @@ const setMetaByProperty = (property, content) => {
   if (element) element.setAttribute('content', content);
 };
 
+const getLanguageHomePath = (language) => LANGUAGE_HOME_PATHS[language] || LANGUAGE_HOME_PATHS[Language.DE];
+
 const buildUrl = ({ language, page, post }) => {
-  const url = new URL(SITE_URL);
-  url.searchParams.set('lang', language.toLowerCase());
+  const url = new URL(`${SITE_URL}${getLanguageHomePath(language)}`);
   const normalizedPage = page === Page.BLOG_POST ? Page.BLOG : page;
   if (normalizedPage !== Page.HOME) {
     url.searchParams.set('page', PAGE_QUERY_MAP[normalizedPage]);
@@ -1094,7 +1094,15 @@ const buildUrl = ({ language, page, post }) => {
 
 const getInitialNavigationState = () => {
   const params = new URLSearchParams(window.location.search);
-  const language = params.get('lang') === 'en' ? Language.EN : Language.DE;
+  const requestedLanguage = params.get('lang');
+  const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const language = requestedLanguage === 'en'
+    ? Language.EN
+    : requestedLanguage === 'de'
+      ? Language.DE
+      : normalizedPath.endsWith(getLanguageHomePath(Language.EN))
+        ? Language.EN
+        : Language.DE;
   const pageParam = params.get('page');
   const postSlug = params.get('post');
   const requestedPage = QUERY_PAGE_MAP[pageParam] || Page.HOME;
@@ -1118,6 +1126,9 @@ const syncBrowserHistoryEntry = ({ language, currentPage, currentPost, mode = 'r
   const normalizedPost = normalizedPage === Page.BLOG_POST ? currentPost : null;
   const nextUrl = new URL(buildUrl({ language, page: normalizedPage, post: normalizedPost }).href);
   const historyMethod = mode === 'push' ? 'pushState' : 'replaceState';
+  const browserUrl = window.location.protocol === 'file:'
+    ? `${window.location.pathname}${nextUrl.search}`
+    : `${nextUrl.pathname}${nextUrl.search}`;
 
   window.history[historyMethod](
     {
@@ -1127,7 +1138,7 @@ const syncBrowserHistoryEntry = ({ language, currentPage, currentPost, mode = 'r
       postSlug: normalizedPost?.slug || null
     },
     '',
-    `${window.location.pathname}${nextUrl.search}`
+    browserUrl
   );
 };
 
@@ -1430,6 +1441,24 @@ const LanguageSwitcher = ({ language, onChange, buttonClassName = 'p-1' }) => Re
   React.createElement('button', { onClick: () => onChange(Language.DE), className: `${buttonClassName} rounded-full ${language === Language.DE ? 'bg-red-100' : ''}` }, React.createElement(DEFlagIcon, null))
 );
 
+const WhatsAppIcon = () => React.createElement('svg', { viewBox: "0 0 32 32", className: "h-5 w-5", fill: "currentColor", 'aria-hidden': true },
+  React.createElement('path', { d: "M19.11 17.21c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.62.14-.19.28-.71.9-.88 1.08-.16.19-.33.21-.61.07-.28-.14-1.17-.43-2.24-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.12.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.62-1.49-.84-2.04-.22-.53-.45-.46-.62-.47h-.53c-.19 0-.5.07-.76.35-.26.28-1 1-.99 2.43 0 1.43 1.04 2.82 1.19 3.02.14.19 2.04 3.12 5.03 4.25.71.31 1.27.49 1.71.63.72.23 1.37.2 1.88.12.57-.08 1.75-.71 1.99-1.4.25-.69.25-1.28.17-1.4-.07-.12-.26-.19-.54-.33M16.01 5.33c-5.87 0-10.63 4.76-10.63 10.63 0 1.87.49 3.7 1.41 5.31L5.33 26.67l5.52-1.44c1.55.85 3.3 1.29 5.15 1.29h.01c5.87 0 10.63-4.76 10.63-10.63 0-2.85-1.11-5.54-3.13-7.55a10.57 10.57 0 0 0-7.5-3.11m0 19.29h-.01c-1.58 0-3.13-.43-4.48-1.25l-.32-.19-3.27.85.87-3.19-.21-.33a8.7 8.7 0 0 1-1.33-4.6c0-4.81 3.92-8.73 8.74-8.73 2.33 0 4.52.91 6.17 2.56a8.68 8.68 0 0 1 2.56 6.17c0 4.81-3.92 8.73-8.73 8.73" })
+);
+
+const BookingButton = ({ language, className = '' }) => React.createElement('a', {
+  href: BOOKING_LINKS[language],
+  target: '_blank',
+  rel: 'noopener noreferrer',
+  className: `inline-flex items-center justify-center ${className}`.trim()
+},
+  React.createElement('img', {
+    src: BOOKING_BUTTON_IMAGE_SRC,
+    title: language === Language.DE ? 'Termin buchen' : 'Book appointment',
+    alt: language === Language.DE ? 'Online-Terminbuchung' : 'Online appointment booking',
+    className: 'w-[176px] sm:w-[188px] h-auto'
+  })
+);
+
 const BlogPostCard = ({ post, onClick }) => React.createElement('div', { onClick: onClick, className: "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-200/70 cursor-pointer hover:-translate-y-1" }, React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-52 object-cover", placeholderClassName: "w-full h-52 px-4" }), React.createElement('div', { className: "p-6" }, React.createElement('p', { className: "text-sm text-gray-500 mb-2 font-medium" }, post.date), React.createElement('h3', { className: "text-xl font-bold mb-3 text-gray-900 group-hover:text-red-700 transition-colors leading-snug" }, post.title), React.createElement('p', { className: "text-gray-700 leading-7" }, post.summary), React.createElement('div', { className: "mt-5 text-red-700 font-semibold group-hover:underline" }, post.readMoreLabel)));
 
 const HomePage = ({ content, onNavigate, services, language }) => React.createElement('div', null,
@@ -1442,7 +1471,7 @@ const HomePage = ({ content, onNavigate, services, language }) => React.createEl
                 ))
             ),
             React.createElement('p', { className: "text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto" }, content.home.heroSubtitle),
-            React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+            React.createElement(BookingButton, { language: language })
         )
     ),
     React.createElement(SectionDivider, null),
@@ -1478,7 +1507,7 @@ const HomePage = ({ content, onNavigate, services, language }) => React.createEl
                         content.home.introParagraphs.map((paragraph, index) => React.createElement('p', { key: index, className: "mb-6" }, paragraph))
                     ),
                     React.createElement('div', { className: "mt-8 md:mt-auto md:pt-6 text-center" },
-                        React.createElement('button', { onClick: () => onNavigate(Page.CONTACT), className: "bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.home.ctaButton)
+                        React.createElement(BookingButton, { language: language })
                     )
                 )
             )
@@ -1522,54 +1551,13 @@ const ServicesPage = ({ content, services }) => React.createElement('div', { cla
     )
 );
 
-const AboutPage = ({ content }) => {
-  const aboutImages = ["suzanne1.jpg", "suzanne2.jpg", "suzanne3.jpg", "suzanne5.jpg"];
-
-  return React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" },
-    React.createElement('div', { className: "max-w-4xl mx-auto px-4" },
-      React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title),
-      React.createElement(SectionDivider, null),
-      React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-start mt-8" },
-        React.createElement('div', { className: "md:col-span-1" },
-          React.createElement('div', { className: "md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2" },
-            aboutImages.map((src, index) => React.createElement('div', { key: src, className: "w-full flex-shrink-0 snap-center" },
-              React.createElement(AssetImage, {
-                src,
-                alt: `${PERSON_NAME} ${index + 1}`,
-                imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover",
-                placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4"
-              })
-            ))
-          ),
-          React.createElement('div', { className: "hidden md:block space-y-6" },
-            aboutImages.map((src, index) => React.createElement(AssetImage, {
-              key: src,
-              src,
-              alt: `${PERSON_NAME} ${index + 1}`,
-              imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover",
-              placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4"
-            }))
-          )
-        ),
-        React.createElement('div', { className: "md:col-span-2" },
-          React.createElement('div', { className: "space-y-6 text-gray-700 text-lg leading-8" },
-            React.createElement('div', { className: "space-y-1 text-gray-900" },
-              React.createElement('p', { className: "text-2xl font-bold mb-0" }, content.about.profileName),
-              React.createElement('p', { className: "text-xl font-semibold mb-0" }, content.about.profileRole)
-            ),
-            content.about.paragraphs.map((paragraph, index) => React.createElement('p', { key: index }, paragraph))
-          )
-        )
-      )
-    )
-  );
-};
+const AboutPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-start mt-8" }, React.createElement('div', { className: "md:col-span-1 space-y-6" }, ["suzanne1.jpg", "suzanne2.jpg", "suzanne3.jpg", "suzanne4.jpg", "suzanne5.jpg"].map((src, index) => React.createElement(AssetImage, { key: src, src, alt: `${PERSON_NAME} ${index + 1}`, imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" }))), React.createElement('div', { className: "md:col-span-2" }, React.createElement('div', { className: "space-y-6 text-gray-700 text-lg leading-8" }, React.createElement('div', { className: "space-y-1 text-gray-900" }, React.createElement('p', { className: "text-2xl font-bold mb-0" }, content.about.profileName), React.createElement('p', { className: "text-xl font-semibold mb-0" }, content.about.profileRole)), content.about.paragraphs.map((paragraph, index) => React.createElement('p', { key: index }, paragraph)))))));
 
 const BlogPage = ({ content, posts, onViewPost }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900" }, content.blog.title), React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.blog.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" }, posts.map(post => React.createElement(BlogPostCard, { key: post.id, post: post, onClick: () => onViewPost(post) })))));
 
 const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('div', { className: "py-16 lg:py-24 bg-[#EFEFEF] min-h-screen" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('button', { onClick: onBack, className: "text-red-700 font-semibold hover:underline mb-8" }, `← ${backButtonText}`), React.createElement('article', { className: "bg-white/85 rounded-[2rem] shadow-sm border border-gray-200/70 overflow-hidden" }, React.createElement('div', { className: "px-6 md:px-10 pt-8 md:pt-10" }, React.createElement('div', { className: "blog-badge inline-flex items-center rounded-full text-sm font-semibold px-4 py-1.5 mb-4" }, 'UrbanVet Blog'), React.createElement('h1', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight", style: { fontFamily: "Georgia, 'Times New Roman', serif", letterSpacing: '-0.01em' } }, post.title), React.createElement('p', { className: "text-base md:text-lg text-gray-500 mb-8" }, post.date)), React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-auto max-h-[500px] object-cover", placeholderClassName: "w-full min-h-[320px] px-4" }), React.createElement('div', { className: "px-6 md:px-10 py-8 md:py-10" }, React.createElement('div', { className: "blog-rich-content max-w-none" }, renderBlogPostContent(post))))));
 
-const ContactPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('a', { href: `tel:${SITE_PHONE_LINK}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, SITE_PHONE)), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
+const ContactPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('div', { className: "flex items-center justify-center gap-3 flex-wrap" }, React.createElement('a', { href: `tel:${SITE_PHONE_LINK}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, SITE_PHONE), React.createElement('a', { href: WHATSAPP_URL, target: '_blank', rel: 'noopener noreferrer', className: "inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105", 'aria-label': 'WhatsApp' }, React.createElement(WhatsAppIcon, null)))), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-8" }, React.createElement(BookingButton, { language: language })), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
 
 const ImpressumPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-8" }, content.impressum.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mt-8", dangerouslySetInnerHTML: { __html: content.impressum.content } })));
 
@@ -1768,7 +1756,7 @@ function App() {
       case Page.ABOUT: return React.createElement(AboutPage, { content });
       case Page.BLOG: return React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
       case Page.BLOG_POST: return currentPost ? React.createElement(BlogPostPage, { post: currentPost, onBack: () => handleNavigate(Page.BLOG), backButtonText: content.blog.back_button }) : React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
-      case Page.CONTACT: return React.createElement(ContactPage, { content });
+      case Page.CONTACT: return React.createElement(ContactPage, { content, language });
       case Page.IMPRESSUM: return React.createElement(ImpressumPage, { content });
       default: return React.createElement(HomePage, { content, onNavigate: handleNavigate, services: allServices, language });
     }
@@ -1828,6 +1816,7 @@ function App() {
           React.createElement('div', { className: "text-sm text-red-100 md:px-4" },
             React.createElement('p', { className: "font-semibold text-white mb-2" }, content.footer.openingHoursLabel),
             React.createElement('p', null, content.footer.scheduleLine1),
+            content.footer.scheduleLine2 ? React.createElement('p', { className: "mt-1" }, content.footer.scheduleLine2) : null,
             React.createElement('p', { className: "mt-3 leading-6" }, content.footer.appointmentNote)
           ),
           React.createElement('div', { className: "text-center md:text-left md:justify-self-end" },
