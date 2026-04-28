@@ -310,8 +310,8 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
   emergencies: {
     title: 'Notfälle',
     lines: [
-        'Montag – Freitag: 18:00 – 22:00 Uhr'
-        'Samstag – Sonntag: 10:00 – 22:00 Uhr',
+      'Montag – Freitag: 18:00 – 22:00 Uhr',
+      'Samstag – Sonntag: 10:00 – 22:00 Uhr',
       React.createElement(React.Fragment, null, 'Bei akuten, lebensbedrohlichen medizinischen Notfällen wenden Sie sich bitte umgehend an eine tierärztliche Notfallklinik:'),
       buildExternalLink(EMERGENCY_SERVICE_URL, 'Notdienst Tierärztekammer Berlin')
     ]
@@ -327,15 +327,15 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
   openingHours: {
     title: 'Opening Hours',
     lines: [
-      'Monday – Friday: 10:00 – 18:00',
+      'Monday – Friday: 10:00 AM – 6:00 PM',
       'Appointments outside regular opening hours may be arranged by appointment.'
     ]
   },
   emergencies: {
     title: 'Emergencies',
     lines: [
-        'Monday – Friday: 18:00 – 22:00',
-        'Saturday – Sunday: 10:00 – 22:00',
+      'Monday – Friday: 6:00 PM – 10:00 PM',
+      'Saturday – Sunday: 10:00 AM – 10:00 PM',
       React.createElement(React.Fragment, null, 'In the case of acute, life-threatening medical emergencies, please contact a veterinary emergency clinic immediately:'),
       buildExternalLink(EMERGENCY_SERVICE_URL, 'Berlin Veterinary Emergency Service')
     ]
@@ -671,7 +671,7 @@ const TEXTS = {
         <p>When you visit our website, only technical information such as browser type or IP address is collected. Only essential cookies are used to ensure website functionality and comply with user interests (Art. 6(1)(f) GDPR).</p>
       `
     },
-    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine2: 'Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable appointment time.' }
+    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 10:00 AM – 6:00 PM', scheduleLine2: 'Emergency hours Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine3: 'Emergency hours Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable appointment time.' }
   },
   [Language.DE]: {
     nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum' },
@@ -994,7 +994,7 @@ const TEXTS = {
         <p>Alle bei Ihrem Websitebesuch erhobenen, technischen Daten, wie Art des genutzten Browsers und IP-Adresse werden standardisiert von der Webseite zur Auswertung genutzt, wobei ausschließlich notwendige Cookies zum Einsatz kommen, die den Interessen der User gemäß Art. 6 I S. 1 f DSGVO nicht entgegenstehen. Bei Fragen wenden Sie sich bitte an uns.</p>
       `
     },
-    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine2: 'Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
+    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 10:00 – 18:00 Uhr', scheduleLine2: 'Notfälle Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine3: 'Notfälle Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
   }
 };
 
@@ -1832,6 +1832,7 @@ function App() {
             React.createElement('p', { className: "font-semibold text-white mb-2" }, content.footer.openingHoursLabel),
             React.createElement('p', null, content.footer.scheduleLine1),
             content.footer.scheduleLine2 ? React.createElement('p', { className: "mt-1" }, content.footer.scheduleLine2) : null,
+            content.footer.scheduleLine3 ? React.createElement('p', { className: "mt-1" }, content.footer.scheduleLine3) : null,
             React.createElement('p', { className: "mt-3 leading-6" }, content.footer.appointmentNote)
           ),
           React.createElement('div', { className: "text-center md:text-left md:justify-self-end" },
