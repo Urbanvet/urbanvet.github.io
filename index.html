@@ -181,7 +181,7 @@ const SITE_EMAIL = 'info@urbanvet.de';
 const DEFAULT_OG_IMAGE = 'logo-main.png';
 const LANGUAGE_HOME_PATHS = {
   [Language.DE]: '/mobile_tierarztpraxis_berlin',
-  [Language.EN]: '/mobile_veterinarycare_berlin'
+  [Language.EN]: '/mobile_vet_berlin'
 };
 const BOOKING_LINKS = {
   [Language.DE]: 'https://www.termin.vet/urbanvet/termin_buchen/de',
@@ -189,6 +189,7 @@ const BOOKING_LINKS = {
 };
 const BOOKING_BUTTON_IMAGE_SRC = 'https://www.termin.vet/urbanvet/termin_buchen/button/1/ff0000/ffffff';
 const WHATSAPP_URL = 'https://wa.me/491716494610';
+const ROUTE_REDIRECT_PARAM = 'route';
 const PAGE_QUERY_MAP = {
   [Page.HOME]: 'home',
   [Page.SERVICES]: 'services',
@@ -303,7 +304,8 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
     title: 'Öffnungszeiten',
     lines: [
       'Montag – Freitag: 18:00 – 22:00 Uhr',
-      'Samstag – Sonntag: 10:00 – 22:00 Uhr'
+      'Samstag – Sonntag: 10:00 – 22:00 Uhr',
+      'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich.'
     ]
   },
   emergencies: {
@@ -325,7 +327,8 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
     title: 'Opening Hours',
     lines: [
       'Monday – Friday: 6:00 PM – 10:00 PM',
-      'Saturday – Sunday: 10:00 AM – 10:00 PM'
+      'Saturday – Sunday: 10:00 AM – 10:00 PM',
+      'Appointments outside regular opening hours may be arranged by appointment.'
     ]
   },
   emergencies: {
@@ -666,7 +669,7 @@ const TEXTS = {
         <p>When you visit our website, only technical information such as browser type or IP address is collected. Only essential cookies are used to ensure website functionality and comply with user interests (Art. 6(1)(f) GDPR).</p>
       `
     },
-    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine2: 'Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Please feel free to contact me to arrange a suitable appointment time.' }
+    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine2: 'Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable appointment time.' }
   },
   [Language.DE]: {
     nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum' },
@@ -989,7 +992,7 @@ const TEXTS = {
         <p>Alle bei Ihrem Websitebesuch erhobenen, technischen Daten, wie Art des genutzten Browsers und IP-Adresse werden standardisiert von der Webseite zur Auswertung genutzt, wobei ausschließlich notwendige Cookies zum Einsatz kommen, die den Interessen der User gemäß Art. 6 I S. 1 f DSGVO nicht entgegenstehen. Bei Fragen wenden Sie sich bitte an uns.</p>
       `
     },
-    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine2: 'Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
+    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine2: 'Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
   }
 };
 
@@ -1080,22 +1083,21 @@ const setMetaByProperty = (property, content) => {
 
 const getLanguageHomePath = (language) => LANGUAGE_HOME_PATHS[language] || LANGUAGE_HOME_PATHS[Language.DE];
 
+const getRequestedPathname = () => {
+  const params = new URLSearchParams(window.location.search);
+  const redirectedPath = params.get(ROUTE_REDIRECT_PARAM);
+  return (redirectedPath || window.location.pathname).replace(/\/+$/, '') || '/';
+};
+
 const buildUrl = ({ language, page, post }) => {
   const url = new URL(`${SITE_URL}${getLanguageHomePath(language)}`);
-  const normalizedPage = page === Page.BLOG_POST ? Page.BLOG : page;
-  if (normalizedPage !== Page.HOME) {
-    url.searchParams.set('page', PAGE_QUERY_MAP[normalizedPage]);
-  }
-  if (page === Page.BLOG_POST && post) {
-    url.searchParams.set('post', post.slug);
-  }
   return url;
 };
 
 const getInitialNavigationState = () => {
   const params = new URLSearchParams(window.location.search);
   const requestedLanguage = params.get('lang');
-  const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const normalizedPath = getRequestedPathname();
   const language = requestedLanguage === 'en'
     ? Language.EN
     : requestedLanguage === 'de'
@@ -1127,8 +1129,19 @@ const syncBrowserHistoryEntry = ({ language, currentPage, currentPost, mode = 'r
   const nextUrl = new URL(buildUrl({ language, page: normalizedPage, post: normalizedPost }).href);
   const historyMethod = mode === 'push' ? 'pushState' : 'replaceState';
   const browserUrl = window.location.protocol === 'file:'
-    ? `${window.location.pathname}${nextUrl.search}`
-    : `${nextUrl.pathname}${nextUrl.search}`;
+    ? (() => {
+        const localParams = new URLSearchParams();
+        localParams.set('lang', language.toLowerCase());
+        if (normalizedPage !== Page.HOME) {
+          localParams.set('page', PAGE_QUERY_MAP[normalizedPage]);
+        }
+        if (normalizedPage === Page.BLOG_POST && normalizedPost) {
+          localParams.set('post', normalizedPost.slug);
+        }
+        const queryString = localParams.toString();
+        return queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+      })()
+    : nextUrl.pathname;
 
   window.history[historyMethod](
     {
@@ -1557,7 +1570,7 @@ const BlogPage = ({ content, posts, onViewPost }) => React.createElement('div', 
 
 const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('div', { className: "py-16 lg:py-24 bg-[#EFEFEF] min-h-screen" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('button', { onClick: onBack, className: "text-red-700 font-semibold hover:underline mb-8" }, `← ${backButtonText}`), React.createElement('article', { className: "bg-white/85 rounded-[2rem] shadow-sm border border-gray-200/70 overflow-hidden" }, React.createElement('div', { className: "px-6 md:px-10 pt-8 md:pt-10" }, React.createElement('div', { className: "blog-badge inline-flex items-center rounded-full text-sm font-semibold px-4 py-1.5 mb-4" }, 'UrbanVet Blog'), React.createElement('h1', { className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight", style: { fontFamily: "Georgia, 'Times New Roman', serif", letterSpacing: '-0.01em' } }, post.title), React.createElement('p', { className: "text-base md:text-lg text-gray-500 mb-8" }, post.date)), React.createElement(AssetImage, { src: post.imageUrl, alt: post.imageAlt || post.title, imageClassName: "w-full h-auto max-h-[500px] object-cover", placeholderClassName: "w-full min-h-[320px] px-4" }), React.createElement('div', { className: "px-6 md:px-10 py-8 md:py-10" }, React.createElement('div', { className: "blog-rich-content max-w-none" }, renderBlogPostContent(post))))));
 
-const ContactPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('div', { className: "flex items-center justify-center gap-3 flex-wrap" }, React.createElement('a', { href: `tel:${SITE_PHONE_LINK}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, SITE_PHONE), React.createElement('a', { href: WHATSAPP_URL, target: '_blank', rel: 'noopener noreferrer', className: "inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105", 'aria-label': 'WhatsApp' }, React.createElement(WhatsAppIcon, null)))), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-8" }, React.createElement(BookingButton, { language: language })), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
+const ContactPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('div', { className: "flex flex-col items-center gap-3" }, React.createElement('a', { href: `tel:${SITE_PHONE_LINK}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, SITE_PHONE), React.createElement('a', { href: WHATSAPP_URL, target: '_blank', rel: 'noopener noreferrer', className: "inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105", 'aria-label': 'WhatsApp' }, React.createElement(WhatsAppIcon, null)))), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-8" }, React.createElement(BookingButton, { language: language })), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
 
 const ImpressumPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-8" }, content.impressum.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mt-8", dangerouslySetInnerHTML: { __html: content.impressum.content } })));
 
