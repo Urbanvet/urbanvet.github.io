@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NWL9VX59');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
@@ -167,6 +174,10 @@
     <script type="application/ld+json" id="structured-data"></script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWL9VX59"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
 
     <script type="text/babel" data-type="module">
@@ -1511,7 +1522,48 @@ const ServicesPage = ({ content, services }) => React.createElement('div', { cla
     )
 );
 
-const AboutPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-start mt-8" }, React.createElement('div', { className: "md:col-span-1 space-y-6" }, ["suzanne1.jpg", "suzanne2.jpg", "suzanne3.jpg", "suzanne4.jpg", "suzanne5.jpg"].map((src, index) => React.createElement(AssetImage, { key: src, src, alt: `${PERSON_NAME} ${index + 1}`, imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover", placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4" }))), React.createElement('div', { className: "md:col-span-2" }, React.createElement('div', { className: "space-y-6 text-gray-700 text-lg leading-8" }, React.createElement('div', { className: "space-y-1 text-gray-900" }, React.createElement('p', { className: "text-2xl font-bold mb-0" }, content.about.profileName), React.createElement('p', { className: "text-xl font-semibold mb-0" }, content.about.profileRole)), content.about.paragraphs.map((paragraph, index) => React.createElement('p', { key: index }, paragraph)))))));
+const AboutPage = ({ content }) => {
+  const aboutImages = ["suzanne1.jpg", "suzanne2.jpg", "suzanne3.jpg", "suzanne5.jpg"];
+
+  return React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" },
+    React.createElement('div', { className: "max-w-4xl mx-auto px-4" },
+      React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center" }, content.about.title),
+      React.createElement(SectionDivider, null),
+      React.createElement('div', { className: "grid md:grid-cols-3 gap-12 items-start mt-8" },
+        React.createElement('div', { className: "md:col-span-1" },
+          React.createElement('div', { className: "md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2" },
+            aboutImages.map((src, index) => React.createElement('div', { key: src, className: "w-full flex-shrink-0 snap-center" },
+              React.createElement(AssetImage, {
+                src,
+                alt: `${PERSON_NAME} ${index + 1}`,
+                imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover",
+                placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4"
+              })
+            ))
+          ),
+          React.createElement('div', { className: "hidden md:block space-y-6" },
+            aboutImages.map((src, index) => React.createElement(AssetImage, {
+              key: src,
+              src,
+              alt: `${PERSON_NAME} ${index + 1}`,
+              imageClassName: "rounded-lg shadow-xl w-full h-auto object-cover",
+              placeholderClassName: "rounded-lg shadow-xl w-full min-h-[360px] px-4"
+            }))
+          )
+        ),
+        React.createElement('div', { className: "md:col-span-2" },
+          React.createElement('div', { className: "space-y-6 text-gray-700 text-lg leading-8" },
+            React.createElement('div', { className: "space-y-1 text-gray-900" },
+              React.createElement('p', { className: "text-2xl font-bold mb-0" }, content.about.profileName),
+              React.createElement('p', { className: "text-xl font-semibold mb-0" }, content.about.profileRole)
+            ),
+            content.about.paragraphs.map((paragraph, index) => React.createElement('p', { key: index }, paragraph))
+          )
+        )
+      )
+    )
+  );
+};
 
 const BlogPage = ({ content, posts, onViewPost }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900" }, content.blog.title), React.createElement('p', { className: "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" }, content.blog.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" }, posts.map(post => React.createElement(BlogPostCard, { key: post.id, post: post, onClick: () => onViewPost(post) })))));
 
