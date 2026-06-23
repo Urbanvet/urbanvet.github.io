@@ -1,0 +1,14 @@
+{
+  "name": "urbanvet-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static site generator for the UrbanVet website (pre-rendered React on GitHub Pages).",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

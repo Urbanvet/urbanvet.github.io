@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
+    <meta
+        name="description"
+        id="meta-description"
+        content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content="Susanne Repanelis" />
+    <meta name="keywords" content="mobile vet Berlin, english speaking vet Berlin, Tierarzt Hausbesuch Berlin, mobiler Tierarzt Berlin, cat vet Berlin, dog vet Berlin, veterinary home visit Brandenburg" />
+    <meta name="theme-color" content="#EFEFEF" />
+    <meta name="geo.region" content="DE-BE" />
+    <meta name="geo.placename" content="Berlin" />
+    <meta name="geo.position" content="52.520008;13.404954" />
+    <meta name="ICBM" content="52.520008, 13.404954" />
+    <link rel="canonical" id="canonical-link" href="https://urbanvet.de/" />
+    <link rel="alternate" hreflang="de" id="alternate-de" href="https://urbanvet.de/" />
+    <link rel="alternate" hreflang="en" id="alternate-en" href="https://urbanvet.de/en" />
+    <link rel="alternate" hreflang="x-default" id="alternate-default" href="https://urbanvet.de/" />
+    <meta property="og:type" id="og-type" content="website" />
+    <meta property="og:site_name" content="UrbanVet" />
+    <meta property="og:title" id="og-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
+    <meta property="og:description" id="og-description" content="UrbanVet is a multilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
+    <meta property="og:url" id="og-url" content="https://urbanvet.de/" />
+    <meta property="og:image" id="og-image" content="https://urbanvet.de/logo-main.png" />
+    <meta property="og:locale" id="og-locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" id="twitter-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
+    <meta name="twitter:description" id="twitter-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
+    <meta name="twitter:image" id="twitter-image" content="https://urbanvet.de/logo-main.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: rgb(255, 25, 0);
+            --brand-red-soft: rgba(255, 25, 0, 0.08);
+            --brand-red-softer: rgba(255, 25, 0, 0.12);
+            --brand-red-border: rgba(255, 25, 0, 0.22);
+            --brand-red-shadow: rgba(255, 25, 0, 0.18);
+        }
+        html, body, #root { min-height: 100%; background: #EFEFEF; overflow-x: hidden; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; color: #1f2937; }
+        .menu-panel { transition: transform 0.3s ease-in-out; }
+
+        .text-red-700, .hover\:text-red-700:hover, .group:hover .group-hover\:text-red-700,
+        .prose-a\:text-red-700 a, .hover\:prose-a\:underline:hover a, .fill-red-700, .stroke-red-700 {
+            color: var(--brand-red) !important;
+            fill: var(--brand-red) !important;
+            stroke: var(--brand-red) !important;
+        }
+        .bg-red-700, .hover\:bg-red-800:hover, .hover\:bg-red-700:hover {
+            background-color: var(--brand-red) !important;
+        }
+        .border-red-700, .ring-red-700 { border-color: var(--brand-red) !important; }
+        .bg-red-50, .bg-red-100 { background-color: var(--brand-red-soft) !important; }
+        .text-red-100, .text-red-200 { color: rgba(255, 255, 255, 0.88) !important; }
+        .shadow-red-700\/20 { --tw-shadow-color: var(--brand-red-shadow) !important; }
+        .group:hover .group-hover\:underline { text-decoration: underline; }
+
+        .blog-rich-content {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #1f1f1f;
+            font-size: 1.12rem;
+            line-height: 1.72;
+        }
+        .blog-rich-content > *:first-child { margin-top: 0; }
+        .blog-rich-content p {
+            margin: 0 0 1.35rem;
+            line-height: 1.72;
+        }
+        .blog-rich-content .blog-subtitle {
+            font-size: 1.22rem;
+            font-weight: 700;
+            line-height: 1.38;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        .blog-rich-content .blog-buttonline {
+            margin: 1.6rem 0;
+        }
+        .blog-rich-content .blog-buttonline a {
+            display: inline-block;
+            background-color: var(--brand-red) !important;
+            color: #ffffff !important;
+            font-weight: 700;
+            text-decoration: none !important;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 10px 20px rgba(17, 24, 39, 0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .blog-rich-content .blog-buttonline a:hover {
+            background-color: rgb(220, 20, 0) !important;
+            color: #ffffff !important;
+            transform: scale(1.03);
+            box-shadow: 0 14px 24px rgba(17, 24, 39, 0.16);
+        }
+        .blog-rich-content h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+            line-height: 1.35;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #111111;
+            margin: 2rem 0 0.9rem;
+        }
+        .blog-rich-content h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.18rem, 1.5vw, 1.3rem);
+            line-height: 1.35;
+            font-weight: 700;
+            color: #111111;
+            margin: 1.6rem 0 0.85rem;
+        }
+        .blog-rich-content ul {
+            margin: 0.3rem 0 1.45rem 0;
+            padding-left: 1.75rem;
+        }
+        .blog-rich-content li {
+            margin: 0 0 0.7rem;
+            padding-left: 0.2rem;
+        }
+        .blog-rich-content strong {
+            font-weight: 700;
+            color: #111111;
+        }
+        .blog-rich-content em {
+            font-style: italic;
+        }
+        .blog-rich-content .blog-tip {
+            background: rgba(255,255,255,0.9);
+            border-left: 4px solid var(--brand-red);
+            padding: 1rem 1.1rem;
+            border-radius: 0.9rem;
+            box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+            margin: 1.8rem 0 0;
+        }
+        .blog-badge {
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            border: 1px solid var(--brand-red-border);
+        }
+        @media (max-width: 768px) {
+            .blog-rich-content {
+                font-size: 1.04rem;
+                line-height: 1.66;
+            }
+            .blog-rich-content .blog-subtitle {
+                font-size: 1.14rem;
+            }
+            .blog-rich-content h2 {
+                margin-top: 1.8rem;
+                font-size: 1.22rem;
+            }
+        }
+    </style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+    <script type="application/ld+json" id="structured-data"></script>
+    <script defer src="/app.js"></script>
+</head>
+<body>
+    <div id="root"><!--APP_HTML--></div>
+</body>
+</html>
