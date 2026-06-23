@@ -1,187 +1,37 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
-    <meta
-        name="description"
-        id="meta-description"
-        content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English."
-    />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="author" content="Susanne Repanelis" />
-    <meta name="keywords" content="mobile vet Berlin, english speaking vet Berlin, Tierarzt Hausbesuch Berlin, mobiler Tierarzt Berlin, cat vet Berlin, dog vet Berlin, veterinary home visit Brandenburg" />
-    <meta name="theme-color" content="#EFEFEF" />
-    <meta name="geo.region" content="DE-BE" />
-    <meta name="geo.placename" content="Berlin" />
-    <meta name="geo.position" content="52.520008;13.404954" />
-    <meta name="ICBM" content="52.520008, 13.404954" />
-    <link rel="canonical" id="canonical-link" href="https://www.urbanvet.de/mobile-tierarztpraxis-berlin" />
-    <link rel="alternate" hreflang="de" id="alternate-de" href="https://www.urbanvet.de/mobile-tierarztpraxis-berlin" />
-    <link rel="alternate" hreflang="en" id="alternate-en" href="https://www.urbanvet.de/mobile-vet-berlin" />
-    <link rel="alternate" hreflang="x-default" id="alternate-default" href="https://www.urbanvet.de/mobile-tierarztpraxis-berlin" />
-    <meta property="og:type" id="og-type" content="website" />
-    <meta property="og:site_name" content="UrbanVet" />
-    <meta property="og:title" id="og-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
-    <meta property="og:description" id="og-description" content="UrbanVet is a multilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
-    <meta property="og:url" id="og-url" content="https://www.urbanvet.de/mobile-tierarztpraxis-berlin" />
-    <meta property="og:image" id="og-image" content="https://www.urbanvet.de/logo-main.png" />
-    <meta property="og:locale" id="og-locale" content="de_DE" />
-    <meta property="og:locale:alternate" content="en_GB" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" id="twitter-title" content="UrbanVet | Mobile veterinary home visits in Berlin" />
-    <meta name="twitter:description" id="twitter-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
-    <meta name="twitter:image" id="twitter-image" content="https://www.urbanvet.de/logo-main.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand-red: rgb(255, 25, 0);
-            --brand-red-soft: rgba(255, 25, 0, 0.08);
-            --brand-red-softer: rgba(255, 25, 0, 0.12);
-            --brand-red-border: rgba(255, 25, 0, 0.22);
-            --brand-red-shadow: rgba(255, 25, 0, 0.18);
-        }
-        html, body, #root { min-height: 100%; background: #EFEFEF; overflow-x: hidden; }
-        body { margin: 0; font-family: 'Poppins', sans-serif; color: #1f2937; }
-        .menu-panel { transition: transform 0.3s ease-in-out; }
-
-        .text-red-700, .hover\:text-red-700:hover, .group:hover .group-hover\:text-red-700,
-        .prose-a\:text-red-700 a, .hover\:prose-a\:underline:hover a, .fill-red-700, .stroke-red-700 {
-            color: var(--brand-red) !important;
-            fill: var(--brand-red) !important;
-            stroke: var(--brand-red) !important;
-        }
-        .bg-red-700, .hover\:bg-red-800:hover, .hover\:bg-red-700:hover {
-            background-color: var(--brand-red) !important;
-        }
-        .border-red-700, .ring-red-700 { border-color: var(--brand-red) !important; }
-        .bg-red-50, .bg-red-100 { background-color: var(--brand-red-soft) !important; }
-        .text-red-100, .text-red-200 { color: rgba(255, 255, 255, 0.88) !important; }
-        .shadow-red-700\/20 { --tw-shadow-color: var(--brand-red-shadow) !important; }
-        .group:hover .group-hover\:underline { text-decoration: underline; }
-
-        .blog-rich-content {
-            font-family: Georgia, 'Times New Roman', serif;
-            color: #1f1f1f;
-            font-size: 1.12rem;
-            line-height: 1.72;
-        }
-        .blog-rich-content > *:first-child { margin-top: 0; }
-        .blog-rich-content p {
-            margin: 0 0 1.35rem;
-            line-height: 1.72;
-        }
-        .blog-rich-content .blog-subtitle {
-            font-size: 1.22rem;
-            font-weight: 700;
-            line-height: 1.38;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        .blog-rich-content .blog-buttonline {
-            margin: 1.6rem 0;
-        }
-        .blog-rich-content .blog-buttonline a {
-            display: inline-block;
-            background-color: var(--brand-red) !important;
-            color: #ffffff !important;
-            font-weight: 700;
-            text-decoration: none !important;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            box-shadow: 0 10px 20px rgba(17, 24, 39, 0.12);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        .blog-rich-content .blog-buttonline a:hover {
-            background-color: rgb(220, 20, 0) !important;
-            color: #ffffff !important;
-            transform: scale(1.03);
-            box-shadow: 0 14px 24px rgba(17, 24, 39, 0.16);
-        }
-        .blog-rich-content h2 {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: clamp(1.3rem, 1.9vw, 1.55rem);
-            line-height: 1.35;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: #111111;
-            margin: 2rem 0 0.9rem;
-        }
-        .blog-rich-content h3 {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: clamp(1.18rem, 1.5vw, 1.3rem);
-            line-height: 1.35;
-            font-weight: 700;
-            color: #111111;
-            margin: 1.6rem 0 0.85rem;
-        }
-        .blog-rich-content ul {
-            margin: 0.3rem 0 1.45rem 0;
-            padding-left: 1.75rem;
-        }
-        .blog-rich-content li {
-            margin: 0 0 0.7rem;
-            padding-left: 0.2rem;
-        }
-        .blog-rich-content strong {
-            font-weight: 700;
-            color: #111111;
-        }
-        .blog-rich-content em {
-            font-style: italic;
-        }
-        .blog-rich-content .blog-tip {
-            background: rgba(255,255,255,0.9);
-            border-left: 4px solid var(--brand-red);
-            padding: 1rem 1.1rem;
-            border-radius: 0.9rem;
-            box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
-            margin: 1.8rem 0 0;
-        }
-        .blog-badge {
-            background: var(--brand-red-soft);
-            color: var(--brand-red);
-            border: 1px solid var(--brand-red-border);
-        }
-        @media (max-width: 768px) {
-            .blog-rich-content {
-                font-size: 1.04rem;
-                line-height: 1.66;
-            }
-            .blog-rich-content .blog-subtitle {
-                font-size: 1.14rem;
-            }
-            .blog-rich-content h2 {
-                margin-top: 1.8rem;
-                font-size: 1.22rem;
-            }
-        }
-    </style>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="application/ld+json" id="structured-data"></script>
-</head>
-<body>
-    <div id="root"></div>
-
-    <script type="text/babel" data-type="module">
 const Language = { EN: 'EN', DE: 'DE' };
 const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM' };
-const SITE_URL = 'https://www.urbanvet.de';
+const SITE_URL = 'https://urbanvet.de';
+// Base path the site is served under: '' = domain root (production),
+// e.g. '/urbanvet.github.io' for a GitHub project-pages preview.
+// Injected via globalThis.__BASE_PATH__ (build sandbox / inline <script>).
+const BASE_PATH = ((typeof globalThis !== 'undefined' && globalThis.__BASE_PATH__) || '').replace(/\/$/, '');
 const SITE_NAME = 'UrbanVet';
 const PERSON_NAME = 'Susanne Repanelis';
 const SITE_PHONE = '0171 64 94 610';
 const SITE_PHONE_LINK = '+491716494610';
 const SITE_EMAIL = 'info@urbanvet.de';
 const DEFAULT_OG_IMAGE = 'logo-main.png';
-const LANGUAGE_HOME_PATHS = {
-  [Language.DE]: '/mobile-tierarztpraxis-berlin',
-  [Language.EN]: '/mobile-vet-berlin'
+const PAGE_PATHS = {
+  [Language.DE]: {
+    [Page.HOME]: '/',
+    [Page.SERVICES]: '/leistungen',
+    [Page.ABOUT]: '/ueber-mich',
+    [Page.BLOG]: '/blog',
+    [Page.CONTACT]: '/kontakt',
+    [Page.IMPRESSUM]: '/impressum'
+  },
+  [Language.EN]: {
+    [Page.HOME]: '/en',
+    [Page.SERVICES]: '/en/services',
+    [Page.ABOUT]: '/en/about',
+    [Page.BLOG]: '/en/blog',
+    [Page.CONTACT]: '/en/contact',
+    [Page.IMPRESSUM]: '/en/imprint'
+  }
+};
+const BLOG_BASE_PATHS = {
+  [Language.DE]: '/blog',
+  [Language.EN]: '/en/blog'
 };
 const BOOKING_LINKS = {
   [Language.DE]: 'https://www.termin.vet/urbanvet/termin_buchen/de',
@@ -1083,39 +933,92 @@ const setMetaByProperty = (property, content) => {
   if (element) element.setAttribute('content', content);
 };
 
-const getLanguageHomePath = (language) => LANGUAGE_HOME_PATHS[language] || LANGUAGE_HOME_PATHS[Language.DE];
+const getLanguageHomePath = (language) => (PAGE_PATHS[language] || PAGE_PATHS[Language.DE])[Page.HOME];
 
-const getRequestedPathname = () => {
-  const params = new URLSearchParams(window.location.search);
-  const redirectedPath = params.get(ROUTE_REDIRECT_PARAM);
-  return (redirectedPath || window.location.pathname).replace(/\/+$/, '') || '/';
-};
+// Reverse lookup: absolute path -> { language, page } for all static pages.
+const PATH_TO_NAV = (() => {
+  const map = {};
+  Object.keys(PAGE_PATHS).forEach((language) => {
+    Object.keys(PAGE_PATHS[language]).forEach((page) => {
+      map[PAGE_PATHS[language][page]] = { language, page };
+    });
+  });
+  return map;
+})();
+
+const normalizePath = (rawPath) =>
+  (rawPath || '/').split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
 
 const buildUrl = ({ language, page, post }) => {
-  const url = new URL(`${SITE_URL}${getLanguageHomePath(language)}`);
-  return url;
+  const pages = PAGE_PATHS[language] || PAGE_PATHS[Language.DE];
+  let path;
+  if (page === Page.BLOG_POST && post) {
+    const base = BLOG_BASE_PATHS[language] || BLOG_BASE_PATHS[Language.DE];
+    path = `${base}/${post.slug}`;
+  } else {
+    path = pages[page] || pages[Page.HOME];
+  }
+  return new URL(`${SITE_URL}${BASE_PATH}${path}`);
+};
+
+// Translate a real pathname (or ?route= value) back into navigation intent.
+const resolveNavigationFromPath = (rawPath) => {
+  let stripped = rawPath || '/';
+  if (BASE_PATH && stripped.indexOf(BASE_PATH) === 0) {
+    stripped = stripped.slice(BASE_PATH.length) || '/';
+  }
+  const path = normalizePath(stripped);
+
+  const staticMatch = PATH_TO_NAV[path];
+  if (staticMatch) {
+    return { language: staticMatch.language, page: staticMatch.page, postSlug: null };
+  }
+
+  const enBlogPrefix = `${BLOG_BASE_PATHS[Language.EN]}/`;
+  const deBlogPrefix = `${BLOG_BASE_PATHS[Language.DE]}/`;
+  if (path.startsWith(enBlogPrefix)) {
+    return { language: Language.EN, page: Page.BLOG_POST, postSlug: path.slice(enBlogPrefix.length) };
+  }
+  if (path.startsWith(deBlogPrefix)) {
+    return { language: Language.DE, page: Page.BLOG_POST, postSlug: path.slice(deBlogPrefix.length) };
+  }
+
+  const language = path === '/en' || path.startsWith('/en/') ? Language.EN : Language.DE;
+  return { language, page: Page.HOME, postSlug: null };
 };
 
 const getInitialNavigationState = () => {
   const params = new URLSearchParams(window.location.search);
-  const requestedLanguage = params.get('lang');
-  const normalizedPath = getRequestedPathname();
-  const language = requestedLanguage === 'en'
-    ? Language.EN
-    : requestedLanguage === 'de'
-      ? Language.DE
-      : normalizedPath.endsWith(getLanguageHomePath(Language.EN))
-        ? Language.EN
-        : Language.DE;
-  const pageParam = params.get('page');
-  const postSlug = params.get('post');
-  const requestedPage = QUERY_PAGE_MAP[pageParam] || Page.HOME;
+  const routeParam = params.get(ROUTE_REDIRECT_PARAM);
+  const langParam = params.get('lang');
+
+  let language;
+  let requestedPage;
+  let postSlug;
+
+  // Local file:// preview has no real paths, so keep using explicit query params.
+  if (!routeParam && window.location.protocol === 'file:') {
+    language = langParam === 'en' ? Language.EN : Language.DE;
+    requestedPage = QUERY_PAGE_MAP[params.get('page')] || Page.HOME;
+    postSlug = params.get('post');
+  } else {
+    const resolved = resolveNavigationFromPath(routeParam || window.location.pathname);
+    language = resolved.language;
+    requestedPage = resolved.page;
+    postSlug = resolved.postSlug;
+    if (langParam === 'en') language = Language.EN;
+    else if (langParam === 'de') language = Language.DE;
+  }
+
   const availablePosts = ALL_POSTS[language];
   const selectedPost = postSlug ? availablePosts.find((post) => post.slug === postSlug) || null : null;
+  const resolvedPage = selectedPost
+    ? Page.BLOG_POST
+    : (requestedPage === Page.BLOG_POST ? Page.BLOG : requestedPage);
 
   return {
     language,
-    currentPage: selectedPost ? Page.BLOG_POST : requestedPage,
+    currentPage: resolvedPage,
     currentPost: selectedPost
   };
 };
@@ -1576,8 +1479,8 @@ const ContactPage = ({ content, language }) => React.createElement('div', { clas
 
 const ImpressumPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-8" }, content.impressum.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mt-8", dangerouslySetInnerHTML: { __html: content.impressum.content } })));
 
-function App() {
-  const initialNavigation = getInitialNavigationState();
+function App({ initialNavigation: providedInitialNavigation } = {}) {
+  const initialNavigation = providedInitialNavigation || getInitialNavigationState();
   const [language, setLanguage] = useState(initialNavigation.language);
   const [currentPage, setCurrentPage] = useState(initialNavigation.currentPage);
   const [currentPost, setCurrentPost] = useState(initialNavigation.currentPost);
@@ -1848,9 +1751,20 @@ function App() {
   );
 }
 
-const rootElement = document.getElementById('root');
-const root = ReactDOM.createRoot(rootElement);
-root.render(React.createElement(React.StrictMode, null, React.createElement(App, null)));
-    </script>
-</body>
-</html>
+// Exports so the build (Node) can server-render and read SEO data.
+const UrbanVet = { App, getSeoData, buildUrl, toAbsoluteUrl, ALL_POSTS, PAGE_PATHS, BLOG_BASE_PATHS, Language, Page, SITE_URL, SITE_NAME };
+if (typeof globalThis !== 'undefined') { globalThis.UrbanVet = UrbanVet; }
+if (typeof module !== 'undefined' && module.exports) { module.exports = UrbanVet; }
+
+// Browser-only mount. Hydrate the pre-rendered markup if present, otherwise render fresh.
+if (typeof document !== 'undefined' && typeof ReactDOM !== 'undefined') {
+  const rootElement = document.getElementById('root');
+  if (rootElement) {
+    const tree = React.createElement(React.StrictMode, null, React.createElement(App, null));
+    if (rootElement.firstElementChild) {
+      ReactDOM.hydrateRoot(rootElement, tree);
+    } else {
+      ReactDOM.createRoot(rootElement).render(tree);
+    }
+  }
+}
