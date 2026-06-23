@@ -11,9 +11,14 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, 'dist');
 
+// Base path the site is served under. '' = domain root (production),
+// '/urbanvet.github.io' = GitHub project-pages preview. Set via BASE_PATH env.
+const BASE = (process.env.BASE_PATH || '').replace(/\/$/, '');
+const STAGING = BASE !== '';
+
 // --- load the app in a Node sandbox (same source the browser runs) ---
 const appSource = fs.readFileSync(path.join(ROOT, 'src', 'app.js'), 'utf8');
-const sandbox = { React, console, URL, URLSearchParams, TextEncoder, module: { exports: {} } };
+const sandbox = { React, console, URL, URLSearchParams, TextEncoder, module: { exports: {} }, __BASE_PATH__: BASE };
 vm.createContext(sandbox);
 vm.runInContext(appSource, sandbox, { filename: 'src/app.js' });
 const app = sandbox.UrbanVet || sandbox.module.exports;
@@ -67,6 +72,8 @@ function renderRoute({ language, currentPage, currentPost }) {
   html = setAttrById(html, 'twitter-description', 'content', seo.description);
   html = setAttrById(html, 'twitter-image', 'content', seo.image);
   html = setJsonLd(html, seo.jsonLd);
+  html = html.replace('<!--BASE-->', `<base href="${BASE}/" />\n    <script>window.__BASE_PATH__=${JSON.stringify(BASE)};</script>`);
+  if (STAGING) html = html.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex,nofollow$2');
   html = html.replace('<!--APP_HTML-->', appHtml);
   return { html, canonicalUrl };
 }
@@ -91,11 +98,13 @@ fs.mkdirSync(DIST, { recursive: true });
 const sitemapUrls = [];
 for (const route of routes) {
   const { html, canonicalUrl } = renderRoute(route);
-  const pathname = buildUrl({
+  let pathname = buildUrl({
     language: route.language,
     page: route.currentPage === Page.BLOG_POST && !route.currentPost ? Page.BLOG : route.currentPage,
     post: route.currentPost
   }).pathname;
+  // GitHub adds the project subpath when serving; keep the dist layout base-free.
+  if (BASE && pathname.indexOf(BASE) === 0) pathname = pathname.slice(BASE.length) || '/';
   const file = path.join(DIST, outFileForPath(pathname));
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);
@@ -105,7 +114,7 @@ for (const route of routes) {
 // --- client script + static assets ---
 fs.copyFileSync(path.join(ROOT, 'src', 'app.js'), path.join(DIST, 'app.js'));
 
-for (const f of ['CNAME', '404.html']) {
+for (const f of ['CNAME']) {
   const src = path.join(ROOT, f);
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(DIST, f));
 }
@@ -119,12 +128,40 @@ for (const f of fs.readdirSync(ROOT)) {
   }
 }
 
-// --- sitemap + robots ---
-const uniqueUrls = [...new Set(sitemapUrls)];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${
-  uniqueUrls.map((u) => `  <url><loc>${escHtml(u)}</loc></url>`).join('\n')
-}\n</urlset>\n`;
-fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+// --- 404 (SPA fallback that restores deep links via ?route=) ---
+const notFound = `<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>UrbanVet</title>
+<script>
+(function () {
+  var l = window.location;
+  var base = ${JSON.stringify(BASE)};
+  var p = l.pathname;
+  if (base && p.indexOf(base) === 0) { p = p.slice(base.length); }
+  l.replace(base + '/?route=' + encodeURIComponent(p || '/') + (l.search ? '&' + l.search.slice(1) : '') + l.hash);
+})();
+</script>
+</head>
+<body><p>UrbanVet wird geladen… <a href="${BASE}/">Zur Startseite</a></p></body>
+</html>
+`;
+fs.writeFileSync(path.join(DIST, '404.html'), notFound);
 
-console.log(`Built ${routes.length} pages (${uniqueUrls.length} unique URLs) into dist/`);
+// --- sitemap + robots ---
+if (STAGING) {
+  // Preview deployment: keep it out of search indexes entirely.
+  fs.writeFileSync(path.join(DIST, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+} else {
+  const uniqueUrls = [...new Set(sitemapUrls)];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${
+    uniqueUrls.map((u) => `  <url><loc>${escHtml(u)}</loc></url>`).join('\n')
+  }\n</urlset>\n`;
+  fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
+  fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+}
+
+console.log(`Built ${routes.length} pages into dist/${BASE ? ` [base=${BASE}, staging]` : ' [production]'}`);

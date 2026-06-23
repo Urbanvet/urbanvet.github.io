@@ -1,6 +1,10 @@
 const Language = { EN: 'EN', DE: 'DE' };
 const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM' };
 const SITE_URL = 'https://urbanvet.de';
+// Base path the site is served under: '' = domain root (production),
+// e.g. '/urbanvet.github.io' for a GitHub project-pages preview.
+// Injected via globalThis.__BASE_PATH__ (build sandbox / inline <script>).
+const BASE_PATH = ((typeof globalThis !== 'undefined' && globalThis.__BASE_PATH__) || '').replace(/\/$/, '');
 const SITE_NAME = 'UrbanVet';
 const PERSON_NAME = 'Susanne Repanelis';
 const SITE_PHONE = '0171 64 94 610';
@@ -954,12 +958,16 @@ const buildUrl = ({ language, page, post }) => {
   } else {
     path = pages[page] || pages[Page.HOME];
   }
-  return new URL(`${SITE_URL}${path}`);
+  return new URL(`${SITE_URL}${BASE_PATH}${path}`);
 };
 
 // Translate a real pathname (or ?route= value) back into navigation intent.
 const resolveNavigationFromPath = (rawPath) => {
-  const path = normalizePath(rawPath);
+  let stripped = rawPath || '/';
+  if (BASE_PATH && stripped.indexOf(BASE_PATH) === 0) {
+    stripped = stripped.slice(BASE_PATH.length) || '/';
+  }
+  const path = normalizePath(stripped);
 
   const staticMatch = PATH_TO_NAV[path];
   if (staticMatch) {
