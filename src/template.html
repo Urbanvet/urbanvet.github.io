@@ -21,15 +21,40 @@
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
     </script>
+    <!-- Google Tag Manager, loaded only after consent: nothing reaches Google until
+         Usercentrics pushes a Consent Mode update granting analytics or ads storage
+         (also fires on later visits when a stored consent is restored). -->
+    <script>
+      (function (w, d, id) {
+        var loaded = false;
+        function loadGtm() {
+          if (loaded) return;
+          loaded = true;
+          w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var j = d.createElement('script');
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + id;
+          d.head.appendChild(j);
+        }
+        function grantsStorage(entry) {
+          var c = entry && entry[0] === 'consent' && entry[1] === 'update' && entry[2];
+          return !!c && (c.ad_storage === 'granted' || c.analytics_storage === 'granted');
+        }
+        for (var i = 0; i < w.dataLayer.length; i++) {
+          if (grantsStorage(w.dataLayer[i])) loadGtm();
+        }
+        var push = w.dataLayer.push;
+        w.dataLayer.push = function () {
+          var result = push.apply(w.dataLayer, arguments);
+          for (var k = 0; k < arguments.length; k++) {
+            if (grantsStorage(arguments[k])) loadGtm();
+          }
+          return result;
+        };
+      })(window, document, 'GTM-NWL9VX59');
+    </script>
     <!-- Usercentrics CMP -->
     <script id="usercentrics-cmp" async data-eu-mode="true" data-settings-id="p9r-RPo4l5TmVn" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NWL9VX59');</script>
-    <!-- End Google Tag Manager -->
     <title>UrbanVet | Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg</title>
     <meta
         name="description"
@@ -61,9 +86,6 @@
     <meta name="twitter:description" id="twitter-description" content="UrbanVet is a bilingual mobile veterinary practice for dogs and cats in Berlin and Brandenburg, offering calm home visits in German and English." />
     <meta name="twitter:image" id="twitter-image" content="https://urbanvet.de/logo-main.png" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-red: rgb(255, 25, 0);
@@ -174,6 +196,89 @@
             color: var(--brand-red);
             border: 1px solid var(--brand-red-border);
         }
+
+        /* Impressum + Datenschutz: long legal text, set for reading */
+        .legal-content {
+            max-width: 68ch;
+            color: #374151;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+        }
+        .legal-content > *:first-child { margin-top: 0; }
+        .legal-content h2 {
+            font-size: 1.375rem;
+            line-height: 1.3;
+            font-weight: 700;
+            color: #111827;
+            margin: 2.75rem 0 0.75rem;
+            hyphens: manual;
+        }
+        .legal-content h3 {
+            font-size: 1.125rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: #111827;
+            margin: 2rem 0 0.5rem;
+        }
+        .legal-content p { margin: 0 0 1rem; }
+        .legal-content ul {
+            list-style: disc;
+            margin: 0 0 1rem;
+            padding-left: 1.25rem;
+        }
+        .legal-content li { margin: 0 0 0.4rem; padding-left: 0.25rem; }
+        .legal-content li::marker { color: var(--brand-red); }
+        .legal-content strong { font-weight: 600; color: #111827; }
+        .legal-content code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.9em;
+            background: #ffffff;
+            padding: 0.1em 0.35em;
+            border-radius: 0.3rem;
+        }
+        .legal-content a {
+            color: #111827;
+            text-decoration: underline;
+            text-decoration-color: var(--brand-red);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            overflow-wrap: anywhere;
+            hyphens: manual;
+            transition: color 0.15s ease;
+        }
+        .legal-content a:hover { color: #b31200; }
+        .legal-content a:focus-visible,
+        .legal-content button:focus-visible {
+            outline: 2px solid #111827;
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+        .legal-content .legal-note {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem 0.25rem;
+            margin: 1.5rem 0 1.25rem;
+        }
+        .legal-content .legal-button {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            background-color: var(--brand-red);
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 6px 14px rgba(17, 24, 39, 0.12);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .legal-content .legal-button:hover { background-color: rgb(220, 20, 0); transform: scale(1.03); }
+        .legal-content .legal-button:focus-visible { border-radius: 9999px; }
+        .legal-content .legal-meta { margin-top: 3rem; color: #6b7280; font-size: 0.9375rem; }
+        @media (prefers-reduced-motion: reduce) {
+            .legal-content .legal-button:hover { transform: none; }
+        }
         @media (max-width: 768px) {
             .blog-rich-content {
                 font-size: 1.04rem;
@@ -194,9 +299,6 @@
     <script defer src="app.js"></script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWL9VX59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="root"><!--APP_HTML--></div>
 </body>
 </html>

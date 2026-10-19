@@ -37,5 +37,25 @@ and publishes it to GitHub Pages.
 
 ## Routes
 
-DE: `/`, `/leistungen`, `/ueber-mich`, `/blog`, `/blog/<slug>`, `/kontakt`, `/impressum`
-EN: `/en`, `/en/services`, `/en/about`, `/en/blog`, `/en/blog/<slug>`, `/en/contact`, `/en/imprint`
+DE: `/`, `/leistungen`, `/ueber-mich`, `/blog`, `/blog/<slug>`, `/kontakt`, `/impressum`, `/datenschutz`
+EN: `/en`, `/en/services`, `/en/about`, `/en/blog`, `/en/blog/<slug>`, `/en/contact`, `/en/imprint`, `/en/privacy`
+
+Old single-URL links like `/?lang=de&page=impressum` are redirected to the real
+path in the browser (see `getLegacyQueryRedirect` in `src/app.js`).
+
+## Consent and tracking
+
+- Consent banner: Usercentrics (settings ID in `src/template.html`).
+- Google Tag Manager (`GTM-NWL9VX59`) is **not** loaded on page load. A small
+  hook in `src/template.html` loads it only after Usercentrics sends a Consent
+  Mode update with `ad_storage` or `analytics_storage` granted. Before consent
+  (or after "deny all") no request goes to Google.
+- In GTM every tag requires consent: Ads tags and the Conversion Linker
+  `ad_storage`, the GA4 Google tag `analytics_storage`. Both Google tags fire on
+  "All Pages", not "Initialization": Usercentrics pushes a `consent_status`
+  event before its consent update, and GTM would evaluate "Initialization" on
+  that earlier event while consent is still denied.
+- No external fonts; the booking button image is self-hosted
+  (`assets/termin-buchen.svg`), so no third-party requests happen before consent.
+- When adding a new service (pixel, embed, map, video), gate it on consent too
+  and list it in the Datenschutzerklärung (`TEXTS.*.privacy` in `src/app.js`).

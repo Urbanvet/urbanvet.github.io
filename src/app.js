@@ -1,5 +1,5 @@
 const Language = { EN: 'EN', DE: 'DE' };
-const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM' };
+const Page = { HOME: 'HOME', SERVICES: 'SERVICES', ABOUT: 'ABOUT', BLOG: 'BLOG', BLOG_POST: 'BLOG_POST', CONTACT: 'CONTACT', IMPRESSUM: 'IMPRESSUM', PRIVACY: 'PRIVACY' };
 const SITE_URL = 'https://urbanvet.de';
 // Base path the site is served under: '' = domain root (production),
 // e.g. '/urbanvet.github.io' for a GitHub project-pages preview.
@@ -18,7 +18,8 @@ const PAGE_PATHS = {
     [Page.ABOUT]: '/ueber-mich',
     [Page.BLOG]: '/blog',
     [Page.CONTACT]: '/kontakt',
-    [Page.IMPRESSUM]: '/impressum'
+    [Page.IMPRESSUM]: '/impressum',
+    [Page.PRIVACY]: '/datenschutz'
   },
   [Language.EN]: {
     [Page.HOME]: '/en',
@@ -26,7 +27,8 @@ const PAGE_PATHS = {
     [Page.ABOUT]: '/en/about',
     [Page.BLOG]: '/en/blog',
     [Page.CONTACT]: '/en/contact',
-    [Page.IMPRESSUM]: '/en/imprint'
+    [Page.IMPRESSUM]: '/en/imprint',
+    [Page.PRIVACY]: '/en/privacy'
   }
 };
 const BLOG_BASE_PATHS = {
@@ -37,7 +39,7 @@ const BOOKING_LINKS = {
   [Language.DE]: 'https://www.termin.vet/urbanvet/termin_buchen/de',
   [Language.EN]: 'https://www.termin.vet/urbanvet/termin_buchen/en'
 };
-const BOOKING_BUTTON_IMAGE_SRC = 'https://www.termin.vet/urbanvet/termin_buchen/button/1/ff0000/ffffff';
+const BOOKING_BUTTON_IMAGE_SRC = 'assets/termin-buchen.svg';
 const WHATSAPP_URL = 'https://wa.me/491716494610';
 const ROUTE_REDIRECT_PARAM = 'route';
 const PAGE_QUERY_MAP = {
@@ -46,7 +48,8 @@ const PAGE_QUERY_MAP = {
   [Page.ABOUT]: 'about',
   [Page.BLOG]: 'blog',
   [Page.CONTACT]: 'contact',
-  [Page.IMPRESSUM]: 'impressum'
+  [Page.IMPRESSUM]: 'impressum',
+  [Page.PRIVACY]: 'datenschutz'
 };
 const QUERY_PAGE_MAP = Object.fromEntries(Object.entries(PAGE_QUERY_MAP).map(([page, slug]) => [slug, page]));
 const EMERGENCY_SERVICE_URL = 'https://tieraerztekammer-berlin.de/notdienst/';
@@ -201,7 +204,7 @@ const buildSharedInfoSections = (language) => language === Language.DE ? {
 
 const TEXTS = {
   [Language.EN]: {
-    nav: { [Page.HOME]: 'Home', [Page.SERVICES]: 'Services', [Page.ABOUT]: 'About Me', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Contact', [Page.IMPRESSUM]: 'Legal' },
+    nav: { [Page.HOME]: 'Home', [Page.SERVICES]: 'Services', [Page.ABOUT]: 'About Me', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Contact', [Page.IMPRESSUM]: 'Legal Notice', [Page.PRIVACY]: 'Privacy Policy' },
     home: {
       heroLeadLines: ['Special care for your special pet.', 'In the comfort of your home.'],
       heroSubtitle: 'English speaking mobile veterinary care for dogs and cats in Berlin and Brandenburg – gentle, personal, and dedicated to your pet.',
@@ -332,7 +335,7 @@ const TEXTS = {
           summary: 'How to prepare your home for a veterinary house call. Practical tips for dogs, cats, and nervous pets.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'How to prepare your home for a veterinary house call. Tips for dogs, cats and nervous pets from a mobile veterinarian in Berlin.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('p', null, React.createElement('a', { href: 'en/services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
             React.createElement('p', null, 'As a mobile veterinarian in Berlin, I come directly to your home. For many animals, this is much less stressful than visiting a veterinary clinic. To make the appointment as calm and smooth as possible for your pet, a few simple preparations can help.'),
             React.createElement('p', null, 'With the following tips, you can help ensure that I can examine and treat your pet effectively during the veterinary home visit.'),
             React.createElement('h2', null, '1. A Calm Environment – Relaxed Humans, Relaxed Animals'),
@@ -351,7 +354,7 @@ const TEXTS = {
               React.createElement('li', null, 'or a familiar blanket')
             ),
             React.createElement('p', null, 'These can help distract and reward your pet during the examination and create a more positive experience during the veterinary home visit.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('p', null, React.createElement('a', { href: 'en/services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
             React.createElement('h2', null, '4. Preparing Shy or Anxious Cats'),
             React.createElement('p', null, 'For cats in particular, good preparation is very important.'),
             React.createElement('p', null, 'If possible, choose a smaller room where the cat can stay before my arrival. Common hiding places such as under the bed or behind large cabinets should ideally be blocked beforehand so the cat remains accessible.'),
@@ -393,7 +396,7 @@ const TEXTS = {
               React.createElement('li', null, 'Your questions written down')
             ),
             React.createElement('p', null, 'Tip: A well-prepared appointment makes the veterinary home visit much more relaxed for your pet. In the familiar environment of home, many examinations can be carried out more calmly and with less stress.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
+            React.createElement('p', null, React.createElement('a', { href: 'en/contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
           )
         },
         {
@@ -426,7 +429,7 @@ const TEXTS = {
             React.createElement('h2', null, '5. Problems Urinating or Defecating'),
             React.createElement('p', null, 'If your pet has difficulty urinating, goes to the litter box very frequently, or shows blood in the urine, this should be examined by a veterinarian.'),
             React.createElement('p', null, 'In male cats especially, a urinary blockage can become life-threatening.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('p', null, React.createElement('a', { href: 'en/services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
             React.createElement('h2', null, '6. Coughing or Breathing Problems'),
             React.createElement('p', null, 'Persistent coughing, rapid breathing, or breathing difficulties should always be taken seriously. These symptoms can indicate infections, heart disease, or other health issues.'),
             React.createElement('h2', null, '7. Wounds or Injuries'),
@@ -434,7 +437,7 @@ const TEXTS = {
             React.createElement('h2', null, 'When in Doubt, Act Early'),
             React.createElement('p', null, 'You know your pet best. If you feel that something is not right, it is worth having it checked.'),
             React.createElement('p', null, 'Many examinations can also be performed during a veterinary home visit, which is much less stressful for many animals.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
+            React.createElement('p', null, React.createElement('a', { href: 'en/contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
           )
         },
         {
@@ -458,7 +461,7 @@ const TEXTS = {
               React.createElement('li', null, 'aggressive or unusual behavior')
             ),
             React.createElement('p', null, 'Sudden and severe pain should always be taken seriously.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
+            React.createElement('p', null, React.createElement('a', { href: 'en/services', className: 'text-red-700 font-semibold hover:underline' }, 'Services')),
             React.createElement('h2', null, 'Severe Bleeding or Serious Injuries'),
             React.createElement('p', null, 'After accidents, falls, or bite wounds, a prompt veterinary examination is very important.'),
             React.createElement('h2', null, 'Swallowing a Foreign Object'),
@@ -468,7 +471,7 @@ const TEXTS = {
             React.createElement('h2', null, 'When in Doubt, Act Early'),
             React.createElement('p', null, 'If you are unsure whether it is an emergency, it is always better to seek veterinary advice quickly.'),
             React.createElement('p', null, 'As a mobile veterinarian, I can assess many situations directly at your home. In acute emergencies, I can also determine whether immediate treatment at a veterinary clinic is necessary.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=en&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
+            React.createElement('p', null, React.createElement('a', { href: 'en/contact', className: 'text-red-700 font-semibold hover:underline' }, 'Contact'))
           )
         }
       ]
@@ -481,50 +484,121 @@ const TEXTS = {
       infoSections: buildSharedInfoSections(Language.EN)
     },
     impressum: {
-      title: 'Imprint / Data Protection Policy',
+      title: 'Legal Notice',
       content: `
-        <h2 class="font-bold text-2xl mt-0 mb-4">Imprint (Legal Notice)</h2>
-        <p><strong>Responsible according to § 55 Abs. 2 RStV:</strong><br>
-        Veterinary Practice UrbanVet Berlin<br>
+        <h2>Information pursuant to § 5 DDG (German Digital Services Act)</h2>
+        <p>Tierarztpraxis UrbanVet Berlin<br>
         Susanne Repanelis<br>
         Fontanestraße 32<br>
-        120149 Berlin<br>
+        12049 Berlin<br>
         Germany</p>
-        <p><strong>Phone:</strong> 0171 64 94 610<br>
-        <strong>E-Mail:</strong> info@urbanvet.de<br>
-        <strong>Website:</strong> www.urbanvet.de</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Professional Title & Regulatory Authority:</h3>
-        <p><strong>Professional title:</strong> Veterinarian (awarded in Austria)<br>
-        <strong>Regulatory authority:</strong> Berlin Chamber of Veterinary Surgeons, Littenstr. 108, 10179 Berlin, Germany</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Professional Regulations:</h3>
-        <p>Professional Code of the Berlin Chamber of Veterinary Surgeons<br>
-        Available at: https://www.tieraerztekammer-berlin.de/kammerrecht/11-berufsordnung.html</p>
-        <p>German Federal Veterinary Act (BTÄO)<br>
-        Available at: https://www.bundestieraerztekammer.de/tieraerzte/beruf/bundestieraerzteordnung/</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Consumer Dispute Resolution:</h3>
-        <p>The EU Commission provides an online platform for dispute resolution (ODR) regarding contractual obligations from online contracts: http://ec.europa.eu/consumers/odr/</p>
+        <h2>Contact</h2>
+        <p>Phone: <a href="tel:+491716494610">+49 171 64 94 610</a><br>
+        Email: <a href="mailto:info@urbanvet.de">info@urbanvet.de</a></p>
+        <h2>Professional information</h2>
+        <p><strong>Statutory professional title:</strong> Veterinarian (Tierärztin), awarded in Austria</p>
+        <p><strong>Competent chamber:</strong> Tierärztekammer Berlin (Berlin Chamber of Veterinarians), Littenstraße 108, 10179 Berlin, Germany, <a href="https://tieraerztekammer-berlin.de/" target="_blank" rel="noopener noreferrer">tieraerztekammer-berlin.de</a></p>
+        <p><strong>Professional regulations</strong> (available in German):</p>
+        <ul>
+          <li>Professional Code of the Berlin Chamber of Veterinarians (Berufsordnung), <a href="https://tieraerztekammer-berlin.de/wp-content/uploads/2024/06/Berufsordnung_inkl_1_Aenderung_2016-11-10.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
+          <li>Federal Veterinary Act (Bundes-Tierärzteordnung, BTÄO), <a href="https://www.gesetze-im-internet.de/b_o/" target="_blank" rel="noopener noreferrer">gesetze-im-internet.de/b_o</a></li>
+          <li>Veterinary Fee Schedule (Gebührenordnung für Tierärztinnen und Tierärzte, GOT), <a href="https://www.gesetze-im-internet.de/got_2022/" target="_blank" rel="noopener noreferrer">gesetze-im-internet.de/got_2022</a></li>
+        </ul>
+        <h2>Responsible for content pursuant to § 18 (2) MStV</h2>
+        <p>Susanne Repanelis, address as above</p>
+        <h2>Consumer dispute resolution</h2>
         <p>We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
-        <h2 class="font-bold text-2xl mt-10 mb-4">Data Protection Policy</h2>
-        <h3 class="font-semibold text-lg mb-2">Data Minimization</h3>
-        <p>We only collect personal data that is necessary to provide our veterinary services. Any non-essential information that could identify you is avoided.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Storage of Personal Data & Legal Basis</h3>
-        <p>All information is used solely to fulfill the veterinary service agreement (Art. 6(1)(b) GDPR). Data that is legally required or necessary for treatment is stored only with your explicit consent (Art. 6(1)(a) GDPR) and kept only for the legally mandated period.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Data Security</h3>
-        <p>Personal data is generally not shared with third parties. During storage, all data is protected technically and organizationally against unauthorized access, loss, or misuse.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Access & Correction</h3>
-        <p>You have the right to access your stored personal data at any time. You can also request the correction of any inaccurate personal data (Art. 16 GDPR).</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Restriction of Processing</h3>
-        <p>You may request that the processing of your data be restricted if the data is incomplete, incorrect, you have objected, or the data is unnecessary for certain purposes—except for data required to enforce legal claims.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Data Deletion</h3>
-        <p>You may request the immediate deletion of personal data if it is no longer necessary for the veterinary service agreement or if you have withdrawn your consent, except for data needed to enforce legal claims.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Technical Data & Cookies</h3>
-        <p>When you visit our website, only technical information such as browser type or IP address is collected. Only essential cookies are used to ensure website functionality and comply with user interests (Art. 6(1)(f) GDPR).</p>
+        <h2>Data protection</h2>
+        <p>How we handle your data is explained in our <a href="en/privacy">Privacy Policy</a>.</p>
       `
     },
-    footer: { tagline: 'Calm mobile veterinary care.', legal: 'Imprint & Data Protection', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 10:00 AM – 6:00 PM', scheduleLine2: 'Emergency hours Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine3: 'Emergency hours Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable appointment time.' }
+    privacy: {
+      title: 'Privacy Policy',
+      content: `
+        <p>This policy explains which personal data we process when you visit this website and when we treat your animal, and which rights you have. This English version is provided for convenience. The <a href="datenschutz">German version</a> is legally binding.</p>
+        <h2>1. Controller</h2>
+        <p>Susanne Repanelis<br>
+        Tierarztpraxis UrbanVet Berlin<br>
+        Fontanestraße 32<br>
+        12049 Berlin, Germany<br>
+        Phone: <a href="tel:+491716494610">+49 171 64 94 610</a><br>
+        Email: <a href="mailto:info@urbanvet.de">info@urbanvet.de</a></p>
+        <p>If you have questions about data protection or want to exercise your rights, you can reach us using these contact details.</p>
+        <h2>2. Summary</h2>
+        <ul>
+          <li>When you open the website, our hosting provider processes technically necessary access data.</li>
+          <li>Your choice in the cookie banner is stored so that we can respect it and prove it.</li>
+          <li>Google services (Tag Manager, Analytics, Ads) are only loaded after you have consented. Without your consent, no data is sent to Google.</li>
+          <li>If you contact us, book an appointment or have your animal treated, we process the information needed for that.</li>
+        </ul>
+        <h2>3. Hosting and access data</h2>
+        <p>This website is served via GitHub Pages, provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you open a page, technically necessary data is processed, in particular your IP address, date and time of access, the requested address, the previously visited page (referrer) and information about your browser and operating system. The website cannot be delivered without this data. It also serves the security and stability of the service, for example to fend off attacks.</p>
+        <p>The legal basis is our legitimate interest in providing the website securely and reliably (Art. 6(1)(f) GDPR). We do not receive access logs ourselves and do not analyse this data. Data may be transferred to the USA. According to GitHub, it participates in the EU-U.S. Data Privacy Framework, for which the European Commission has adopted an adequacy decision (Art. 45 GDPR). See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's privacy statement</a> for details.</p>
+        <h2>4. SSL/TLS encryption</h2>
+        <p>For security reasons, this website uses SSL/TLS encryption. You can recognise an encrypted connection by "https://" in the address bar and the lock icon in your browser.</p>
+        <h2>5. Cookie banner and consent management (Usercentrics)</h2>
+        <p>We use the consent management platform Usercentrics, provided by Usercentrics GmbH, Sendlinger Straße 7, 80331 Munich, Germany, to request and manage your consent. On your first visit, the banner shows which services we would like to use. You can accept all, reject all or choose individually.</p>
+        <p>This involves processing your decision for each service, a random consent ID, date and time, the banner version, the language, your IP address and information about your browser, device and the referring page. Your decision is stored in your browser's local storage so that the banner does not reappear on every visit. Usercentrics stores the record of consent on our behalf for one year.</p>
+        <p>The legal basis is our legal obligation to be able to demonstrate consent (Art. 6(1)(c) GDPR in conjunction with Art. 7(1) GDPR). Storing your choice in your browser is strictly necessary for this (§ 25(2) no. 2 TDDDG).</p>
+        <p><strong>Changing your choice or withdrawing consent:</strong> You can change your settings at any time with effect for the future, via "Cookie settings" in the footer of every page, via the fingerprint icon at the bottom left, or right here:</p>
+        <p><button type="button" class="legal-button" data-cookie-settings>Open cookie settings</button></p>
+        <h2>6. Google services (only with your consent)</h2>
+        <p>We only use the following services if you have consented in the cookie banner. Before that, no Google script is loaded and no data is sent to Google. The provider in each case is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland ("Google").</p>
+        <p>The legal basis is your consent (Art. 6(1)(a) GDPR, § 25(1) TDDDG). You can withdraw it at any time via the cookie settings. Processing carried out before the withdrawal remains lawful.</p>
+        <p><strong>Transfers to third countries:</strong> Google also processes data on servers outside the EU, in particular in the USA. Google LLC is certified under the EU-U.S. Data Privacy Framework, for which an adequacy decision of the European Commission exists (Art. 45 GDPR). For transfers to other third countries, Google uses the EU Standard Contractual Clauses (Art. 46(2)(c) GDPR).</p>
+        <h3>Google Tag Manager</h3>
+        <p>We use Google Tag Manager to integrate the Google services listed below and to control when they are triggered. Tag Manager itself does not set cookies or create user profiles. Loading it does, however, transmit your IP address to Google, which is why we only load it after you have consented.</p>
+        <h3>Google Analytics 4</h3>
+        <p>Google Analytics shows us how our website is used so that we can improve it. It records, for example, pages viewed, time spent, clicks, the page you came from, device type, browser and your approximate location (country, city). Your IP address is only used for this rough location and is not stored by Google Analytics 4. Analysis is pseudonymous, based on a random identifier, and does not allow us to identify you personally.</p>
+        <p>Cookies: <code>_ga</code> and <code>_ga_&lt;ID&gt;</code>, each for up to 2 years. Recorded event data is deleted after 14 months at the latest. Google processes this data as our processor.</p>
+        <p>In addition to withdrawing consent via the cookie settings, you can use the <a href="https://tools.google.com/dlpage/gaoptout?hl=en" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.</p>
+        <h3>Google Ads and conversion tracking</h3>
+        <p>We advertise on Google. To measure how well these ads work, we use Google Ads conversion tracking. If you reached our website through one of our ads and then click our phone number, our email address or the WhatsApp button, Google learns that the ad led to a contact. We only see aggregated figures, for example how many contacts came from ads, and cannot identify individual people from them.</p>
+        <p>For this purpose, cookies such as <code>_gcl_au</code> and <code>_gcl_aw</code> (90 days each) are set, which store an identifier of the ad click (Conversion Linker).</p>
+        <h3>Google Ads remarketing</h3>
+        <p>Remarketing allows us to show UrbanVet ads to people who have visited our website when they later browse other websites or use Google services. Google sets cookies for this, including on the domain doubleclick.net (for example <code>IDE</code> or <code>test_cookie</code>), and builds pseudonymous audiences. If you are signed in to Google, Google may link your visit to your Google account, depending on your account settings. You can also turn off personalised ads at <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer">myadcenter.google.com</a>.</p>
+        <p>For Google Ads (conversion tracking and remarketing), Google is an independent controller alongside us. More information: <a href="https://policies.google.com/technologies/ads?hl=en" target="_blank" rel="noopener noreferrer">How Google uses cookies in advertising</a> and <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
+        <h3>Google Consent Mode</h3>
+        <p>We use Google Consent Mode. Usercentrics tells the Google services which purposes you have consented to (statistics, advertising, personalisation), and the services follow that choice. If, for example, you only consent to statistics, the advertising services do not run at all or only in a restricted mode without cookies and without personalisation. If you reject everything, none of the Google services are loaded.</p>
+        <h2>7. Fonts</h2>
+        <p>This website does not load fonts from third-party servers. Text is displayed in your device's standard fonts.</p>
+        <h2>8. Online booking via termin.vet</h2>
+        <p>For online appointment booking we use termin.vet, a service of vetpraxis.de GmbH &amp; Co. KG, Dorfstr. 15, 84069 Schierling, Germany. The "Book appointment" button on our website is an image stored on our own server. Only when you click it does the termin.vet booking page open in a new window.</p>
+        <p>There, the provider processes the information you enter for the booking on our behalf, such as your name, contact details, information about your animal and the requested appointment. The legal basis is arranging and carrying out the treatment (Art. 6(1)(b) GDPR). The booking page is additionally subject to termin.vet's own privacy information.</p>
+        <h2>9. Contact by phone, email or WhatsApp</h2>
+        <p>If you call or write to us, we process your information (for example name, phone number, email address and your request) to answer you. If it concerns a treatment or an appointment, the legal basis is Art. 6(1)(b) GDPR, otherwise our legitimate interest in answering your request (Art. 6(1)(f) GDPR). We delete the data once it is no longer needed and no statutory retention obligations apply.</p>
+        <p><strong>WhatsApp:</strong> The WhatsApp button takes you to WhatsApp, a service of WhatsApp Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland. If you write to us there, WhatsApp processes your phone number, your profile and connection data, among other things. Message content is end-to-end encrypted. Data may be transferred to Meta Platforms, Inc. in the USA, which is certified under the EU-U.S. Data Privacy Framework. Using WhatsApp is voluntary, you can reach us just as well by phone or email.</p>
+        <h2>10. Data processed during veterinary treatment</h2>
+        <p>To treat your animal, we process your contact details and the address for the home visit, information about your animal (for example medical history, findings, diagnoses, treatments, medication and vaccinations) and billing data.</p>
+        <p>The legal basis is the treatment contract (Art. 6(1)(b) GDPR). Where the law imposes documentation and retention obligations on us, for example veterinary professional law, veterinary medicines law or commercial and tax law, the legal basis is Art. 6(1)(c) GDPR.</p>
+        <p><strong>Recipients:</strong> We only pass on data if this is necessary for treatment or billing, if we are legally obliged to do so or if you ask us to. Recipients may include diagnostic laboratories, co-treating or referring veterinarians and veterinary clinics, payment and billing service providers, our tax advisor, authorities within the scope of statutory reporting obligations and, at your request, your pet health insurer.</p>
+        <p><strong>Retention:</strong> We store this data for as long as it is needed for the treatment and beyond that for the statutory retention periods (depending on the document, generally up to ten years).</p>
+        <h2>11. Your rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>access the data stored about you (Art. 15 GDPR)</li>
+          <li>rectification of inaccurate data (Art. 16 GDPR)</li>
+          <li>erasure of your data, unless a retention obligation applies (Art. 17 GDPR)</li>
+          <li>restriction of processing (Art. 18 GDPR)</li>
+          <li>data portability (Art. 20 GDPR)</li>
+          <li>withdraw consent with effect for the future (Art. 7(3) GDPR)</li>
+        </ul>
+        <div class="legal-note">
+          <p><strong>Right to object under Art. 21 GDPR</strong></p>
+          <p>Where we process data on the basis of our legitimate interest (Art. 6(1)(f) GDPR), you may object at any time on grounds relating to your particular situation. We will then stop processing the data unless we can demonstrate compelling legitimate grounds that override your interests, or the processing serves the establishment, exercise or defence of legal claims.</p>
+        </div>
+        <p><strong>Right to lodge a complaint:</strong> You can lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). The authority responsible for us is the Berliner Beauftragte für Datenschutz und Informationsfreiheit (Berlin Commissioner for Data Protection and Freedom of Information), Alt-Moabit 59-61, 10555 Berlin, Germany, <a href="https://www.datenschutz-berlin.de/" target="_blank" rel="noopener noreferrer">datenschutz-berlin.de</a>.</p>
+        <h2>12. Provision of data and automated decisions</h2>
+        <p>You can use this website without providing any personal information yourself. For a treatment we need the information required for it, without it we cannot perform the treatment contract. No automated decision-making within the meaning of Art. 22 GDPR takes place.</p>
+        <h2>13. Changes</h2>
+        <p>We update this privacy policy when our website, the services we use or the legal situation change. The version published here applies.</p>
+        <p class="legal-meta">Last updated: October 2026</p>
+      `
+    },
+    footer: { tagline: 'Calm mobile veterinary care.', legalNavLabel: 'Legal', imprint: 'Legal Notice', privacy: 'Privacy Policy', cookieSettings: 'Cookie settings', phoneLabel: 'Phone', openingHoursLabel: 'Opening Hours', scheduleLine1: 'Monday – Friday: 10:00 AM – 6:00 PM', scheduleLine2: 'Emergency hours Monday – Friday: 6:00 PM – 10:00 PM', scheduleLine3: 'Emergency hours Saturday – Sunday: 10:00 AM – 10:00 PM', appointmentNote: 'Appointments outside regular opening hours may be arranged by appointment. Please feel free to contact me to arrange a suitable appointment time.' }
   },
   [Language.DE]: {
-    nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum' },
+    nav: { [Page.HOME]: 'Startseite', [Page.SERVICES]: 'Leistungen', [Page.ABOUT]: 'Über Mich', [Page.BLOG]: 'Blog', [Page.CONTACT]: 'Kontakt', [Page.IMPRESSUM]: 'Impressum', [Page.PRIVACY]: 'Datenschutz' },
     home: {
       heroLeadLines: ['Mit Liebe für Tiere.', 'Tiermedizin bei Ihnen zu Hause.'],
       heroSubtitle: 'Mobile Tierarztpraxis für Hunde und Katzen in Berlin und Brandenburg persönlich, stressfrei und mit Zeit für Sie und Ihr Tier.',
@@ -655,7 +729,7 @@ const TEXTS = {
           summary: 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor – mit Tipps für Hunde, Katzen und nervöse Tiere.',
           content: React.createElement(React.Fragment, null,
             React.createElement('p', null, 'So bereitest du dein Zuhause optimal auf einen Tierarzt-Hausbesuch vor. Tipps für Hunde, Katzen und nervöse Tiere vom mobilen Tierarzt in Berlin.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('p', null, React.createElement('a', { href: 'leistungen', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
             React.createElement('p', null, 'Als mobiler Tierarzt in Berlin komme ich direkt zu dir nach Hause. Für viele Tiere ist das deutlich entspannter als ein Besuch in der Praxis. Damit der Termin für dein Tier möglichst ruhig und stressfrei abläuft, helfen ein paar einfache Vorbereitungen.'),
             React.createElement('p', null, 'Mit den folgenden Tipps sorgst du dafür, dass ich dein Tier bei meinem Tierarzt-Hausbesuch optimal untersuchen und behandeln kann.'),
             React.createElement('h2', null, '1. Ruhige Atmosphäre – entspannte Menschen, entspannte Tiere'),
@@ -674,7 +748,7 @@ const TEXTS = {
               React.createElement('li', null, 'oder eine vertraute Decke')
             ),
             React.createElement('p', null, 'Damit können wir dein Tier während der Untersuchung ablenken, belohnen und den Tierarztbesuch zu Hause mit etwas Positivem verknüpfen.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('p', null, React.createElement('a', { href: 'leistungen', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
             React.createElement('h2', null, '4. Vorbereitung bei scheuen oder ängstlichen Katzen'),
             React.createElement('p', null, 'Gerade bei Katzen ist eine gute Vorbereitung besonders wichtig.'),
             React.createElement('p', null, 'Wähle am besten einen kleineren Raum, in den die Katze vor meinem Besuch gebracht wird. Typische Verstecke wie unter dem Bett oder hinter großen Schränken sollten möglichst vorher blockiert werden, damit die Katze für die Untersuchung gut erreichbar bleibt.'),
@@ -716,7 +790,7 @@ const TEXTS = {
               React.createElement('li', null, 'Eigene Fragen notiert')
             ),
             React.createElement('p', null, 'Tipp: Ein gut vorbereiteter Termin macht den Tierarzt-Hausbesuch für dein Tier deutlich entspannter. In der vertrauten Umgebung zu Hause können viele Untersuchungen ruhiger und stressfreier durchgeführt werden.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
+            React.createElement('p', null, React.createElement('a', { href: 'kontakt', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
           )
         },
         {
@@ -749,7 +823,7 @@ const TEXTS = {
             React.createElement('h2', null, '5. Probleme beim Urinieren oder Kotabsatz'),
             React.createElement('p', null, 'Wenn dein Tier Schwierigkeiten beim Wasserlassen hat, häufiger auf die Toilette geht oder Blut im Urin zu sehen ist, sollte das zeitnah untersucht werden.'),
             React.createElement('p', null, 'Vor allem bei Katern kann eine Harnröhrenverstopfung lebensbedrohlich sein.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('p', null, React.createElement('a', { href: 'leistungen', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
             React.createElement('h2', null, '6. Husten oder Atemprobleme'),
             React.createElement('p', null, 'Anhaltender Husten, schnelle Atmung oder Atemnot sollten immer ernst genommen werden. Diese Symptome können auf Infektionen, Herzprobleme oder andere Erkrankungen hinweisen.'),
             React.createElement('h2', null, '7. Wunden oder Verletzungen'),
@@ -757,7 +831,7 @@ const TEXTS = {
             React.createElement('h2', null, 'Wann lieber früher handeln'),
             React.createElement('p', null, 'Du kennst dein Tier am besten. Wenn du das Gefühl hast, dass etwas nicht stimmt, lohnt sich eine Abklärung.'),
             React.createElement('p', null, 'Viele Untersuchungen lassen sich auch bei einem Tierarzt-Hausbesuch in der vertrauten Umgebung durchführen, was für viele Tiere deutlich weniger Stress bedeutet.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
+            React.createElement('p', null, React.createElement('a', { href: 'kontakt', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
           )
         },
         {
@@ -782,7 +856,7 @@ const TEXTS = {
               React.createElement('li', null, 'aggressives Verhalten')
             ),
             React.createElement('p', null, 'Plötzlich auftretende starke Schmerzen sollten immer ernst genommen werden.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=services', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
+            React.createElement('p', null, React.createElement('a', { href: 'leistungen', className: 'text-red-700 font-semibold hover:underline' }, 'Leistungen')),
             React.createElement('h2', null, 'Starke Blutungen oder schwere Verletzungen'),
             React.createElement('p', null, 'Nach Unfällen, Stürzen oder Bissverletzungen ist eine schnelle Untersuchung wichtig.'),
             React.createElement('h2', null, 'Fremdkörper aufgenommen'),
@@ -792,7 +866,7 @@ const TEXTS = {
             React.createElement('h2', null, 'Im Zweifel lieber einmal zu früh handeln'),
             React.createElement('p', null, 'Wenn du unsicher bist, ob ein Notfall vorliegt, ist es immer besser, schnell tierärztlichen Rat einzuholen.'),
             React.createElement('p', null, 'Als mobiler Tierarzt kann ich viele Situationen direkt bei dir zu Hause beurteilen. In akuten Notfällen kann ich außerdem einschätzen, ob eine sofortige Behandlung in einer Tierklinik notwendig ist.'),
-            React.createElement('p', null, React.createElement('a', { href: '?lang=de&page=contact', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
+            React.createElement('p', null, React.createElement('a', { href: 'kontakt', className: 'text-red-700 font-semibold hover:underline' }, 'Kontakt'))
           )
         }
       ]
@@ -805,46 +879,117 @@ const TEXTS = {
       infoSections: buildSharedInfoSections(Language.DE)
     },
     impressum: {
-      title: 'Impressum / Datenschutz',
+      title: 'Impressum',
       content: `
-        <h2 class="font-bold text-2xl mt-0 mb-4">Impressum</h2>
-        <p><strong>Verantwortlich gemäß § 55 Abs. 2 RStV:</strong><br>
-        Tierarztpraxis UrbanVet Berlin<br>
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p>Tierarztpraxis UrbanVet Berlin<br>
         Susanne Repanelis<br>
         Fontanestraße 32<br>
         12049 Berlin</p>
-        <p><strong>Telefon:</strong> 0171 64 94 610</p>
-        <p><strong>E-Mail:</strong> info@urbanvet.de<br>
-        <strong>Website:</strong> www.urbanvet.de</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Berufsbezeichnung & zuständige Aufsichtsbehörde:</h3>
-        <p><strong>Berufsbezeichnung:</strong> Tierärztin / Tierarzt (verliehen in Österreich)<br>
-        <strong>Zuständige Aufsichtsbehörde:</strong> Tierärztekammer Berlin, Littenstr. 108, 10179 Berlin</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Berufsrechtliche Regelungen:</h3>
-        <p>Berufsordnung der Tierärztekammer Berlin<br>
-        Einsehbar unter: https://www.tieraerztekammer-berlin.de/kammerrecht/11-berufsordnung.html</p>
-        <p>Bundestierärzteordnung (BTÄO)<br>
-        Einsehbar unter: https://www.bundestieraerztekammer.de/tieraerzte/beruf/bundestieraerzteordnung/</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Verbraucherstreitschlichtung:</h3>
-        <p>Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) für Vertragsangelegenheiten bereit: http://ec.europa.eu/consumers/odr/</p>
-        <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-        <h2 class="font-bold text-2xl mt-10 mb-4">Datenschutz</h2>
-        <h3 class="font-semibold text-lg mb-2">Datenvermeidung</h3>
-        <p>Grundsätzlich sind wir bemüht, alle nicht relevanten Daten zu Ihrer Person zu vermeiden, so dass keine Informationen zur Nutzeridentität gespeichert werden, die keine Relevanz in hinsichtlich vertraglicher Daten haben.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Speicherung personenbezogener Nutzerdaten und Sicherheit</h3>
-        <p>Alle Angaben zu Ihrer Identität dienen ausschließlich der Durchführung des tierärztlichen Vertragsverhältnisses nach Art. 6 I S. 1 b DSGVO. Es werden nur gesetzlich vorgeschriebene, personenbezogene Daten mit Ihrer ausdrücklichen Einwilligung, gemäß Art. 6 I S. 1 a DSGVO, für die Dauer der gesetzlichen festgelegten Notwendigkeit gespeichert.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Datensicherheit</h3>
-        <p>Es werden grundsätzlich keinerlei personenbezogene Daten an Dritte weitergegeben. Während der Speicherung und Auswertung sind alle personenbezogenen Daten technisch vor Verbreitung, Verlust und Zugriff von außen geschützt.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Auskunft, Korrektur</h3>
-        <p>Sie sind berechtigt, jederzeit Auskunft über die Speicherung Ihrer Daten zu erlangen, sowie die Korrektur personenbezogener Daten gemäß Art. 16 DSGVO anzuordnen.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Einschränkung</h3>
-        <p>Nutzer sind berechtigt, die Datenverarbeitung durch den Anbieter einzuschränken, wenn Daten inhaltlich falsch aufgenommen wurden, ein Widerspruch erfolgte oder wenn die Gesamtheit der Daten nicht notwendig ist, mit Ausnahme derer, die für die Umsetzung von Rechtsansprüchen erforderlich sind.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Datenlöschung</h3>
-        <p>Nutzen dürfen die unverzügliche Löschung personenbezogener Daten verlangen, wenn diese nicht mehr erforderlich, im Sinne der Durchführung des tierärztlichen Vertragsverhältnisses nach Art. 6 I S. 1 b DSGVO sind oder Sie die Einwilligung widerrufen haben, mit Ausnahme der Durchsetzung von Rechtsansprüchen.</p>
-        <h3 class="font-semibold text-lg mt-6 mb-2">Technische Informationen und Cookies</h3>
-        <p>Alle bei Ihrem Websitebesuch erhobenen, technischen Daten, wie Art des genutzten Browsers und IP-Adresse werden standardisiert von der Webseite zur Auswertung genutzt, wobei ausschließlich notwendige Cookies zum Einsatz kommen, die den Interessen der User gemäß Art. 6 I S. 1 f DSGVO nicht entgegenstehen. Bei Fragen wenden Sie sich bitte an uns.</p>
+        <h2>Kontakt</h2>
+        <p>Telefon: <a href="tel:+491716494610">0171 64 94 610</a><br>
+        E-Mail: <a href="mailto:info@urbanvet.de">info@urbanvet.de</a></p>
+        <h2>Berufsrechtliche Angaben</h2>
+        <p><strong>Gesetzliche Berufsbezeichnung:</strong> Tierärztin, verliehen in Österreich</p>
+        <p><strong>Zuständige Kammer:</strong> Tierärztekammer Berlin, Littenstraße 108, 10179 Berlin, <a href="https://tieraerztekammer-berlin.de/" target="_blank" rel="noopener noreferrer">tieraerztekammer-berlin.de</a></p>
+        <p><strong>Berufsrechtliche Regelungen:</strong></p>
+        <ul>
+          <li>Berufsordnung der Tierärztekammer Berlin, <a href="https://tieraerztekammer-berlin.de/wp-content/uploads/2024/06/Berufsordnung_inkl_1_Aenderung_2016-11-10.pdf" target="_blank" rel="noopener noreferrer">als PDF abrufbar</a></li>
+          <li>Bundes-Tierärzteordnung (BTÄO), <a href="https://www.gesetze-im-internet.de/b_o/" target="_blank" rel="noopener noreferrer">gesetze-im-internet.de/b_o</a></li>
+          <li>Gebührenordnung für Tierärztinnen und Tierärzte (GOT), <a href="https://www.gesetze-im-internet.de/got_2022/" target="_blank" rel="noopener noreferrer">gesetze-im-internet.de/got_2022</a></li>
+        </ul>
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+        <p>Susanne Repanelis, Anschrift wie oben</p>
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h2>Datenschutz</h2>
+        <p>Wie wir mit Ihren Daten umgehen, lesen Sie in unserer <a href="datenschutz">Datenschutzerklärung</a>.</p>
       `
     },
-    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legal: 'Impressum & Datenschutz', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 10:00 – 18:00 Uhr', scheduleLine2: 'Notfälle Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine3: 'Notfälle Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
+    privacy: {
+      title: 'Datenschutzerklärung',
+      content: `
+        <p>Hier erfahren Sie, welche personenbezogenen Daten wir beim Besuch dieser Website und bei der Behandlung Ihres Tieres verarbeiten und welche Rechte Sie dabei haben.</p>
+        <h2>1. Verantwortliche</h2>
+        <p>Susanne Repanelis<br>
+        Tierarztpraxis UrbanVet Berlin<br>
+        Fontanestraße 32<br>
+        12049 Berlin<br>
+        Telefon: <a href="tel:+491716494610">0171 64 94 610</a><br>
+        E-Mail: <a href="mailto:info@urbanvet.de">info@urbanvet.de</a></p>
+        <p>Bei Fragen zum Datenschutz oder wenn Sie Ihre Rechte ausüben möchten, erreichen Sie uns unter diesen Kontaktdaten.</p>
+        <h2>2. Das Wichtigste in Kürze</h2>
+        <ul>
+          <li>Beim Aufruf der Website verarbeitet unser Hosting-Anbieter technisch notwendige Zugriffsdaten.</li>
+          <li>Ihre Auswahl im Cookie-Banner wird gespeichert, damit wir sie beachten und nachweisen können.</li>
+          <li>Google-Dienste (Tag Manager, Analytics, Ads) werden erst geladen, nachdem Sie zugestimmt haben. Ohne Ihre Zustimmung werden keine Daten an Google übertragen.</li>
+          <li>Wenn Sie uns kontaktieren, einen Termin buchen oder Ihr Tier behandeln lassen, verarbeiten wir die dafür nötigen Angaben.</li>
+        </ul>
+        <h2>3. Hosting und Zugriffsdaten</h2>
+        <p>Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist die GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf einer Seite werden technisch notwendige Daten verarbeitet, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Adresse, die zuvor besuchte Seite (Referrer) sowie Angaben zu Browser und Betriebssystem. Ohne diese Daten kann die Website nicht ausgeliefert werden. Außerdem dienen sie der Sicherheit und Stabilität des Dienstes, etwa zur Abwehr von Angriffen.</p>
+        <p>Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Wir selbst erhalten keine Zugriffsprotokolle und werten diese Daten nicht aus. Dabei können Daten in die USA übermittelt werden. GitHub nimmt nach eigenen Angaben am EU-US Data Privacy Framework teil, für das die EU-Kommission einen Angemessenheitsbeschluss erlassen hat (Art. 45 DSGVO). Mehr dazu in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+        <h2>4. SSL/TLS-Verschlüsselung</h2>
+        <p>Diese Website nutzt aus Sicherheitsgründen eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile und am Schloss-Symbol Ihres Browsers.</p>
+        <h2>5. Cookie-Banner und Einwilligungsverwaltung (Usercentrics)</h2>
+        <p>Für die Abfrage und Verwaltung Ihrer Einwilligungen nutzen wir die Consent-Management-Plattform Usercentrics der Usercentrics GmbH, Sendlinger Straße 7, 80331 München. Beim ersten Besuch zeigt Ihnen das Banner, welche Dienste wir einsetzen möchten. Sie können allen zustimmen, alle ablehnen oder einzeln auswählen.</p>
+        <p>Verarbeitet werden dabei Ihre Entscheidung je Dienst, eine zufällige Einwilligungs-ID, Datum und Uhrzeit, die Version des Banners, die Sprache, Ihre IP-Adresse sowie Angaben zu Browser, Gerät und aufrufender Seite. Ihre Entscheidung wird im lokalen Speicher (Local Storage) Ihres Browsers abgelegt, damit das Banner nicht bei jedem Besuch erneut erscheint. Usercentrics speichert den Einwilligungsnachweis in unserem Auftrag für ein Jahr.</p>
+        <p>Rechtsgrundlage ist unsere gesetzliche Pflicht, Einwilligungen nachweisen zu können (Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit Art. 7 Abs. 1 DSGVO). Das Speichern Ihrer Auswahl in Ihrem Browser ist dafür unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG).</p>
+        <p><strong>Auswahl ändern oder Einwilligung widerrufen:</strong> Sie können Ihre Einstellungen jederzeit mit Wirkung für die Zukunft ändern, über „Cookie-Einstellungen“ im Fußbereich jeder Seite, über das Fingerabdruck-Symbol unten links oder direkt hier:</p>
+        <p><button type="button" class="legal-button" data-cookie-settings>Cookie-Einstellungen öffnen</button></p>
+        <h2>6. Google-Dienste (nur mit Ihrer Einwilligung)</h2>
+        <p>Die folgenden Dienste setzen wir nur ein, wenn Sie im Cookie-Banner zugestimmt haben. Vorher wird kein Skript von Google geladen und es werden keine Daten an Google übertragen. Anbieter ist jeweils die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“).</p>
+        <p>Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Sie können sie jederzeit über die Cookie-Einstellungen widerrufen. Die bis dahin erfolgte Verarbeitung bleibt rechtmäßig.</p>
+        <p><strong>Übermittlung in Drittländer:</strong> Google verarbeitet Daten auch auf Servern außerhalb der EU, insbesondere in den USA. Die Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert, für das ein Angemessenheitsbeschluss der EU-Kommission besteht (Art. 45 DSGVO). Für Übermittlungen in andere Drittländer nutzt Google die EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO).</p>
+        <h3>Google Tag Manager</h3>
+        <p>Mit dem Google Tag Manager binden wir die unten genannten Google-Dienste ein und steuern, wann sie ausgelöst werden. Der Tag Manager selbst setzt keine Cookies und erstellt keine Nutzerprofile. Beim Laden wird jedoch Ihre IP-Adresse an Google übermittelt. Deshalb laden wir ihn erst nach Ihrer Zustimmung.</p>
+        <h3>Google Analytics 4</h3>
+        <p>Google Analytics zeigt uns, wie unsere Website genutzt wird, damit wir sie verbessern können. Erfasst werden zum Beispiel aufgerufene Seiten, Verweildauer, Klicks, die Seite, von der Sie kommen, Gerätetyp, Browser und Ihr ungefährer Standort (Land, Stadt). Ihre IP-Adresse wird nur für diese grobe Standortbestimmung genutzt und von Google Analytics 4 nicht gespeichert. Die Auswertung erfolgt pseudonym über eine zufällige Kennung. Wir können Sie damit nicht persönlich identifizieren.</p>
+        <p>Cookies: <code>_ga</code> und <code>_ga_&lt;ID&gt;</code>, jeweils bis zu 2 Jahre. Die erfassten Ereignisdaten werden spätestens nach 14 Monaten gelöscht. Google verarbeitet diese Daten als unser Auftragsverarbeiter.</p>
+        <p>Neben dem Widerruf über die Cookie-Einstellungen können Sie das <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer">Browser-Add-on zur Deaktivierung von Google Analytics</a> nutzen.</p>
+        <h3>Google Ads und Conversion-Tracking</h3>
+        <p>Wir werben mit Anzeigen bei Google. Um den Erfolg dieser Anzeigen zu messen, nutzen wir das Conversion-Tracking von Google Ads. Sind Sie über eine unserer Anzeigen auf die Website gekommen und klicken Sie hier auf unsere Telefonnummer, unsere E-Mail-Adresse oder den WhatsApp-Button, erfährt Google, dass die Anzeige zu einer Kontaktaufnahme geführt hat. Wir sehen nur zusammengefasste Zahlen, etwa wie viele Kontaktaufnahmen über Anzeigen zustande kamen, und können daraus keine einzelnen Personen erkennen.</p>
+        <p>Dafür werden Cookies wie <code>_gcl_au</code> und <code>_gcl_aw</code> (jeweils 90 Tage) gesetzt, in denen eine Kennung des Anzeigenklicks gespeichert wird (Conversion Linker).</p>
+        <h3>Google Ads Remarketing</h3>
+        <p>Mit Remarketing können wir Menschen, die unsere Website besucht haben, später auf anderen Websites und in Google-Diensten Anzeigen von UrbanVet zeigen. Dazu setzt Google Cookies, auch auf der Domain doubleclick.net (zum Beispiel <code>IDE</code> oder <code>test_cookie</code>), und bildet pseudonyme Zielgruppen. Sind Sie bei Google angemeldet, kann Google Ihren Besuch je nach Ihren Kontoeinstellungen mit Ihrem Google-Konto verknüpfen. Personalisierte Werbung können Sie zusätzlich unter <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer">myadcenter.google.com</a> abschalten.</p>
+        <p>Für Google Ads (Conversion-Tracking und Remarketing) ist Google neben uns eigenständig verantwortlich. Mehr dazu: <a href="https://policies.google.com/technologies/ads?hl=de" target="_blank" rel="noopener noreferrer">Wie Google Cookies in der Werbung verwendet</a> und <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+        <h3>Google Consent Mode</h3>
+        <p>Wir nutzen den Consent Mode von Google. Usercentrics teilt den Google-Diensten mit, welchen Zwecken Sie zugestimmt haben (Statistik, Werbung, Personalisierung), und die Dienste richten sich danach. Stimmen Sie zum Beispiel nur der Statistik zu, werden die Werbedienste nicht oder nur eingeschränkt ohne Cookies und ohne Personalisierung ausgeführt. Lehnen Sie alles ab, wird keiner der Google-Dienste geladen.</p>
+        <h2>7. Schriftarten</h2>
+        <p>Diese Website lädt keine Schriftarten von fremden Servern. Die Texte werden in den Standardschriften Ihres Geräts angezeigt.</p>
+        <h2>8. Online-Terminbuchung über termin.vet</h2>
+        <p>Für die Online-Terminbuchung nutzen wir termin.vet, einen Dienst der vetpraxis.de GmbH &amp; Co. KG, Dorfstr. 15, 84069 Schierling. Der Button „Termin buchen“ auf unserer Website ist eine bei uns gespeicherte Grafik. Erst wenn Sie ihn anklicken, öffnet sich die Buchungsseite von termin.vet in einem neuen Fenster.</p>
+        <p>Dort verarbeitet der Anbieter in unserem Auftrag die Angaben, die Sie für die Buchung machen, etwa Name, Kontaktdaten, Angaben zu Ihrem Tier und den gewünschten Termin. Rechtsgrundlage ist die Vereinbarung und Durchführung der Behandlung (Art. 6 Abs. 1 lit. b DSGVO). Für die Buchungsseite selbst gelten ergänzend die Datenschutzhinweise von termin.vet.</p>
+        <h2>9. Kontakt per Telefon, E-Mail oder WhatsApp</h2>
+        <p>Wenn Sie uns anrufen oder schreiben, verarbeiten wir Ihre Angaben (zum Beispiel Name, Telefonnummer, E-Mail-Adresse und Ihr Anliegen), um Ihre Anfrage zu beantworten. Geht es um eine Behandlung oder einen Termin, ist Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO, sonst unser berechtigtes Interesse an der Beantwortung Ihrer Anfrage (Art. 6 Abs. 1 lit. f DSGVO). Wir löschen die Daten, sobald sie nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+        <p><strong>WhatsApp:</strong> Über den WhatsApp-Button gelangen Sie zu WhatsApp, einem Dienst der WhatsApp Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland. Schreiben Sie uns dort, verarbeitet WhatsApp unter anderem Ihre Telefonnummer, Ihr Profil und Verbindungsdaten. Die Nachrichteninhalte sind Ende-zu-Ende-verschlüsselt. Dabei können Daten an die Meta Platforms, Inc. in den USA übermittelt werden, die unter dem EU-US Data Privacy Framework zertifiziert ist. Die Nutzung ist freiwillig, Sie erreichen uns genauso per Telefon oder E-Mail.</p>
+        <h2>10. Daten im Rahmen der tierärztlichen Behandlung</h2>
+        <p>Für die Behandlung Ihres Tieres verarbeiten wir Ihre Kontaktdaten und die Adresse für den Hausbesuch, Angaben zu Ihrem Tier (zum Beispiel Vorgeschichte, Befunde, Diagnosen, Behandlungen, Arzneimittel und Impfungen) sowie Abrechnungsdaten.</p>
+        <p>Rechtsgrundlage ist der Behandlungsvertrag (Art. 6 Abs. 1 lit. b DSGVO). Soweit uns das Gesetz Dokumentations- und Aufbewahrungspflichten auferlegt, etwa das tierärztliche Berufsrecht, das Tierarzneimittelrecht oder das Handels- und Steuerrecht, ist Rechtsgrundlage Art. 6 Abs. 1 lit. c DSGVO.</p>
+        <p><strong>Empfänger:</strong> Wir geben Daten nur weiter, wenn es für Behandlung oder Abrechnung erforderlich ist, wir gesetzlich dazu verpflichtet sind oder Sie es wünschen. Empfänger können sein: Untersuchungslabore, mitbehandelnde oder überweisende Tierärztinnen, Tierärzte und Tierkliniken, Zahlungs- und Abrechnungsdienstleister, unsere Steuerberatung, Behörden im Rahmen gesetzlicher Meldepflichten sowie auf Ihren Wunsch Ihre Tierkrankenversicherung.</p>
+        <p><strong>Speicherdauer:</strong> Wir speichern diese Daten, solange es für die Behandlung erforderlich ist, und darüber hinaus für die Dauer der gesetzlichen Aufbewahrungsfristen (je nach Unterlage in der Regel bis zu zehn Jahre).</p>
+        <h2>11. Ihre Rechte</h2>
+        <p>Sie haben das Recht auf:</p>
+        <ul>
+          <li>Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)</li>
+          <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+          <li>Löschung Ihrer Daten, soweit keine Aufbewahrungspflicht entgegensteht (Art. 17 DSGVO)</li>
+          <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+        </ul>
+        <div class="legal-note">
+          <p><strong>Widerspruchsrecht nach Art. 21 DSGVO</strong></p>
+          <p>Verarbeiten wir Daten auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO), können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+        </div>
+        <p><strong>Beschwerderecht:</strong> Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO). Für uns zuständig ist die Berliner Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59-61, 10555 Berlin, <a href="https://www.datenschutz-berlin.de/" target="_blank" rel="noopener noreferrer">datenschutz-berlin.de</a>.</p>
+        <h2>12. Bereitstellung von Daten und automatisierte Entscheidungen</h2>
+        <p>Sie können diese Website nutzen, ohne selbst Angaben zu Ihrer Person zu machen. Für eine Behandlung benötigen wir die dafür erforderlichen Angaben, ohne sie können wir den Behandlungsvertrag nicht durchführen. Eine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO findet nicht statt.</p>
+        <h2>13. Änderungen</h2>
+        <p>Wir passen diese Datenschutzerklärung an, wenn sich unsere Website, die eingesetzten Dienste oder die Rechtslage ändern. Es gilt die jeweils hier veröffentlichte Fassung.</p>
+        <p class="legal-meta">Stand: Oktober 2026</p>
+      `
+    },
+    footer: { tagline: 'Mobile Tiermedizin mit Ruhe.', legalNavLabel: 'Rechtliches', imprint: 'Impressum', privacy: 'Datenschutz', cookieSettings: 'Cookie-Einstellungen', phoneLabel: 'Telefon', openingHoursLabel: 'Öffnungszeiten', scheduleLine1: 'Montag – Freitag: 10:00 – 18:00 Uhr', scheduleLine2: 'Notfälle Montag – Freitag: 18:00 – 22:00 Uhr', scheduleLine3: 'Notfälle Samstag – Sonntag: 10:00 – 22:00 Uhr', appointmentNote: 'Termine außerhalb der regulären Öffnungszeiten sind nach Vereinbarung möglich. Kontaktieren Sie mich gerne, um einen passenden Termin zu vereinbaren.' }
   }
 };
 
@@ -1107,11 +1252,19 @@ const getSeoData = ({ language, currentPage, currentPost }) => {
     },
     [Page.IMPRESSUM]: {
       title: isGerman
-        ? 'Impressum und Datenschutz | UrbanVet'
-        : 'Legal Notice and Privacy Policy | UrbanVet',
+        ? 'Impressum | UrbanVet'
+        : 'Legal Notice | UrbanVet',
       description: isGerman
-        ? 'Impressum und Datenschutzhinweise der mobilen Tierarztpraxis UrbanVet in Berlin.'
-        : 'Legal notice and privacy information for UrbanVet, the mobile veterinary practice in Berlin.'
+        ? 'Impressum der mobilen Tierarztpraxis UrbanVet in Berlin: Anbieter, Kontakt und berufsrechtliche Angaben.'
+        : 'Legal notice for UrbanVet, the mobile veterinary practice in Berlin: provider, contact and professional information.'
+    },
+    [Page.PRIVACY]: {
+      title: isGerman
+        ? 'Datenschutzerklärung | UrbanVet'
+        : 'Privacy Policy | UrbanVet',
+      description: isGerman
+        ? 'Datenschutzerklärung von UrbanVet: welche Daten wir auf der Website und in der Praxis verarbeiten, welche Dienste wir einsetzen und welche Rechte Sie haben.'
+        : 'Privacy policy of UrbanVet: which data we process on the website and in the practice, which services we use and what rights you have.'
     }
   };
 
@@ -1477,7 +1630,23 @@ const BlogPostPage = ({ post, onBack, backButtonText }) => React.createElement('
 
 const ContactPage = ({ content, language }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-6xl mx-auto px-4 text-center" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-4" }, content.contactPage.title), React.createElement('p', { className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto" }, content.contactPage.subtitle), React.createElement(SectionDivider, null), React.createElement('div', { className: "my-8" }, React.createElement('p', { className: "text-lg text-gray-600 mb-4" }, content.contactPage.phoneLabel), React.createElement('div', { className: "flex flex-col items-center gap-3" }, React.createElement('a', { href: `tel:${SITE_PHONE_LINK}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, SITE_PHONE), React.createElement('a', { href: WHATSAPP_URL, target: '_blank', rel: 'noopener noreferrer', className: "inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105", 'aria-label': 'WhatsApp' }, React.createElement(WhatsAppIcon, null)))), React.createElement('p', { className: "text-lg text-gray-600 mb-4 mt-8" }, 'E-Mail:'), React.createElement('a', { href: `mailto:${content.contactPage.email}`, className: "inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-full hover:bg-red-800 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105" }, content.contactPage.email), React.createElement('div', { className: "mt-8" }, React.createElement(BookingButton, { language: language })), React.createElement('div', { className: "mt-12" }, React.createElement(InfoCardsSection, { infoSections: content.contactPage.infoSections }))));
 
-const ImpressumPage = ({ content }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-4xl lg:text-5xl font-bold text-gray-900 mb-8" }, content.impressum.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "prose prose-lg max-w-none text-gray-700 mt-8", dangerouslySetInnerHTML: { __html: content.impressum.content } })));
+const openCookieSettings = () => {
+  if (typeof window !== 'undefined' && window.UC_UI && typeof window.UC_UI.showSecondLayer === 'function') {
+    window.UC_UI.showSecondLayer();
+  }
+};
+
+// Legal texts are HTML strings; buttons marked data-cookie-settings reopen the Usercentrics dialog.
+const handleLegalContentClick = (event) => {
+  if (event.target.closest && event.target.closest('[data-cookie-settings]')) {
+    event.preventDefault();
+    openCookieSettings();
+  }
+};
+
+const FOOTER_LINK_CLASS = "font-semibold transition-colors hover:text-red-200 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
+
+const LegalPage = ({ text }) => React.createElement('div', { className: "py-16 lg:py-24 min-h-screen bg-[#EFEFEF]" }, React.createElement('div', { className: "max-w-4xl mx-auto px-4" }, React.createElement('h1', { className: "text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 break-words hyphens-auto" }, text.title), React.createElement(SectionDivider, null), React.createElement('div', { className: "legal-content mt-10", onClick: handleLegalContentClick, dangerouslySetInnerHTML: { __html: text.content } })));
 
 function App({ initialNavigation: providedInitialNavigation } = {}) {
   const initialNavigation = providedInitialNavigation || getInitialNavigationState();
@@ -1675,7 +1844,8 @@ function App({ initialNavigation: providedInitialNavigation } = {}) {
       case Page.BLOG: return React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
       case Page.BLOG_POST: return currentPost ? React.createElement(BlogPostPage, { post: currentPost, onBack: () => handleNavigate(Page.BLOG), backButtonText: content.blog.back_button }) : React.createElement(BlogPage, { content, posts: allPosts, onViewPost: handleViewPost });
       case Page.CONTACT: return React.createElement(ContactPage, { content, language });
-      case Page.IMPRESSUM: return React.createElement(ImpressumPage, { content });
+      case Page.IMPRESSUM: return React.createElement(LegalPage, { text: content.impressum });
+      case Page.PRIVACY: return React.createElement(LegalPage, { text: content.privacy });
       default: return React.createElement(HomePage, { content, onNavigate: handleNavigate, services: allServices, language });
     }
   };
@@ -1739,7 +1909,25 @@ function App({ initialNavigation: providedInitialNavigation } = {}) {
             React.createElement('p', { className: "mt-3 leading-6" }, content.footer.appointmentNote)
           ),
           React.createElement('div', { className: "text-center md:text-left md:justify-self-end" },
-            React.createElement('button', { onClick: () => handleNavigate(Page.IMPRESSUM), className: "font-semibold transition-colors hover:text-red-200" }, content.footer.legal),
+            React.createElement('nav', { 'aria-label': content.footer.legalNavLabel },
+              React.createElement('ul', { className: "flex flex-col items-center md:items-start gap-2" },
+                [Page.IMPRESSUM, Page.PRIVACY].map((page) => React.createElement('li', { key: page },
+                  React.createElement('a', {
+                    href: buildUrl({ language, page }).pathname,
+                    onClick: (event) => {
+                      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                      event.preventDefault();
+                      handleNavigate(page);
+                    },
+                    'aria-current': currentPage === page ? 'page' : undefined,
+                    className: FOOTER_LINK_CLASS
+                  }, page === Page.IMPRESSUM ? content.footer.imprint : content.footer.privacy)
+                )),
+                React.createElement('li', null,
+                  React.createElement('button', { type: 'button', onClick: openCookieSettings, className: FOOTER_LINK_CLASS }, content.footer.cookieSettings)
+                )
+              )
+            ),
             React.createElement('div', { className: "text-sm text-red-200 mt-4 leading-5" },
               React.createElement('p', null, `© ${new Date().getFullYear()} UrbanVet.`),
               React.createElement('p', null, 'All rights reserved.')
@@ -1756,10 +1944,27 @@ const UrbanVet = { App, getSeoData, buildUrl, toAbsoluteUrl, ALL_POSTS, PAGE_PAT
 if (typeof globalThis !== 'undefined') { globalThis.UrbanVet = UrbanVet; }
 if (typeof module !== 'undefined' && module.exports) { module.exports = UrbanVet; }
 
+// Old single-URL links (?lang=de&page=impressum, still used by external sites)
+// land on the home page markup; send them to the real path instead.
+const getLegacyQueryRedirect = () => {
+  if (window.location.protocol === 'file:') return null;
+  const params = new URLSearchParams(window.location.search);
+  const page = QUERY_PAGE_MAP[params.get('page')];
+  if (!page || params.get(ROUTE_REDIRECT_PARAM)) return null;
+  const language = params.get('lang') === 'en' ? Language.EN : Language.DE;
+  const post = page === Page.BLOG && params.get('post')
+    ? ALL_POSTS[language].find((candidate) => candidate.slug === params.get('post')) || null
+    : null;
+  return buildUrl({ language, page: post ? Page.BLOG_POST : page, post }).pathname + window.location.hash;
+};
+
 // Browser-only mount. Hydrate the pre-rendered markup if present, otherwise render fresh.
 if (typeof document !== 'undefined' && typeof ReactDOM !== 'undefined') {
   const rootElement = document.getElementById('root');
-  if (rootElement) {
+  const legacyRedirect = getLegacyQueryRedirect();
+  if (legacyRedirect) {
+    window.location.replace(legacyRedirect);
+  } else if (rootElement) {
     const tree = React.createElement(React.StrictMode, null, React.createElement(App, null));
     if (rootElement.firstElementChild) {
       ReactDOM.hydrateRoot(rootElement, tree);

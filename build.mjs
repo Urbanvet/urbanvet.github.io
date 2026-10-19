@@ -91,7 +91,7 @@ const outFileForPath = (pathname) => {
 };
 
 // --- enumerate routes ---
-const STATIC_PAGES = [Page.HOME, Page.SERVICES, Page.ABOUT, Page.BLOG, Page.CONTACT, Page.IMPRESSUM];
+const STATIC_PAGES = [Page.HOME, Page.SERVICES, Page.ABOUT, Page.BLOG, Page.CONTACT, Page.IMPRESSUM, Page.PRIVACY];
 const routes = [];
 for (const language of [Language.DE, Language.EN]) {
   for (const page of STATIC_PAGES) routes.push({ language, currentPage: page, currentPost: null });
